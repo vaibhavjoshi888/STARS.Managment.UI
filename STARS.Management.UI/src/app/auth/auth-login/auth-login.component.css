@@ -1,0 +1,8 @@
+.password {
+    display: flex;
+    justify-content: space-between;
+}
+
+a.link-auth {
+    font-size: 16px;
+}
