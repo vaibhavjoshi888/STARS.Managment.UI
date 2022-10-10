@@ -10,7 +10,9 @@
     flex-grow: 0;
     background: rgb(0 2 77 / 90%);
     padding: 3px 5px;
-    color: #ffffff
+    color: #ffffff;
+    background-image:  url("C:\Users\vaibh\Source\STARS.Managment.UI\STARS.Management.UI\src\assets\images\stars.jpg");
+
 }
 
 .content {
