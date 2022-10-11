@@ -31,9 +31,9 @@ export class AuthenticationService {
         let user: User = new User;
         user.firstName = username;
         user.lastName = "";
-        user.password = "tiger";
+        user.password = password;
         user.token = "";
-        user.username = "VaiJosh";
+        user.username = username;
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
 
