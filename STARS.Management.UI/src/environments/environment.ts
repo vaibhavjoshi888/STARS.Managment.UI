@@ -5,7 +5,7 @@
 export const environment = {
   environmentName: "dev-local",
   production: false,
-  baseUrl_API: 'http://localhost:51781/api',
+  baseUrl_API: 'https://localhost:7187',
   showDevFeatures: true,
   hasFeatureXYZ: false
 };
