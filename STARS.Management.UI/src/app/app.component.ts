@@ -10,11 +10,7 @@ import { AuthenticationService } from './_services/authentication.service';
 })
 export class AppComponent {
   currentUser: User;
-  returnUrl: any;
   isLoginPage:boolean;
-  href: string;
-
-//this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   constructor(
       private router: Router,
       private route: ActivatedRoute,
