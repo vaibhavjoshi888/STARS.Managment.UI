@@ -25,6 +25,7 @@ export class AppComponent {
       this.router.navigate(['/login']);
   }
   ngOnInit(): void {
-    this.isLoginPage=this.router.url=='/' || this.router.url.includes('welcome') ;
+    console.log('User :--'+this.currentUser);
+    this.isLoginPage=this.router.url=='/';
   }
 }
