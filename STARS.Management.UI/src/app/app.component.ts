@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from './_models/user';
+import { SignedInUserDTO } from './_models/user';
 import { AuthenticationService } from './_services/authentication.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthenticationService } from './_services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentUser: User;
+  currentUser: SignedInUserDTO;
   isLoginPage:boolean;
   constructor(
       private router: Router,

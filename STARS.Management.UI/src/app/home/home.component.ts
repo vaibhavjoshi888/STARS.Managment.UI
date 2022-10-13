@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs';
-import { User } from '../_models/user';
+import { SignedInUserDTO } from '../_models/user';
 import { AuthenticationService } from '../_services/authentication.service';
 import { UserService } from '../_services/user.service';
 
@@ -10,7 +10,7 @@ import { UserService } from '../_services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentUser: User;
+  currentUser: SignedInUserDTO;
   users = [];
 
   constructor(
