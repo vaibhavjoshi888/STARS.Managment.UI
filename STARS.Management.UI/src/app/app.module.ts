@@ -7,6 +7,7 @@ import { appRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { SharedModule } from './shared/shared.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
@@ -14,14 +15,17 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    WelcomeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule 
+        appRoutingModule,
+        SharedModule
   ],
+  exports:[SharedModule],
+
   providers: [],
   bootstrap: [AppComponent]
 })
