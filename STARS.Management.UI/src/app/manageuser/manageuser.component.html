@@ -1,0 +1,210 @@
+<div class="container">
+    <div ng-controller="ManageUserCtrl" id="ManageUserCtrlID" ng-cloak>
+        <div class="row">
+            <div class="col-md-12 p-0">
+                <div class="title-l-40">User Management <span class="fa fa-circle-o-notch text-primary fa-spin"
+                        ng-if="showProcessing"></span></div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 p-0">
+                <div class="row">
+                    <div class="col-md-9 ">
+                        <div class="form-inline mb-2">
+                            <label class="sr-only" for="txtSearch">Search</label>
+                            <div class="input-group search-ctrl mb-2 mr-sm-2 col-md-3 p-0">
+                                <input type="search" id="txtSearch"
+                                    class="form-control rounded-pill bg-transparent pr-4 " aria-label="Search"
+                                    aria-describedby="basic-addon2" placeholder="Search"
+                                    ng-model="list.filter.searchText" ng-enter="getUserList()">
+                                <div class="input-group-append">
+                                    <span class="input-group-text border-0 rounded-pill " id="basic-addon2"
+                                        ng-click="getUserList()"><i class="fa fa-search"></i></span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-blue btn-pill  mb-2 pl-3 pr-3  mr-sm-2"
+                                ng-click="getUserList()">Search ></button>
+
+
+                            <div class="custom-control custom-checkbox  form-check-inline text-blue ml-3">
+                                <input type="checkbox" class="custom-control-input" id="chkAll"
+                                    ng-change="chkAllOnChange()" ng-model="list.filter.chkAllIsSelected">
+                                <label class="custom-control-label" for="chkAll">All</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox  form-check-inline text-blue"
+                                ng-repeat="role in list.filter.avlRoleList">
+                                <input type="checkbox" class="custom-control-input" ng-model="role.IsSelected"
+                                    ng-change="chkRoleOnChange()">
+                                <label class="custom-control-label">SUper Admin</label>
+                            </div>
+
+                            <div class="custom-control custom-checkbox  form-check-inline text-blue">
+                                <input type="checkbox" class="custom-control-input" id="chkAdmin">
+                                <label class="custom-control-label" for="chkAdmin">Site Admin</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <a href="JavaScript:void(0);" class="btn btn-blue" title="Add New User"
+                            ng-click="addNewUser(addNewUserCallback)">
+                            <img src="../assets/images/AddNewUserICon.png" /> Add New User
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 p-0">
+                <div class="cust-bg-light cust-list-item" ng-repeat="item in list.data">
+                    <div class="cust-list-item-body pl-5">
+                        <table class="table border-0 m-0 ml-2">
+                            <tr>
+                                <td rowspan="3" class="col-image">
+                                    <img src="../assets/images/thumbnailsample.jpg" class="rounded-circle border"
+                                        style="width:100px;height: 100px;" />
+                                </td>
+                                <td class="col-name">
+                                    <div class="cust-lbl">Name</div>
+                                    <div class="cust-val">Shrikant</div>
+                                </td>
+                                <td class="col-corpid">
+                                    <div class="cust-lbl">User ID</div>
+                                    <div class="cust-val">thakadps</div>
+                                </td>
+                                <td class="col-email">
+                                    <div class="cust-lbl">Email</div>
+                                    <div class="cust-val">Shrikant@reddy.com</div>
+                                </td>
+                                <td>
+                                    <div class="cust-lbl">Department</div>
+                                    <div class="cust-val">TestDepartment</div>
+                                </td>
+                                <td class="col-role">
+                                    <div class="cust-lbl">User Role</div>
+                                    <div class="cust-val">Super Admin</div>
+                                </td>
+                                <td class="col-role">
+                                    <div class="cust-lbl">Status</div>
+                                    <div class="cust-val">Active</div>
+                                </td>
+                                <td class="text-right pr-2 col-view col-action">
+                                    <a class="btn btn-blue" title="Edit User"><img
+                                            src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <!-- <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 2 || item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>*@
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="session.RoleId == 1 || (session.RoleId == 2 && item.RoleId ==3)" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                        <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 2 && item.RoleId ==2)" href="JavaScript:void(0);" class="btn btn-blue" title="View User"><img src="~/Images/EditIcon.png" /> View</a>*@ -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cust-lbl">Created By</div>
+                                    <div class="cust-val">TestUser</div>
+                                </td>
+                                <td>
+                                    <div class="cust-lbl">Created Date</div>
+                                    <div class="cust-val">SampleDate</div>
+                                </td>
+                                <td colspan="4">
+                                </td>
+                                <td colspan="4" class="text-right pr-2 col-view col-action">
+                                    <a class="btn btn-pink" title="Delete User"><img
+                                            src="../assets/images/DeleteIcon.png" /> Delete</a>
+                                  
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        
+                    </div>
+                </div>
+                <div class="cust-bg-light cust-list-item" ng-repeat="item in list.data">
+                    <div class="cust-list-item-body pl-5">
+                        <table class="table border-0 m-0 ml-2">
+                            <tr>
+                                <td rowspan="3" class="col-image">
+                                    <img src="../assets/images/thumbnailsample.jpg" class="rounded-circle border"
+                                        style="width:100px;height: 100px;" />
+                                </td>
+                                <td class="col-name">
+                                    <div class="cust-lbl">Name</div>
+                                    <div class="cust-val">Shrikant</div>
+                                </td>
+                                <td class="col-corpid">
+                                    <div class="cust-lbl">User ID</div>
+                                    <div class="cust-val">thakadps</div>
+                                </td>
+                                <td class="col-email">
+                                    <div class="cust-lbl">Email</div>
+                                    <div class="cust-val">Shrikant@reddy.com</div>
+                                </td>
+                                <td>
+                                    <div class="cust-lbl">Department</div>
+                                    <div class="cust-val">TestDepartment</div>
+                                </td>
+                                <td class="col-role">
+                                    <div class="cust-lbl">User Role</div>
+                                    <div class="cust-val">Super Admin</div>
+                                </td>
+                                <td class="col-role">
+                                    <div class="cust-lbl">Status</div>
+                                    <div class="cust-val">Active</div>
+                                </td>
+                                <td class="text-right pr-2 col-view col-action">
+                                    <a class="btn btn-blue" title="Edit User"><img
+                                            src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <!-- <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 2 || item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>*@
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="session.RoleId == 1 || (session.RoleId == 2 && item.RoleId ==3)" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                        <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 2 && item.RoleId ==2)" href="JavaScript:void(0);" class="btn btn-blue" title="View User"><img src="~/Images/EditIcon.png" /> View</a>*@ -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="cust-lbl">Created By</div>
+                                    <div class="cust-val">TestUser</div>
+                                </td>
+                                <td>
+                                    <div class="cust-lbl">Created Date</div>
+                                    <div class="cust-val">SampleDate</div>
+                                </td>
+                                <td colspan="4">
+                                </td>
+                                <td colspan="4" class="text-right pr-2 col-view col-action">
+                                    <a class="btn btn-pink" title="Delete User"><img
+                                            src="../assets/images/DeleteIcon.png" /> Delete</a>
+                                  
+                                </td>
+                            </tr>
+                            
+                        </table>
+                        
+                    </div>
+                </div>
+
+                <div class="pt-3 pb-3" ng-if="list.paging.totalItems == 0">
+                    <p class="text-muted">
+                        No results found.
+                    </p>
+                </div>
+
+                <div class="row pagination-container">
+                    <div class="col-md-6 ">
+                        <ul uib-pagination total-items="list.paging.totalItems" ng-model="list.paging.currentPage"
+                            ng-change="list.PageChanged()" max-size="list.paging.maxSize" class="pagination"
+                            boundary-links="true" rotate="false" num-pages="numPages"
+                            items-per-page="list.paging.itemsPerPage"></ul>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span> items found.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SampleComponent } from './sample/sample.component';
 import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
+import { ManageuserComponent } from './manageuser/manageuser.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SearchusermodalComponent } from './searchusermodal/searchusermodal.comp
     LoginComponent,
     WelcomeComponent,
     SampleComponent,
-    SearchusermodalComponent
+    SearchusermodalComponent,
+    ManageuserComponent
   ],
   imports: [
     BrowserModule,
