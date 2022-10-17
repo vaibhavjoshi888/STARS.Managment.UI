@@ -12,6 +12,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SampleComponent } from './sample/sample.component';
 import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ManageuserComponent } from './manageuser/manageuser.component';
     WelcomeComponent,
     SampleComponent,
     SearchusermodalComponent,
-    ManageuserComponent
+    ManageuserComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,
