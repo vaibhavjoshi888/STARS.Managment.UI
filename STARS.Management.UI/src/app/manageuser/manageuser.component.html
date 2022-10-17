@@ -7,52 +7,53 @@
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="row mt-4 py-1">
             <div class="col-md-12 p-0">
                 <div class="row">
-                    <div class="col-md-9 ">
-                        <div class="form-inline mb-2">
-                            <label class="sr-only" for="txtSearch">Search</label>
-                            <div class="input-group search-ctrl mb-2 mr-sm-2 col-md-3 p-0">
-                                <input type="search" id="txtSearch"
-                                    class="form-control rounded-pill bg-transparent pr-4 " aria-label="Search"
-                                    aria-describedby="basic-addon2" placeholder="Search"
-                                    ng-model="list.filter.searchText" ng-enter="getUserList()">
-                                <div class="input-group-append">
-                                    <span class="input-group-text border-0 rounded-pill " id="basic-addon2"
-                                        ng-click="getUserList()"><i class="fa fa-search"></i></span>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-blue btn-pill  mb-2 pl-3 pr-3  mr-sm-2"
+                    <div class="col-md-3">
+                        <label class="sr-only" for="txtSearch">Search</label>
+                        <div class="input-group search-ctrl mb-2 mr-sm-2 p-0">
+                            <input type="search" id="txtSearch" class="form-control rounded-5 bg-transparent pr-5 py-1 "
+                                aria-label="Search" aria-describedby="basic-addon2" placeholder="Search"
+                                ng-model="list.filter.searchText" ng-enter="getUserList()">
+
+                            <!-- <div class="input-group-append">
+                                <span class="input-group-text btn-blue btn-pill rounded-pill " id="basic-addon2"
+                                    ng-click="getUserList()"><i class="fa fa-search"></i></span>
+                            </div> -->
+
+                            &nbsp;<button type="button" class="btn btn-blue btn-pill py-1 rounded-5   pl-2 pr-5  mr-sm-3"
                                 ng-click="getUserList()">Search ></button>
-
-
-                            <div class="custom-control custom-checkbox  form-check-inline text-blue ml-3">
-                                <input type="checkbox" class="custom-control-input" id="chkAll"
-                                    ng-change="chkAllOnChange()" ng-model="list.filter.chkAllIsSelected">
-                                <label class="custom-control-label" for="chkAll">All</label>
-                            </div>
-
-                            <div class="custom-control custom-checkbox  form-check-inline text-blue"
-                                ng-repeat="role in list.filter.avlRoleList">
-                                <input type="checkbox" class="custom-control-input" ng-model="role.IsSelected"
-                                    ng-change="chkRoleOnChange()">
-                                <label class="custom-control-label">SUper Admin</label>
-                            </div>
-
-                            <div class="custom-control custom-checkbox  form-check-inline text-blue">
-                                <input type="checkbox" class="custom-control-input" id="chkAdmin">
-                                <label class="custom-control-label" for="chkAdmin">Site Admin</label>
-                            </div>
-
                         </div>
+
                     </div>
-                    <div class="col-md-3 text-right">
-                        <a href="JavaScript:void(0);" class="btn btn-blue" title="Add New User"
+
+                    <div class="col-md-6">
+
+                        <div class="custom-control custom-checkbox  form-check-inline text-blue ml-5 py-2">
+                            <input type="checkbox" class="custom-control-input" id="chkAll" ng-change="chkAllOnChange()"
+                                ng-model="list.filter.chkAllIsSelected">
+                                &nbsp;<label class="custom-control-label" for="chkAll">All</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox  form-check-inline text-blue"
+                            ng-repeat="role in list.filter.avlRoleList">
+                            <input type="checkbox" class="custom-control-input" ng-model="role.IsSelected"
+                                ng-change="chkRoleOnChange()">
+                                &nbsp;<label class="custom-control-label"> Super Adminstrator</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox  form-check-inline text-blue">
+                            <input type="checkbox" class="custom-control-input" id="chkAdmin">
+                            &nbsp;<label class="custom-control-label" for="chkAdmin"> Site Adminstrator</label>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3"><a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5" title="Add New User"
                             ng-click="addNewUser(addNewUserCallback)">
                             <img src="../assets/images/AddNewUserICon.png" /> Add New User
-                        </a>
-                    </div>
+                        </a></div>
                 </div>
             </div>
         </div>
@@ -63,6 +64,7 @@
                     <div class="cust-list-item-body pl-5">
                         <table class="table border-0 m-0 ml-2">
                             <tr>
+
                                 <td rowspan="3" class="col-image">
                                     <img src="../assets/images/thumbnailsample.jpg" class="rounded-circle border"
                                         style="width:100px;height: 100px;" />
@@ -114,12 +116,12 @@
                                 <td colspan="4" class="text-right pr-2 col-view col-action">
                                     <a class="btn btn-pink" title="Delete User"><img
                                             src="../assets/images/DeleteIcon.png" /> Delete</a>
-                                  
+
                                 </td>
                             </tr>
-                            
+
                         </table>
-                        
+
                     </div>
                 </div>
                 <div class="cust-bg-light cust-list-item" ng-repeat="item in list.data">
@@ -177,12 +179,12 @@
                                 <td colspan="4" class="text-right pr-2 col-view col-action">
                                     <a class="btn btn-pink" title="Delete User"><img
                                             src="../assets/images/DeleteIcon.png" /> Delete</a>
-                                  
+
                                 </td>
                             </tr>
-                            
+
                         </table>
-                        
+
                     </div>
                 </div>
 
