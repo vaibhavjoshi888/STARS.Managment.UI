@@ -462,8 +462,8 @@ header {
 
 
 .cust-list-item { 
-    margin-bottom:18px;
-    padding:.75rem;
+    margin-bottom:12px;
+    padding:.200rem;
 }
 
 .cust-list-item-body {
@@ -483,13 +483,15 @@ header {
     }
 
 
-/*.cust-lbl {
-}*/
+.cust-lbl {
+    padding:0px 2px 0px 2px;
+} 
 
 .cust-val {
     /*font-family: "SEGOEUIB","Segoe UI Bold", "Segoe UI";*/
     font-family: SegoeUI-Bold, Segoe UI;
     font-weight: 700;
+    padding:0px 2px 0px 2px;
 }
 
 .facility-val {   
