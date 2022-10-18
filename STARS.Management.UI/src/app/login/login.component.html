@@ -82,34 +82,34 @@
                             <div class="title-l-56 border-bottom pb-2 mb-2">Sign In</div>
 
                             <div>
-                                    <div class="form-group">
-                                        <div class="col-md-12 py-1">
-                                            <label class="control-label" for="username">Corp User Id</label>
-                                        </div>
-                                        <div class="col-md-12 pr-1">
-                                            <input type="text" formControlName="username" placeholder="Enter your corp user here" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                <div>Username is required</div>
-                                            </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 py-1">
+                                        <label class="control-label" for="username">Corp User Id</label>
+                                    </div>
+                                    <div class="col-md-12 pr-1">
+                                        <input type="text" formControlName="username" placeholder="Enter your corp user here" class="form-control" />
+                                        <div class="invalid-feedback">
+                                            <div>Username is required</div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12 ">
-                                            <label class="form-label" for="password">Password</label>
-                                        </div>
-                                        <div class="col-md-12 pr-1">
-                                            <input type="password" formControlName="password" placeholder="Enter your password here" class="form-control" />
-                                            <div class="invalid-feedback">
-                                                <div>Password is required</div>
-                                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-12 ">
+                                        <label class="form-label" for="password">Password</label>
+                                    </div>
+                                    <div class="col-md-12 pr-1">
+                                        <input type="password" formControlName="password" placeholder="Enter your password here" class="form-control" />
+                                        <div class="invalid-feedback">
+                                            <div>Password is required</div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-md-offset-2 col-md-10 py-1">
-                                            <input type="submit" value="Sign In" class="btn  btn-primary btn-pill pl-4 pr-4" />
-                                        </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10 py-1">
+                                        <input type="submit" (click)="onSubmit()" value="Sign In" class="btn  btn-primary btn-pill pl-4 pr-4" />
                                     </div>
-                                
+                                </div>
+
                             </div>
 
                             <div class="row mt-4 pt-3">
@@ -121,13 +121,12 @@
                         </div>
                     </div>
                     <div class="card border-0 signin-welcome ">
-                        <div class="card-body text-white">                            
+                        <div class="card-body text-white">
                             <div class="title-l-34 mt-3 text-white" style="padding-top:260px;">
-                                Welcome to NYC <br />
-                                 Health + Hospitals STARS
-                            </div>                           
-                            <div class="text-right"  style="padding-top:145px;">
-                                <img src="../assets/images/SignInLogo.svg" class="w-70"  />
+                                Welcome to NYC <br /> Health + Hospitals STARS
+                            </div>
+                            <div class="text-right" style="padding-top:145px;">
+                                <img src="../assets/images/SignInLogo.svg" class="w-70" />
                             </div>
                         </div>
                     </div>

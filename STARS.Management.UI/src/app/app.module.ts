@@ -13,6 +13,7 @@ import { SampleComponent } from './sample/sample.component';
 import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,10 @@ import { UpdateuserComponent } from './updateuser/updateuser.component';
         ReactiveFormsModule,
         HttpClientModule,
         appRoutingModule,
-        SharedModule
+        SharedModule,
+        RouterModule
   ],
-  exports:[SharedModule],
+  exports:[SharedModule,RouterModule],
 
   providers: [],
   bootstrap: [AppComponent]

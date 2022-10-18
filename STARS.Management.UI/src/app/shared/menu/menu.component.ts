@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../../_models/user';
+import { SignedInUserDTO } from '../../_models/user';
 import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../_services/authentication.service';
 })
 export class MenuComponent implements OnInit {
 
-  currentUser: User;
+  currentUser: SignedInUserDTO;
 
   constructor(
       private router: Router,
