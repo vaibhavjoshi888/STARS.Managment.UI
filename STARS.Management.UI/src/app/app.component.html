@@ -4,14 +4,14 @@
         <a class="nav-item nav-link" (click)="logout()">Logout</a>
     </div>
 </nav> -->
-<ng-container *ngIf="!isLoginPage">
+<!-- <ng-container *ngIf="!isLoginPage"> -->
     <app-menu></app-menu>
-</ng-container>
+<!-- </ng-container> -->
 <div>
-    <div class="content no-gutters">
+    <div class="content no-gutters py-0 pr-0">
         <router-outlet></router-outlet>
     </div>
 </div>
-<ng-container *ngIf="!isLoginPage">
+<!-- <ng-container *ngIf="!isLoginPage"> -->
 <app-footer></app-footer>
-</ng-container>
+<!-- </ng-container> -->
