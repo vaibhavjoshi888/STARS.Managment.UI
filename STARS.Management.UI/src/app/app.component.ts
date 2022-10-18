@@ -28,4 +28,7 @@ export class AppComponent {
     console.log('User :--'+this.currentUser);
     this.isLoginPage=this.router.url=='/';
   }
+  userIsLogged(){
+   return true; 
+  }
 }

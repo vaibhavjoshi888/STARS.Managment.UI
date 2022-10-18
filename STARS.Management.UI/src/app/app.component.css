@@ -10,7 +10,7 @@
 .content {
     flex-shrink: 1;
     flex-grow: 1;
-    padding: 3px 5px;
+    padding: 0px 0px;
     position: relative;
     overflow-y: auto;
 }
