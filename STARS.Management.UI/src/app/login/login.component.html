@@ -82,6 +82,7 @@
                             <div class="title-l-56 border-bottom pb-2 mb-2">Sign In</div>
 
                             <div>
+                                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                                 <div class="form-group">
                                     <div class="col-md-12 py-1">
                                         <label class="control-label" for="username">Corp User Id</label>
@@ -106,10 +107,15 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-offset-2 col-md-10 py-1">
-                                        <input type="submit" (click)="onSubmit()" value="Sign In" class="btn  btn-primary btn-pill pl-4 pr-4" />
+                                        <button [disabled]="loading" class="btn  btn-primary btn-pill pl-4 pr-4">
+                                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                            Login
+                                        </button>
+                                        <!-- <input type="submit" (click)="onSubmit()" value="Sign In" class="btn  btn-primary btn-pill pl-4 pr-4" />
+                                   -->
                                     </div>
                                 </div>
-
+                                </form>
                             </div>
 
                             <div class="row mt-4 pt-3">
