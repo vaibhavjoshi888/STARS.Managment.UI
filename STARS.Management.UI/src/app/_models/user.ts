@@ -13,3 +13,28 @@ export class SignedInUserDTO
     hasThumbnailPhoto: string;
     canViewDailySchedule: string;
 }
+
+export class UserDTO
+{
+    corpID : string;
+    email :string;
+    phone : string;
+    fullName : string;
+    displayName :string;
+    givenName :string;
+    surname :string;
+    samaAccountName :string;
+    physicalDeliveryOfficeName :string;
+    employeeType :string;
+    employeeId :string;
+    employeeNumber :string;
+    title :string;
+    department :string;
+    division :string;
+    manager :string;
+    managerDisplayName :string;
+    managerEmail :string;
+    managerCorpID :string;
+    thumbnailPhoto :string;
+    userRoleId :number;
+}

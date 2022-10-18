@@ -61,14 +61,13 @@
                 </div>
                 <div class="col-md-8 text-right">
                     <nav class="navbar navbar-expand-lg navbar-dark top-nav">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar"
-                            aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="topNavBar">
                             <ul class="navbar-nav mr-auto ">
                                 <li class="nav-item" id="ni-dailyschedulereport">
-                                    <a class="nav-link" title="DAILY SCHEDULE REPORT">HOME</a>
+                                    <a class="nav-link" title="DAILY SCHEDULE REPORT" [routerLink]="['/home']">HOME</a>
                                 </li>
                                 <li class="nav-item" id="ni-nonps-staff">
                                     <a class="nav-link" title="Event Tracker">VIEW All STARS</a>
@@ -77,22 +76,19 @@
                                     <a class="nav-link" title="Event Metrics Reporting">REVIEW STARS</a>
                                 </li>
                                 <li class="nav-item" id="ni-user-mgmt">
-                                    <a class="nav-link" title="USER MANAGEMENT">USER MANAGEMENT</a>
+                                    <a class="nav-link" title="USER MANAGEMENT" [routerLink]="['/manageuser']">USER MANAGEMENT</a>
                                 </li>
 
                                 <li class="nav-item" id="ni-support">
-                                    &nbsp;  <button type="button" class="btn btn-warning cust ml-3 text-white"
-                                (click)="login()">SUBMIT STAR</button>
+                                    &nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white" (click)="login()">SUBMIT STAR</button>
                                 </li>
                                 <li class="nav-item" id="ni-support">
-                                    &nbsp; &nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white"
-                                (click)="login()">LOGIN</button>
+                                    &nbsp; &nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white" (click)="login()">LOGIN</button>
                                 </li>
                                 <li class="nav-item" id="ni-support">
-                                    &nbsp;&nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white"
-                                (click)="logout()">LOGOUT</button>
+                                    &nbsp;&nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white" (click)="logout()">LOGOUT</button>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </nav>

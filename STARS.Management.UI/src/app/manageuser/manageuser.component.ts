@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { UserDTO } from '../_models/user';
+import { UserManagementService } from '../_services/user-management.service';
 
 @Component({
   selector: 'app-manageuser',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manageuser.component.css']
 })
 export class ManageuserComponent implements OnInit {
+  // userdetails : any;
+  userdetails : UserDTO[] = [];
+  constructor(private userManagementService : UserManagementService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.getAllUser();
   }
 
+  async getAllUser() {
+    await firstValueFrom(this.userManagementService.getAllUsers())
+    .then((res : UserDTO[]) => 
+    this.userdetails = res
+
+    )};
 }
