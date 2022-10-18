@@ -1,5 +1,4 @@
-<!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
         <img src="../assets/images/logo.jpeg" style="width: 300px;" class="navbar-brand" alt="logo" />
         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -9,6 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
             <div class="row">
+
 
                 <ul class="navbar-nav mr-auto align-items-end text-white">
                     <div class="col-md-2">
@@ -26,7 +26,7 @@
                             <button type="button" class="btn btn-warning cust text-white">SUBMIT A STAR</button>
                         </li>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="display: flex;">
                         <li class="nav-item ">
                             <button type="button" class="btn btn-warning cust ml-3 text-white"
                                 (click)="login()">LOGIN</button>
@@ -45,5 +45,61 @@
             </form>
         </div>
     </div>
-</nav>
-<!-- Navbar -->
+</nav> -->
+<html>
+
+<head></head>
+
+<body ng-app="commonApp" ng-controller="RootCtrl">
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 align-items-left" title="Click To Return to Home Screen.">
+                    <a target="_self">
+                        <img src="../assets/images/logo.jpeg" style="height:63px;" />
+                    </a>
+                </div>
+                <div class="col-md-8 text-right">
+                    <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar"
+                            aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="topNavBar">
+                            <ul class="navbar-nav mr-auto ">
+                                <li class="nav-item" id="ni-dailyschedulereport">
+                                    <a class="nav-link" title="DAILY SCHEDULE REPORT">HOME</a>
+                                </li>
+                                <li class="nav-item" id="ni-nonps-staff">
+                                    <a class="nav-link" title="Event Tracker">VIEW All STARS</a>
+                                </li>
+                                <li class="nav-item" id="ni-nonps-staff1">
+                                    <a class="nav-link" title="Event Metrics Reporting">REVIEW STARS</a>
+                                </li>
+                                <li class="nav-item" id="ni-user-mgmt">
+                                    <a class="nav-link" title="USER MANAGEMENT">USER MANAGEMENT</a>
+                                </li>
+
+                                <li class="nav-item" id="ni-support">
+                                    &nbsp;  <button type="button" class="btn btn-warning cust ml-3 text-white"
+                                (click)="login()">SUBMIT STAR</button>
+                                </li>
+                                <li class="nav-item" id="ni-support">
+                                    &nbsp; &nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white"
+                                (click)="login()">LOGIN</button>
+                                </li>
+                                <li class="nav-item" id="ni-support">
+                                    &nbsp;&nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white"
+                                (click)="logout()">LOGOUT</button>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>

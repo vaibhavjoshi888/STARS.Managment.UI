@@ -21,25 +21,23 @@ export class AuthenticationService {
     }
 
     login(userName, password) {
+          return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/isvaliduser`, { userName, password })
+              .pipe(map(user => {
+                  // store user details and jwt token in local storage to keep user logged in between page refreshes
+                  localStorage.setItem('currentUser', JSON.stringify(user));
+                  this.currentUserSubject.next(user);
+                  return user;
+              }));
+        let user: User = new User;
+        user.firstName = userName;
+        user.lastName = "";
+        user.password = password;
+        user.token = "";
+        user.username = userName;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
 
-        return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/isvaliduser`, { userName, password })
-
-            .pipe(map(user => {
-
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-
-                localStorage.setItem('currentUser', JSON.stringify(user));
-
-                this.currentUserSubject.next(user);
-
-                return user;
-
-            }));
-        
-        // localStorage.setItem('currentUser', JSON.stringify(user));
-        // this.currentUserSubject.next(user);
-
-        // return of(user);
+        return of(user);
     }
 
     logout() {

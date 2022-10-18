@@ -1,0 +1,102 @@
+<app-menu></app-menu>
+<div class="container py-4">
+    <div ng-controller="AddEditUserCtrl" id="AddEditUserCtrlID" ng-cloak>
+        <div class="row">
+            <div class="col-md-12 p-0">
+                <div class="title-l-40">User Management<span class="fa fa-circle-o-notch text-primary fa-spin"
+                        ng-if="showProcessing"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 p-0">
+                <div class="cust-bg-light p-3 mb-0">
+                    <div class=" bg-white cust-list-item m-0">
+                        <div class="cust-list-item-body pl-1">
+                            <table class="table border-0 m-0 ml-2">
+                                <tr>
+                                    <td rowspan="2" class="col-image">
+                                        <img id="userPhoto" src="../assets/images/thumbnailsample.jpg"
+                                            class="rounded-circle border" style="width:100px;height: 100px;" />
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Name</div>
+                                        <div class="cust-val">Shrikant Reddy</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">User ID</div>
+                                        <div class="cust-val">thakapds</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Telephone</div>
+                                        <div class="cust-val">1234567890</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Email</div>
+                                        <div class="cust-val">shrikant@reddy.com</div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="cust-lbl">Title</div>
+                                        <div class="cust-val">Test Title</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Department</div>
+                                        <div class="cust-val">Test Dept</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cust-lbl">User Role</div>
+                                        <div class="cust-val">
+                                            <!-- <span ng-if="session.RoleId == 2 && user.Role.RoleID == 1">Super
+                                                Admin</span>
+                                            <span ng-if="session.RoleId == 2 && user.Role.RoleID == 4">Executive</span> -->
+                                            <select id="ddlRole" class="form-control col-md-10">
+                                                <option value="">Select Role...</option>
+
+                                                <option value="">Site Admin</option>
+                                                <option value="">Super Admin</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-2 align-items-end">
+                <div class="text-right">
+                    <a class="btn btn-pink" title="Back to User Management">
+                        <img src="../assets/images/CancelIcon.png" /> Cancel
+                    </a>
+                    &nbsp;&nbsp;
+                    <a ng-click="saveUser()"
+                        ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (user.Role.RoleID == 2 || user.Role.RoleID == 3))"
+                        href="JavaScript:void(0);" class="btn btn-blue" title="Save User">
+                        <img src="../assets/images/SaveIcon.png" /> Save
+                    </a>
+                    <!-- <a ng-click="saveUser()"
+                        ng-if="session.RoleId == 1 || (session.RoleId == 2 && (user.Role.RoleID ==3 || user.Role == null))"
+                        href="JavaScript:void(0);" class="btn btn-blue" title="Save User">
+                        <img src="../assets/images/SaveIcon.png" /> Save
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

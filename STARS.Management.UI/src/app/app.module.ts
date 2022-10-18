@@ -9,13 +9,21 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SampleComponent } from './sample/sample.component';
+import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
+import { ManageuserComponent } from './manageuser/manageuser.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    SampleComponent,
+    SearchusermodalComponent,
+    ManageuserComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,

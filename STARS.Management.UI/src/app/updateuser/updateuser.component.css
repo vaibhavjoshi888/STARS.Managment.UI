@@ -1,7 +1,4 @@
-.cust{
-    border-radius: 20px;
-    }
-    
+
 .col-image {
     width:100px;
 }
@@ -40,16 +37,14 @@ body {
 
 header {
     background: linear-gradient(to right, #4e99ff, #363177);
-    background-image: url("../../../assets/images/img.jpeg");
+    background-image: url("../../assets/images/T2EVHeader.png");
     background-repeat: no-repeat;
     /*background-size: 100% 124pt;*/
     background-size: cover;
     background-position: center right;
     padding: 30px 0;
     color: #fff;
-    height: 100px
-    ;
-    max-width: 100%; /*1200*/
+    max-width: 1170px; /*1200*/
     margin: 0 auto;
 }
  
@@ -544,7 +539,7 @@ header {
         border: 0px;
         border-radius: unset;
         /*background: #1c3d78;*/
-        background-image: url("../../../assets/images/T2EVSignInPic.png");
+        background-image: url("../../assets/images/T2EVSignInPic.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -677,7 +672,7 @@ header {
 }
 
 .bg-sticker {
-    background-image: url("../../../assets/images/StickerBackground2.png");
+    background-image: url("../../assets/images/StickerBackground2.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
