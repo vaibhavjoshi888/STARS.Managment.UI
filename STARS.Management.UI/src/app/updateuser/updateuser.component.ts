@@ -13,47 +13,47 @@ import { UserManagementService } from '../_services/user-management.service';
 export class UpdateuserComponent implements OnInit {
 
   private formBuilder: FormBuilder;
-  constructor(private userManagementService : UserManagementService,
+  private userDTO: UserDTO;
+  constructor(private userManagementService: UserManagementService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit(): void {
   }
   async saveUser() {
 
-    let user = {
-    CorpID :"ShriantTest",
-    Email :"ShriantTest",
-    Phone :"ShriantTest",
-    FullName :"ShriantTest",
-    DisplayName :"ShriantTest",
-    GivenName :"ShriantTest",
-    Surname :"ShriantTest",
-    SamaAccountName :"ShriantTest",
-    PhysicalDeliveryOfficeName :"ShriantTest",
-    EmployeeType :"ShriantTest",
-    EmployeeId :"ShriantTest",
-    EmployeeNumber :"ShriantTest",
-    Title :"ShriantTest",
-    Department :"ShriantTest",
-    Division :"ShriantTest",
-    Manager :"ShriantTest",
-    ManagerDisplayName :"ShriantTest",
-    ManagerEmail :"ShriantTest",
-    ManagerCorpID :"ShriantTest",
-    ThumbnailPhoto :"ShriantTest",
-    UserRoleId :1
-    }
-    
-    this.userManagementService.saveUserDetails(user)
-    .subscribe(
+    this.userDTO = new UserDTO();
+    this.userDTO.corpID = "Vaibhav";
+    this.userDTO.email = "ShriantTest";
+    this.userDTO.phone = "ShriantTest";
+    this.userDTO.fullName = "vaibhav joshi";
+    this.userDTO.displayName = "ShriantTest";
+    this.userDTO.givenName = "ShriantTest";
+    this.userDTO.surname = "ShriantTest";
+    this.userDTO.samaAccountName = "ShriantTest";
+    this.userDTO.physicalDeliveryOfficeName = "ShriantTest";
+    this.userDTO.employeeType = "ShriantTest";
+    this.userDTO.employeeId = "ShriantTest";
+    this.userDTO.employeeNumber = "ShriantTest";
+    this.userDTO.title = "ShriantTest";
+    this.userDTO.department = "ShriantTest";
+    this.userDTO.division = "ShriantTest";
+    this.userDTO.manager = "ShriantTest";
+    this.userDTO.managerDisplayName = "ShriantTest";
+    this.userDTO.managerEmail = "ShriantTest";
+    this.userDTO.managerCorpID = "ShriantTest";
+    this.userDTO.thumbnailPhoto = "ShriantTest";
+    this.userDTO.userRoleId = 1
+
+    this.userManagementService.saveUserDetails(this.userDTO)
+      .subscribe(
         data => {
           this.router.navigate(['/manageuser']);
         },
         error => {
-            // this.alertService.error(error);
-           console.log(error);
-        });    
-    };
+          // this.alertService.error(error);
+          console.log(error);
+        });
+  };
 
 }

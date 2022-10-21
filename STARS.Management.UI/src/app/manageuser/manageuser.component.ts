@@ -21,6 +21,5 @@ export class ManageuserComponent implements OnInit {
     await firstValueFrom(this.userManagementService.getAllUsers())
     .then((res : UserDTO[]) => 
     this.userdetails = res
-
     )};
 }

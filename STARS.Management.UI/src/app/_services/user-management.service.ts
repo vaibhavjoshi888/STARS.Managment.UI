@@ -22,7 +22,7 @@ export class UserManagementService {
 }
 
 saveUserDetails(user) {
-  return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, {user});
+  return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, user);
 }
 
 }

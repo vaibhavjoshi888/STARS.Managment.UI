@@ -42,9 +42,10 @@
                         </div>
 
                     </div>
-
-                    <div class="col-md-3">
-                        <a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5" title="Add New User" ng-click="addNewUser(addNewUserCallback)">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-2">
+                        <a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5"  [routerLink]="['/updateuser']" title="Add New User" ng-click="addNewUser(addNewUserCallback)">
                             <img src="../assets/images/AddNewUserICon.png" /> Add New User
                         </a>
                     </div>
@@ -70,18 +71,18 @@
                                     <div class="cust-val">{{user.corpID}}</div>
                                 </td>
                                 <td class="col-email">
-                                    <div class="cust-lbl">Email</div>
-                                    <div class="cust-val">{{user.email}}</div>
+                                    <div class="cust-lbl"></div>
+                                    <div class="cust-val"></div>
                                 </td>
                                 <td>
                                     <div class="cust-lbl">Department</div>
                                     <div class="cust-val">{{user.department}}</div>
                                 </td>
-                                <td class="col-role">
+                                <td>
                                     <div class="cust-lbl">User Role</div>
                                     <div class="cust-val">{{user.userRoleId}}</div>
                                 </td>
-                                <td class="col-role">
+                                <td>
                                     <div class="cust-lbl">Status</div>
                                     <div class="cust-val">Active</div>
                                 </td>
