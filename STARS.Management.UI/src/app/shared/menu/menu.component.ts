@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/_services/message.service';
 import { SignedInUserDTO } from '../../_models/user';
 import { AuthenticationService } from '../../_services/authentication.service';
 
@@ -11,23 +12,31 @@ import { AuthenticationService } from '../../_services/authentication.service';
 export class MenuComponent implements OnInit {
 
   currentUser: SignedInUserDTO;
-
+  isloggedinuser: boolean;
   constructor(
-      private router: Router,
-      private authenticationService: AuthenticationService
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private messageservice: MessageService
   ) {
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.isloggedinuser = this.messageservice!.currentuser == "";
   }
 
   logout() {
-      this.authenticationService.logout();
-      this.router.navigate(['/login']);
+    this.authenticationService.logout();
+    this.router.navigate(['/welcome']).then(() => {
+      window.location.reload();
+    });
   }
+
   login() {
-    this.router.navigate(['/login']);
-}
+
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload();
+    });
+  }
   ngOnInit(): void {
-    console.log('shrinddddddith '+this.router.url);
+    
   }
 
 }
