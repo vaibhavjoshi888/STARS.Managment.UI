@@ -15,9 +15,14 @@ export class UserManagementService {
   }
 
   getAllUsers() {
-    return this.http.get<any>(`${environment.baseUrl_API}/UserManagement/getuserdetails/${this.currentUser.corpUserId}`)
+    return this.http.get<any>(`${environment.baseUrl_API}/UserManagement/getuserdetails`)
         .pipe(map(user => {
             return user;
         }));
 }
+
+saveUserDetails(user) {
+  return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, {user});
+}
+
 }

@@ -84,9 +84,8 @@
                         <img src="../assets/images/CancelIcon.png" /> Cancel
                     </a>
                     &nbsp;&nbsp;
-                    <a ng-click="saveUser()"
-                        ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (user.Role.RoleID == 2 || user.Role.RoleID == 3))"
-                        href="JavaScript:void(0);" class="btn btn-blue" title="Save User">
+                    <a (click)="saveUser()"
+                      class="btn btn-blue" title="Save User">
                         <img src="../assets/images/SaveIcon.png" /> Save
                     </a>
                     <!-- <a ng-click="saveUser()"
