@@ -14,6 +14,9 @@ import { SearchusermodalComponent } from './searchusermodal/searchusermodal.comp
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { RouterModule } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -32,11 +35,14 @@ import { RouterModule } from '@angular/router';
         HttpClientModule,
         appRoutingModule,
         SharedModule,
-        RouterModule
+        RouterModule,
+        BrowserAnimationsModule,
+        MatDialogModule
   ],
   exports:[SharedModule,RouterModule],
 
   providers: [],
+  entryComponents:[MatDialogModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
