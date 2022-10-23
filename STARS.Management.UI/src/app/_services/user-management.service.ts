@@ -29,4 +29,7 @@ export class UserManagementService {
     return this.http.put<any>(`${environment.baseUrl_API}/UserManagement/user/${corpUserId}`, data);
   }
 
+  deleteUserDetails(corpUserId) {
+    return this.http.delete<any>(`${environment.baseUrl_API}/UserManagement/deleteuser/${corpUserId}`);
+  }
 }

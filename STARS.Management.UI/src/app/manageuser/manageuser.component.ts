@@ -4,6 +4,7 @@ import { UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchusermodalComponent } from '../searchusermodal/searchusermodal.component';
+import { ConfirmationDialog } from '../shared/alert/confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -17,8 +18,6 @@ export class ManageuserComponent implements OnInit {
   selectedUser: UserDTO;
   isNewUser: boolean;
 
-
-
   constructor(private userManagementService: UserManagementService,
     public dialog: MatDialog
   ) { }
@@ -26,11 +25,6 @@ export class ManageuserComponent implements OnInit {
   async ngOnInit() {
     await this.getAllUser();
   }
-
-  ngOnChange() {
-
-  }
-
 
   openDialog() {
     const dialogConfig = new MatDialogConfig();
@@ -63,5 +57,28 @@ export class ManageuserComponent implements OnInit {
   editUser(user){
     this.isNewUser = false;
     this.selectedUser = user;
+  }
+
+  async deleteUser(userId){
+    await firstValueFrom(this.userManagementService.deleteUserDetails(userId));
+  }
+
+  openDeleteDialog(userId) {
+    const dialogRef = this.dialog.open(ConfirmationDialog,{
+      data:{
+        message: 'Are you sure want to delete?',
+        buttonText: {
+          ok: 'Yes',
+          cancel: 'No'
+        }
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+      if (confirmed) {
+        this.deleteUser(userId);
+        this.resetUser(true);
+      }
+    });
   }
 }
