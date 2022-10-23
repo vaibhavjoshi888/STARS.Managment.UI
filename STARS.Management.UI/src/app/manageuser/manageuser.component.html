@@ -89,7 +89,7 @@
                                     <div class="cust-val">Active</div>
                                 </td>
                                 <td class="text-right pr-2 col-view col-action">
-                                    <a class="btn btn-blue" title="Edit User"><img src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <a class="btn btn-blue" title="Edit User" (click)="editUser(user)"><img src="../assets/images/EditIcon.png" /> Edit</a>
                                     <!-- <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
                                     @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 2 || item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>*@
                                     @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="session.RoleId == 1 || (session.RoleId == 2 && item.RoleId ==3)" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
@@ -137,5 +137,5 @@
     </div>
 </div>
 <div *ngIf="this.selectedUser">
-    <app-updateuser [selectedUser]="this.selectedUser" (selectedUserReset)="resetUser($event)"></app-updateuser>
+    <app-updateuser [selectedUser]="this.selectedUser" [isNewUser]="this.isNewUser" (selectedUserReset)="resetUser($event)"></app-updateuser>
 </div>

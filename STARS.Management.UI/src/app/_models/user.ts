@@ -38,3 +38,8 @@ export class UserDTO
     thumbnailPhoto :string;
     userRoleId :number;
 }
+
+export class UserAssignRoleDTO
+{    
+    UserRoleId: number;
+}

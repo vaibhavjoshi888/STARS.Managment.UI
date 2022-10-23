@@ -2,8 +2,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { ManageuserComponent } from '../manageuser/manageuser.component';
-import { UserDTO } from '../_models/user';
+import { UserAssignRoleDTO, UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
 
 @Component({
@@ -15,7 +16,9 @@ export class UpdateuserComponent implements OnInit {
 
   private formBuilder: FormBuilder;
   userDTO: UserDTO;
+  userAssignRoleDTO : UserAssignRoleDTO
   @Input() selectedUser : UserDTO;
+  @Input() isNewUser : boolean;
 
   @Output() selectedUserReset: EventEmitter<boolean> = new EventEmitter<boolean>();
   
@@ -36,6 +39,7 @@ export class UpdateuserComponent implements OnInit {
   ]
 
     this.userDTO = this.selectedUser;
+    this.selectedOption = this.userDTO.userRoleId;
   }
 
   async saveUser() {
@@ -53,6 +57,15 @@ export class UpdateuserComponent implements OnInit {
         });
   }
 
+  async updateUser(){
+    this.userAssignRoleDTO = new UserAssignRoleDTO;
+    this.userAssignRoleDTO.UserRoleId = this.selectedOption;
+      await firstValueFrom(this.userManagementService.editUserDetails(this.userDTO.corpID,this.userAssignRoleDTO))
+      .then((res) => {
+        this.refresh();
+      })
+  }
+
   cancel(){
     this.refresh();
   }
@@ -61,5 +74,4 @@ export class UpdateuserComponent implements OnInit {
     this.selectedUserReset.emit(true);
     this.router.navigate(['/manageuser']);
   }
-
 }

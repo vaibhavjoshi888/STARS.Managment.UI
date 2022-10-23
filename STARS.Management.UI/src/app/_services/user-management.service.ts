@@ -25,4 +25,8 @@ export class UserManagementService {
     return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, user);
   }
 
+  editUserDetails(corpUserId,data) {
+    return this.http.put<any>(`${environment.baseUrl_API}/UserManagement/user/${corpUserId}`, data);
+  }
+
 }
