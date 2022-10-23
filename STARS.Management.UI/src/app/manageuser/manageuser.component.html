@@ -137,5 +137,5 @@
     </div>
 </div>
 <div *ngIf="this.selectedUser">
-    <app-updateuser [selectedUser]="this.selectedUser"></app-updateuser>
+    <app-updateuser [selectedUser]="this.selectedUser" (selectedUserReset)="resetUser($event)"></app-updateuser>
 </div>

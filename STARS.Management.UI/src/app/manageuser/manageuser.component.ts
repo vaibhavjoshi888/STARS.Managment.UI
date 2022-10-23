@@ -26,6 +26,11 @@ export class ManageuserComponent implements OnInit {
     await this.getAllUser();
   }
 
+  ngOnChange(){
+
+  }
+
+
   openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
@@ -44,4 +49,11 @@ export class ManageuserComponent implements OnInit {
     .then((res : UserDTO[]) => 
     this.userdetails = res
     )};
+  
+   async resetUser(event){
+      if(event){
+        this.selectedUser = null;
+       await this.getAllUser();
+      }
+    }
 }

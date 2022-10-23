@@ -1,7 +1,8 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ManageuserComponent } from '../manageuser/manageuser.component';
 import { UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
 
@@ -15,6 +16,10 @@ export class UpdateuserComponent implements OnInit {
   private formBuilder: FormBuilder;
   userDTO: UserDTO;
   @Input() selectedUser : UserDTO;
+
+  @Output() selectedUserReset: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+
   roleOptions: { id: number; value: string; }[];
   selectedOption: number;
 
@@ -40,7 +45,7 @@ export class UpdateuserComponent implements OnInit {
     this.userManagementService.saveUserDetails(this.userDTO)
       .subscribe(
         data => {
-          this.router.navigate(['/manageuser']);
+          this.refresh();
         },
         error => {
           // this.alertService.error(error);
@@ -49,6 +54,11 @@ export class UpdateuserComponent implements OnInit {
   }
 
   cancel(){
+    this.refresh();
+  }
+
+  refresh(){
+    this.selectedUserReset.emit(true);
     this.router.navigate(['/manageuser']);
   }
 
