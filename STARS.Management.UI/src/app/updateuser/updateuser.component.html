@@ -1,10 +1,8 @@
-
 <div class="container py-4">
     <div ng-controller="AddEditUserCtrl" id="AddEditUserCtrlID" ng-cloak>
         <div class="row">
             <div class="col-md-12 p-0">
-                <div class="title-l-40">User Management<span class="fa fa-circle-o-notch text-primary fa-spin"
-                        ng-if="showProcessing"></span>
+                <div class="title-l-40">User Management<span class="fa fa-circle-o-notch text-primary fa-spin" ng-if="showProcessing"></span>
 
                 </div>
             </div>
@@ -18,33 +16,32 @@
                             <table class="table border-0 m-0 ml-2">
                                 <tr>
                                     <td rowspan="2" class="col-image">
-                                        <img id="userPhoto" src="../assets/images/thumbnailsample.jpg"
-                                            class="rounded-circle border" style="width:100px;height: 100px;" />
+                                        <img id="userPhoto" src="../assets/images/thumbnailsample.jpg" class="rounded-circle border" style="width:100px;height: 100px;" />
                                     </td>
                                     <td>
                                         <div class="cust-lbl">Name</div>
-                                        <div class="cust-val">Shrikant Reddy</div>
+                                        <div class="cust-val">{{userDTO.displayName}}</div>
                                     </td>
                                     <td>
                                         <div class="cust-lbl">User ID</div>
-                                        <div class="cust-val">thakapds</div>
+                                        <div class="cust-val">{{userDTO.corpID}}</div>
                                     </td>
                                     <td>
                                         <div class="cust-lbl">Telephone</div>
-                                        <div class="cust-val">1234567890</div>
+                                        <div class="cust-val">{{userDTO.phone}}</div>
                                     </td>
                                     <td>
                                         <div class="cust-lbl">Email</div>
-                                        <div class="cust-val">shrikant@reddy.com</div>
+                                        <div class="cust-val">{{userDTO.email}}</div>
                                     </td>
-                                    
+
                                     <td>
                                         <div class="cust-lbl">Title</div>
-                                        <div class="cust-val">Test Title</div>
+                                        <div class="cust-val">{{userDTO.title}}</div>
                                     </td>
                                     <td>
                                         <div class="cust-lbl">Department</div>
-                                        <div class="cust-val">Test Dept</div>
+                                        <div class="cust-val">{{userDTO.department}}</div>
                                     </td>
                                 </tr>
                                 <tr>
@@ -54,12 +51,17 @@
                                             <!-- <span ng-if="session.RoleId == 2 && user.Role.RoleID == 1">Super
                                                 Admin</span>
                                             <span ng-if="session.RoleId == 2 && user.Role.RoleID == 4">Executive</span> -->
-                                            <select id="ddlRole" class="form-control col-md-10">
+                                            <!-- <select id="ddlRole" class="form-control col-md-10">
                                                 <option value="">Select Role...</option>
 
-                                                <option value="">Site Admin</option>
-                                                <option value="">Super Admin</option>
-                                            </select>
+                                                <option value="1">Site Admin</option>
+                                                <option value="2">Super Admin</option>
+                                            </select> -->
+                                            <select [(ngModel)]="selectedOption">
+                                                <option *ngFor="let o of roleOptions" [value]="o.id">
+                                                   {{o.value}}
+                                                </option>
+                                             </select>
                                         </div>
                                     </td>
                                 </tr>
@@ -73,19 +75,18 @@
 
         <div class="row mt-4">
             <div class="col-md-4">
-                
+
             </div>
             <div class="col-md-6">
 
             </div>
             <div class="col-md-2 align-items-end">
                 <div class="text-right">
-                    <a class="btn btn-pink" title="Back to User Management">
+                    <a (click)="cancel()" class="btn btn-pink" title="Back to User Management">
                         <img src="../assets/images/CancelIcon.png" /> Cancel
                     </a>
                     &nbsp;&nbsp;
-                    <a (click)="saveUser()"
-                      class="btn btn-blue" title="Save User">
+                    <a (click)="saveUser()" class="btn btn-blue" title="Save User">
                         <img src="../assets/images/SaveIcon.png" /> Save
                     </a>
                     <!-- <a ng-click="saveUser()"

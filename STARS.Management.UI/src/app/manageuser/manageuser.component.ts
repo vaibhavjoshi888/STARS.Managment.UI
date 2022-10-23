@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
@@ -14,6 +14,10 @@ import { SearchusermodalComponent } from '../searchusermodal/searchusermodal.com
 export class ManageuserComponent implements OnInit {
   // userdetails : any;
   userdetails : UserDTO[] = [];
+  selectedUser : UserDTO;
+
+  
+
   constructor(private userManagementService : UserManagementService,
     public dialog: MatDialog
     ) { }
@@ -31,9 +35,10 @@ export class ManageuserComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(value => {
       console.log(`Dialog sent: ${value}`); 
+      this.selectedUser = value;
     });
   }
-
+  
   async getAllUser() {
     await firstValueFrom(this.userManagementService.getAllUsers())
     .then((res : UserDTO[]) => 

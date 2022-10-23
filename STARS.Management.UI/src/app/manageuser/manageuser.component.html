@@ -1,4 +1,4 @@
-<div class="container py-4">
+<div class="container py-4" *ngIf="!this.selectedUser">
     <div ng-controller="ManageUserCtrl" id="ManageUserCtrlID" ng-cloak>
         <div class="row">
             <div class="col-md-12 p-0">
@@ -135,4 +135,7 @@
         </div>
 
     </div>
+</div>
+<div *ngIf="this.selectedUser">
+    <app-updateuser [selectedUser]="this.selectedUser"></app-updateuser>
 </div>

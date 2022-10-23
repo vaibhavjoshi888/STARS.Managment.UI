@@ -10,19 +10,19 @@ import { AuthenticationService } from './authentication.service';
 })
 export class UserManagementService {
   currentUser: SignedInUserDTO;
-  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { 
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) {
     this.currentUser = this.authenticationService.currentUserValue;
   }
 
   getAllUsers() {
     return this.http.get<any>(`${environment.baseUrl_API}/UserManagement/getuserdetails`)
-        .pipe(map(user => {
-            return user;
-        }));
-}
+      .pipe(map(user => {
+        return user;
+      }));
+  }
 
-saveUserDetails(user) {
-  return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, user);
-}
+  saveUserDetails(user) {
+    return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, user);
+  }
 
 }
