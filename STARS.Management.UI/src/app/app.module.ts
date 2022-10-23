@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { appRoutingModule } from './app-routing.module';
 
@@ -14,6 +14,9 @@ import { SearchusermodalComponent } from './searchusermodal/searchusermodal.comp
 import { ManageuserComponent } from './manageuser/manageuser.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -28,15 +31,19 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        appRoutingModule,
-        SharedModule,
-        RouterModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    appRoutingModule,
+    SharedModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
-  exports:[SharedModule,RouterModule],
+  exports: [SharedModule, RouterModule],
 
   providers: [],
+  entryComponents: [MatDialogModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

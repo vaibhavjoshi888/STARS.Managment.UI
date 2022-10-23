@@ -72,74 +72,87 @@
     </div>
 </div>
  -->
- <div class="modal-dialog"  style="min-width:40% !important;border: 1cm currentColor; ">
-    <div class="modal-content">
-        <div class="modal-header">
-            <div class="title-l-40" id="adSearchModalLabel">Search User <i class="fa fa-circle-o-notch  text-primary fa-spin "> </i></div>
+<mat-dialog-content>
+    <div class="modal-dialog" style="min-width:40% !important;border: 1cm currentColor; ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="title-l-40" id="adSearchModalLabel">Search User <i class="fa fa-circle-o-notch  text-primary fa-spin "> </i></div>
+                <mat-dialog-actions>
+                    <button type="button" class="close" (click)="close()" aria-label="Close">
+                        <span aria-hidden="false">&times;</span>
+                    </button>
+                </mat-dialog-actions>
+            </div>
+            <div class="modal-body">
 
-            <button type="button" class="close" aria-label="Close">
-                <span aria-hidden="false">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+                <form>
+                    <div class="form-inline">
 
-            <form>
-                <div class="form-inline">
-
-                    <div class="input-group search-ctrl mb-2 mr-sm-2 col-md-8 p-0">
-                        <input type="search" id="txtSearch" class="form-control rounded-pill bg-transparent pr-4 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search by FirstName or LastName or CorpID or EmailID" ng-model="sau.searchParam.searchText">
-                        <div class="input-group-append">
-                            <span class="input-group-text border-0 rounded-pill " id="basic-addon2" ng-click="searchADUsers()"><i class="fa fa-search"></i></span>
+                        <div class="input-group search-ctrl mb-2 mr-sm-2 col-md-8 p-0">
+                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-pill bg-transparent pr-4 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search by FirstName or LastName or CorpID or EmailID" [(ngModel)]="searchText">
+                            <div class="input-group-append">
+                                <span class="input-group-text border-0 rounded-pill " id="basic-addon2" (click)="searchADUsers()"><i class="fa fa-search"></i></span>
+                            </div>
                         </div>
+                        <button type="submit" class="btn btn-blue btn-pill  mb-2 pl-3 pr-3  mr-sm-2" (click)="searchADUsers()">Search ></button>
                     </div>
-                    <button type="submit" class="btn btn-blue btn-pill  mb-2 pl-3 pr-3  mr-sm-2" ng-click="searchADUsers()">Search ></button> 
-                </div>
-            </form>
+                </form>
 
-            <form>
-                <div class="list-group" style="max-height:70vh;  overflow-y:scroll; ">
+                <form>
+                    <div class="list-group" style="max-height:70vh;  overflow-y:scroll; ">
 
-                    <div class="list-group-item list-group-item-action " ng-click="userItemOnSelect(item)" ng-repeat="item in sau.searchResult" ng-model="sau.selectedItem" ng-class="(sau.selectedItem.CorpID == item.CorpID)? 'list-group-item-primary': ''">
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-inline-flex ">
-                                    <div><img id="userPhoto" src="../assets/images/thumbnailsample.jpg" class="rounded-circle border" style="width:50px;" /></div>
-                                    <div class="pl-2">
-                                        <div class="text-primary text-bold">DisplayName</div>
-                                        <div><span>Title</span></div>
+                        <div class="list-group-item list-group-item-action" *ngFor="let user of this.searchedUserList">
+                            <div class="row" (click)="userItemOnSelect(user)">
+                                <div class="col">
+                                    <div class="d-inline-flex ">
+                                        <div><img id="userPhoto" src="../assets/images/thumbnailsample.jpg" class="rounded-circle border" style="width:50px;" /></div>
+                                        <div class="pl-2">
+                                            <div class="text-primary text-bold">{{user.displayName}}</div>
+                                            <div><span>{{user.title}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div><span class="text-muted"><i class="fa fa-envelope-o"></i></span> {{user.email}}</div>
+                                    <div>
+                                        <span class="text-muted"><i class="fa fa-phone"></i></span>{{user.phone}}
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <span class="text-muted">User Id:</span> <span>{{user.corpID}}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div><span class="text-muted"><i class="fa fa-envelope-o"></i></span> Email</div>
-                                <div>
-                                    <span class="text-muted"><i class="fa fa-phone"></i></span>Phone
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div>
-                                    <span class="text-muted">User Id:</span> <span>CorpID</span>
-                                </div>
-                            </div>
+                            <!-- <div class="pt-3 pb-3" *ngIf="this.searchedUserList">
+                                <p class="text-muted">
+                                    No results found.
+                                </p>
+                            </div> -->
                         </div>
-                    </div>
+                        <!-- </div> -->
 
-                    <div class="pt-3 pb-3" ng-if="sau.searchResult.length <= 0">
-                        <p class="text-muted">
-                            No results found.
-                        </p>
-                    </div>
+                        <div class="pt-3 pb-3" ng-if="this.searchedUserList.length <= 0">
+                            <p class="text-muted">
+                                No results found.
+                            </p>
+                        </div>
 
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <div>
+                    <mat-dialog-actions>
+                        <button type="submit" class="btn input-sm btn-blue" (click)="saveSelectedUser()"><i class="fa fa-check-circle-o" aria-hidden="false"></i> Select</button>
+                        <button type="submit" class="btn input-sm btn-secondary" (click)="close()"><i class="fa fa-close" aria-hidden="false"></i> Close</button>
+                    </mat-dialog-actions>
                 </div>
-            </form>
-
-        </div>
-        <div class="modal-footer">
-            <div>
-                <button type="submit" class="btn input-sm btn-blue" ng-click="saveSelectedUser()"><i class="fa fa-check-circle-o" aria-hidden="false"></i> Select</button>
-
-                <button type="submit" class="btn input-sm btn-secondary" ng-click="closeDialog('#divADSeachPopup')"><i class="fa fa-close" aria-hidden="false"></i> Close</button>
             </div>
         </div>
     </div>
-</div>
+</mat-dialog-content>
+<!-- <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+</mat-dialog-actions> -->

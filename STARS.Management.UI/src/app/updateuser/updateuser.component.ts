@@ -1,8 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserDTO } from '../_models/user';
+import { firstValueFrom } from 'rxjs';
+import { ManageuserComponent } from '../manageuser/manageuser.component';
+import { UserAssignRoleDTO, UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
 
 @Component({
@@ -13,47 +15,63 @@ import { UserManagementService } from '../_services/user-management.service';
 export class UpdateuserComponent implements OnInit {
 
   private formBuilder: FormBuilder;
-  private userDTO: UserDTO;
+  userDTO: UserDTO;
+  userAssignRoleDTO : UserAssignRoleDTO
+  @Input() selectedUser : UserDTO;
+  @Input() isNewUser : boolean;
+
+  @Output() selectedUserReset: EventEmitter<boolean> = new EventEmitter<boolean>();
+  
+
+  roleOptions: { id: number; value: string; }[];
+  selectedOption: number;
+
+
   constructor(private userManagementService: UserManagementService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+
+   this.roleOptions = [
+    { id: 1, value: "Site Admin" },
+    { id: 2, value: "Super Admin" }
+  ]
+
+    this.userDTO = this.selectedUser;
+    this.selectedOption = this.userDTO.userRoleId;
   }
+
   async saveUser() {
 
-    this.userDTO = new UserDTO();
-    this.userDTO.corpID = "Vaibhav";
-    this.userDTO.email = "ShriantTest";
-    this.userDTO.phone = "ShriantTest";
-    this.userDTO.fullName = "vaibhav joshi";
-    this.userDTO.displayName = "ShriantTest";
-    this.userDTO.givenName = "ShriantTest";
-    this.userDTO.surname = "ShriantTest";
-    this.userDTO.samaAccountName = "ShriantTest";
-    this.userDTO.physicalDeliveryOfficeName = "ShriantTest";
-    this.userDTO.employeeType = "ShriantTest";
-    this.userDTO.employeeId = "ShriantTest";
-    this.userDTO.employeeNumber = "ShriantTest";
-    this.userDTO.title = "ShriantTest";
-    this.userDTO.department = "ShriantTest";
-    this.userDTO.division = "ShriantTest";
-    this.userDTO.manager = "ShriantTest";
-    this.userDTO.managerDisplayName = "ShriantTest";
-    this.userDTO.managerEmail = "ShriantTest";
-    this.userDTO.managerCorpID = "ShriantTest";
-    this.userDTO.thumbnailPhoto = "ShriantTest";
-    this.userDTO.userRoleId = 1
+    this.userDTO.userRoleId = this.selectedOption;
 
     this.userManagementService.saveUserDetails(this.userDTO)
       .subscribe(
         data => {
-          this.router.navigate(['/manageuser']);
+          this.refresh();
         },
         error => {
           // this.alertService.error(error);
           console.log(error);
         });
-  };
+  }
 
+  async updateUser(){
+    this.userAssignRoleDTO = new UserAssignRoleDTO;
+    this.userAssignRoleDTO.UserRoleId = this.selectedOption;
+      await firstValueFrom(this.userManagementService.editUserDetails(this.userDTO.corpID,this.userAssignRoleDTO))
+      .then((res) => {
+        this.refresh();
+      })
+  }
+
+  cancel(){
+    this.refresh();
+  }
+
+  refresh(){
+    this.selectedUserReset.emit(true);
+    this.router.navigate(['/manageuser']);
+  }
 }

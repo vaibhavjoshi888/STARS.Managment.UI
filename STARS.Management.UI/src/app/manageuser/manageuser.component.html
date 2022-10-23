@@ -1,4 +1,4 @@
-<div class="container py-4">
+<div class="container py-4" *ngIf="!this.selectedUser">
     <div ng-controller="ManageUserCtrl" id="ManageUserCtrlID" ng-cloak>
         <div class="row">
             <div class="col-md-12 p-0">
@@ -47,7 +47,7 @@
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-2">
-                        <a  class="btn btn-blue align-items-end ml-5"  [routerLink]="['/updateuser']" title="Add New User" ng-click="addNewUser(addNewUserCallback)">
+                        <a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5" title="Add New User" (click)="openDialog()">
                             <img src="../assets/images/AddNewUserICon.png" /> Add New User
                         </a>
                     </div>
@@ -89,7 +89,7 @@
                                     <div class="cust-val">Active</div>
                                 </td>
                                 <td class="text-right pr-2 col-view col-action">
-                                    <a class="btn btn-blue" title="Edit User"><img src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <a class="btn btn-blue" title="Edit User" (click)="editUser(user)"><img src="../assets/images/EditIcon.png" /> Edit</a>
                                     <!-- <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
                                     @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 2 || item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>*@
                                     @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="session.RoleId == 1 || (session.RoleId == 2 && item.RoleId ==3)" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
@@ -108,7 +108,7 @@
                                 <td colspan="4">
                                 </td>
                                 <td colspan="4" class="text-right pr-2 col-view col-action">
-                                    <a class="btn btn-pink" title="Delete User"><img src="../assets/images/DeleteIcon.png" /> Delete</a>
+                                    <a class="btn btn-pink" title="Delete User" (click)="openDeleteDialog(user.corpID)"><img src="../assets/images/DeleteIcon.png" /> Delete</a>
                                 </td>
                             </tr>
                         </table>
@@ -135,4 +135,7 @@
         </div>
 
     </div>
+</div>
+<div *ngIf="this.selectedUser">
+    <app-updateuser [selectedUser]="this.selectedUser" [isNewUser]="this.isNewUser" (selectedUserReset)="resetUser($event)"></app-updateuser>
 </div>
