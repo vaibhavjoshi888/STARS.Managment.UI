@@ -39,11 +39,11 @@ export class UpdateuserComponent implements OnInit {
   ]
 
     this.userDTO = this.selectedUser;
-    this.selectedOption = this.userDTO.userRoleId;
   }
 
   async saveUser() {
 
+    this.selectedOption = this.userDTO.userRoleId;
     this.userDTO.userRoleId = this.selectedOption;
 
     this.userManagementService.saveUserDetails(this.userDTO)

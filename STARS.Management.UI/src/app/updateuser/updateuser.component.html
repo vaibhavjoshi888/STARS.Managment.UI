@@ -57,7 +57,7 @@
                                                 <option value="1">Site Admin</option>
                                                 <option value="2">Super Admin</option>
                                             </select> -->
-                                            <select [(ngModel)]="selectedOption">
+                                            <select [(ngModel)]="selectedOption" class="form-control col-md-10">
                                                 <option *ngFor="let o of roleOptions" [value]="o.id">
                                                    {{o.value}}
                                                 </option>
