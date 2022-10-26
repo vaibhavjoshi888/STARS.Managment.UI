@@ -1,10 +1,10 @@
-
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { ManageuserComponent } from '../manageuser/manageuser.component';
 import { UserAssignRoleDTO, UserDTO } from '../_models/user';
+import { MessageService } from '../_services/message.service';
 import { UserManagementService } from '../_services/user-management.service';
 
 @Component({
@@ -23,12 +23,13 @@ export class UpdateuserComponent implements OnInit {
   @Output() selectedUserReset: EventEmitter<boolean> = new EventEmitter<boolean>();
   
 
-  roleOptions: { id: number; value: string; }[];
+  roleOptions: { id: number; value: string; selected?:boolean}[];
   selectedOption: number;
 
 
   constructor(private userManagementService: UserManagementService,
-    private router: Router
+    private router: Router,
+    private messageservice: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -39,13 +40,14 @@ export class UpdateuserComponent implements OnInit {
   ]
 
     this.userDTO = this.selectedUser;
-    this.selectedOption = this.userDTO.userRoleId;
+    this.selectedOption=0;
   }
 
   async saveUser() {
 
     this.userDTO.userRoleId = this.selectedOption;
-
+    this.userDTO.createdBy=this.messageservice.currentuser;
+    this.userDTO.createdDate=new Date;
     this.userManagementService.saveUserDetails(this.userDTO)
       .subscribe(
         data => {

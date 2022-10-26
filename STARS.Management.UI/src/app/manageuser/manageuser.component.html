@@ -82,7 +82,12 @@
                                 </td>
                                 <td>
                                     <div class="cust-lbl">User Role</div>
-                                    <div class="cust-val">{{user.userRoleId}}</div>
+                                    <div class="cust-val" *ngIf="user.userRoleId==1">
+                                        Site Admin
+                                    </div>
+                                    <div class="cust-val" *ngIf="user.userRoleId==2">
+                                        Super Admin
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="cust-lbl">Status</div>
@@ -99,11 +104,11 @@
                             <tr>
                                 <td>
                                     <div class="cust-lbl">Created By</div>
-                                    <div class="cust-val">TestUser</div>
+                                    <div class="cust-val">{{user.createdBy}}</div>
                                 </td>
                                 <td>
                                     <div class="cust-lbl">Created Date</div>
-                                    <div class="cust-val">SampleDate</div>
+                                    <div class="cust-val">{{user.createdDate}}</div>
                                 </td>
                                 <td colspan="4">
                                 </td>
@@ -114,7 +119,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="pt-2 pb-2" ng-if="list.paging.totalItems == 0">
+                <div class="pt-2 pb-2" *ngIf="this.userdetails.length == 0">
                     <p class="text-muted">
                         No results found.
                     </p>

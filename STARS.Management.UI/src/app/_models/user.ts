@@ -37,6 +37,8 @@ export class UserDTO
     managerCorpID :string;
     thumbnailPhoto :string;
     userRoleId :number;
+    createdBy :string;
+    createdDate:Date;
 }
 
 export class UserAssignRoleDTO
