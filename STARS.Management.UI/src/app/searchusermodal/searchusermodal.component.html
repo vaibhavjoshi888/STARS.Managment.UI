@@ -40,8 +40,8 @@
                             <div class="row" (click)="userItemOnSelect(user)">
                                 <div class="col">
                                     <div class="d-inline-flex">
-                                        <div><img id="userPhoto" src="../assets/images/thumbnailsample.jpg"
-                                                class="rounded-circle border" style="width:50px;height: 50px;" />
+                                        <div><img id="userPhoto" src={{user.thumbnailPhoto}} class="rounded-circle border"
+                                            style="width:50px;height: 50px;" />
                                         </div>
                                         <div class="pl-2">
                                             <div class="text-primary text-bold">{{user.displayName}}</div>
