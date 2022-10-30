@@ -12,7 +12,7 @@
                     <div class="col-md-3">
                         <label class="sr-only" for="txtSearch">Search</label>
                         <div class="input-group search-ctrl mb-2 mr-sm-2 p-0">
-                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" [(ngModel)]="searchText">
+                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" (keydown)="getUserList()" (change)="getUserList()" [(ngModel)]="searchText">
 
                             <!-- <div class="input-group-append">
                                 <span class="input-group-text btn-blue btn-pill rounded-pill " id="basic-addon2"
