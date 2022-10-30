@@ -16,14 +16,14 @@ export class UpdateuserComponent implements OnInit {
 
   private formBuilder: FormBuilder;
   userDTO: UserDTO;
-  userAssignRoleDTO : UserAssignRoleDTO
-  @Input() selectedUser : UserDTO;
-  @Input() isNewUser : boolean;
+  userAssignRoleDTO: UserAssignRoleDTO
+  @Input() selectedUser: UserDTO;
+  @Input() isNewUser: boolean;
 
   @Output() selectedUserReset: EventEmitter<boolean> = new EventEmitter<boolean>();
-  
 
-  roleOptions: { id: number; value: string; selected?:boolean}[];
+
+  roleOptions: { id: number; value: string; selected?: boolean }[];
   selectedOption: number;
 
 
@@ -34,20 +34,25 @@ export class UpdateuserComponent implements OnInit {
 
   ngOnInit(): void {
 
-   this.roleOptions = [
-    { id: 1, value: "Site Admin" },
-    { id: 2, value: "Super Admin" }
-  ]
+    this.roleOptions = [
+      { id: 1, value: "Site Admin" },
+      { id: 2, value: "Super Admin" }
+    ]
 
     this.userDTO = this.selectedUser;
-    this.selectedOption=0;
+    if (this.userDTO.userRoleId == 0) {
+      this.selectedOption = 0;
+    }
+    else{
+      this.selectedOption = this.userDTO.userRoleId;
+    }
   }
 
   async saveUser() {
 
     this.userDTO.userRoleId = this.selectedOption;
-    this.userDTO.createdBy=this.messageservice.currentuser;
-    this.userDTO.createdDate=new Date;
+    this.userDTO.createdBy = this.messageservice.currentuser;
+    this.userDTO.createdDate = new Date;
     this.userManagementService.saveUserDetails(this.userDTO)
       .subscribe(
         data => {
@@ -57,22 +62,23 @@ export class UpdateuserComponent implements OnInit {
           // this.alertService.error(error);
           console.log(error);
         });
+        this.selectedOption = 0;
   }
 
-  async updateUser(){
+  async updateUser() {
     this.userAssignRoleDTO = new UserAssignRoleDTO;
     this.userAssignRoleDTO.UserRoleId = this.selectedOption;
-      await firstValueFrom(this.userManagementService.editUserDetails(this.userDTO.corpID,this.userAssignRoleDTO))
+    await firstValueFrom(this.userManagementService.editUserDetails(this.userDTO.corpID, this.userAssignRoleDTO))
       .then((res) => {
         this.refresh();
       })
   }
 
-  cancel(){
+  cancel() {
     this.refresh();
   }
 
-  refresh(){
+  refresh() {
     this.selectedUserReset.emit(true);
     this.router.navigate(['/manageuser']);
   }
