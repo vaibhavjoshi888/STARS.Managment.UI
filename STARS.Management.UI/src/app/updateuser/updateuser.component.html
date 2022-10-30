@@ -2,9 +2,7 @@
     <div ng-controller="AddEditUserCtrl" id="AddEditUserCtrlID" ng-cloak>
         <div class="row">
             <div class="col-md-12 p-0">
-                <div class="title-l-40">User Management<span class="fa fa-circle-o-notch text-primary fa-spin"
-                        ng-if="showProcessing"></span>
-
+                <div class="title-l-40">User Management
                 </div>
             </div>
         </div>
@@ -17,7 +15,7 @@
                             <table class="table border-0 m-0 ml-2">
                                 <tr>
                                     <td rowspan="2" class="col-image">
-                                        <img id="userPhoto" src={{user.thumbnailPhoto}} class="rounded-circle border"
+                                        <img id="userPhoto" src={{userDTO.thumbnailPhoto}} class="rounded-circle border"
                                         style="width:100px;height: 100px;" />
                                     </td>
                                     <td>
