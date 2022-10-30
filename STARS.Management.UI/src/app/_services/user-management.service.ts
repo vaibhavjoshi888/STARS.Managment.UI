@@ -21,6 +21,13 @@ export class UserManagementService {
       }));
   }
 
+  searchUsers(username) {
+    return this.http.get<any>(`${environment.baseUrl_API}/UserManagement/getuserdetails/${username}`)
+      .pipe(map(user => {
+        return user;
+      }));
+  }
+
   saveUserDetails(user) {
     return this.http.post<any>(`${environment.baseUrl_API}/UserManagement/user`, user);
   }

@@ -12,14 +12,14 @@
                     <div class="col-md-3">
                         <label class="sr-only" for="txtSearch">Search</label>
                         <div class="input-group search-ctrl mb-2 mr-sm-2 p-0">
-                            <input type="search" id="txtSearch" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" ng-model="list.filter.searchText" ng-enter="getUserList()">
+                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" [(ngModel)]="searchText">
 
                             <!-- <div class="input-group-append">
                                 <span class="input-group-text btn-blue btn-pill rounded-pill " id="basic-addon2"
                                     ng-click="getUserList()"><i class="fa fa-search"></i></span>
                             </div> -->
 
-                            &nbsp;<button type="button" class="btn btn-blue btn-pill py-1 rounded-5   pl-2 pr-5  mr-sm-3" ng-click="getUserList()">Search</button>
+                            &nbsp;<button type="button" class="btn btn-blue btn-pill py-1 rounded-5   pl-2 pr-5  mr-sm-3" (click)="getUserList()">Search</button>
                         </div>
 
                     </div>
@@ -27,17 +27,17 @@
                     <div class="col-md-4">
 
                         <div class="custom-control custom-checkbox  form-check-inline text-blue ml-5 py-2">
-                            <input type="checkbox" class="custom-control-input" id="chkAll" ng-change="chkAllOnChange()" ng-model="list.filter.chkAllIsSelected"> &nbsp;
+                            <input type="checkbox" class="custom-control-input" id="chkAll" (click)="getUserByRole($event)" [(ngModel)]="chkAllIsSelected"> &nbsp;
                             <label class="custom-control-label" for="chkAll">All</label>
                         </div>
 
-                        <div class="custom-control custom-checkbox  form-check-inline text-blue" ng-repeat="role in list.filter.avlRoleList">
-                            <input type="checkbox" class="custom-control-input" ng-model="role.IsSelected" ng-change="chkRoleOnChange()"> &nbsp;
+                        <div class="custom-control custom-checkbox  form-check-inline text-blue">
+                            <input type="checkbox" class="custom-control-input" id="chkSuperAdmin" (click)="getUserByRole($event)" [(ngModel)]="chkSuperIsSelected"> &nbsp;
                             <label class="custom-control-label"> Super Adminstrator</label>
                         </div>
 
                         <div class="custom-control custom-checkbox  form-check-inline text-blue">
-                            <input type="checkbox" class="custom-control-input" id="chkAdmin"> &nbsp;
+                            <input type="checkbox" class="custom-control-input" id="chkSiteAdmin" (click)="getUserByRole($event)" [(ngModel)]="chkSiteIsSelected"> &nbsp;
                             <label class="custom-control-label" for="chkAdmin"> Site Adminstrator</label>
                         </div>
 
