@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MessageService {
 public currentuser:string="";
+public userRoleId:string="0";
   constructor() { 
     
   }

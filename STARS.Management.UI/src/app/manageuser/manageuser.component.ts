@@ -39,7 +39,6 @@ export class ManageuserComponent implements OnInit {
     let dialogRef = this.dialog.open(SearchusermodalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(value => {
-      console.log(`Dialog sent: ${value}`);
       this.isNewUser = true;
       this.selectedUser = value;
     });
@@ -56,7 +55,7 @@ export class ManageuserComponent implements OnInit {
 
   getUserList() {
     if (this.searchText != '') {
-      this.userdetails = this.userdetails.filter(f => f.fullName.toLocaleLowerCase().includes(this.searchText));
+      this.userdetails = this.userdetails.filter(f => f.fullName.toLocaleLowerCase().includes(this.searchText) || f.corpID.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()));
     }
     else {
       this.userdetails = this.InitialLoad;
@@ -76,10 +75,10 @@ export class ManageuserComponent implements OnInit {
         this.userdetails = this.InitialLoad;
       }
       else if (this.chkSuperIsSelected) {
-        this.userdetails = this.userdetails.filter(f => f.userRoleId == 1);
+        this.userdetails = this.userdetails.filter(f => f.userRoleId == 2);
       }
       else if (this.chkSiteIsSelected) {
-        this.userdetails = this.userdetails.filter(f => f.userRoleId == 2);
+        this.userdetails = this.userdetails.filter(f => f.userRoleId == 1);
       }
       else{
         this.userdetails = this.InitialLoad;
@@ -93,10 +92,10 @@ export class ManageuserComponent implements OnInit {
         this.userdetails = this.InitialLoad;
       }
       else if (this.chkSiteIsSelected) {
-        this.userdetails = this.userdetails.filter(f => f.userRoleId == 2);
+        this.userdetails = this.userdetails.filter(f => f.userRoleId == 1);
       }
       else if (this.chkSuperIsSelected) {
-        this.userdetails = this.userdetails.filter(f => f.userRoleId == 1);
+        this.userdetails = this.userdetails.filter(f => f.userRoleId == 2);
       }
       else{
         this.userdetails = this.InitialLoad;

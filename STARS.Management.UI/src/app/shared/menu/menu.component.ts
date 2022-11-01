@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 
   currentUser: SignedInUserDTO;
   isloggedinuser: boolean;
+  isadminUser: boolean;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -20,6 +21,8 @@ export class MenuComponent implements OnInit {
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.isloggedinuser = this.messageservice!.currentuser == "";
+    if (this.messageservice.userRoleId == "1" || this.messageservice.userRoleId == "2")
+      this.isadminUser = true;
   }
 
   logout() {
@@ -36,7 +39,7 @@ export class MenuComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    
+
   }
 
 }

@@ -24,17 +24,17 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="topNavBar">
-                            <ul class="navbar-nav mr-auto ">
+                            <ul class="navbar-nav" style="margin-left:auto;">
                                 <li class="nav-item" id="ni-Welcome">
                                     <a class="nav-link" title="Welcome" [routerLink]="['/welcome']">HOME</a>
                                 </li>
                                 <li class="nav-item" id="ni-nonps-staff">
                                     <a class="nav-link" title="View All Stars">VIEW All STARS</a>
                                 </li>
-                                <li class="nav-item" id="ni-nonps-staff1">
+                                <li *ngIf="this.isadminUser" class="nav-item" id="ni-nonps-staff1">
                                     <a class="nav-link" title="Review Stars">REVIEW STARS</a>
                                 </li>
-                                <li class="nav-item" id="ni-user-mgmt">
+                                <li *ngIf="this.isadminUser" class="nav-item" id="ni-user-mgmt">
                                     <a class="nav-link" title="USER MANAGEMENT" [routerLink]="['/manageuser']">USER MANAGEMENT</a>
                                 </li>
                                 <li class="nav-item" id="ni-support">
@@ -43,7 +43,7 @@
                                 <li class="nav-item" id="ni-support" *ngIf="isloggedinuser">
                                     &nbsp; &nbsp; <button type="button"  class="btn btn-warning cust ml-3 text-white" (click)="login()">LOGIN</button>
                                 </li>
-                                <li class="nav-item" id="ni-support" *ngIf="!isloggedinuser">
+                                <li class="nav-item" id="ni-support" *ngIf="!isloggedinuser" style="margin-left:10px;margin-top: 5px;">
                                     
                                     <!-- <button type="button"  class="btn btn-warning cust ml-3 text-white" (click)="logout()">LOGOUT
                                         

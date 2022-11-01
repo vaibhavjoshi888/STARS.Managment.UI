@@ -29,6 +29,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.messageservice.currentuser = this.currentUser.firstName;
+    this.messageservice.userRoleId = this.currentUser.roleId;
     if(this.router.url == '/')
     this.isLoginPage =true;
     else if(this.router.url == '/welcome')
@@ -36,8 +37,6 @@ export class AppComponent {
   }
 
   userIsLogged() {
-    console.log(this.router.url);
-    console.log(this.isLoginPage);
     return this.isLoginPage;
   }
 
