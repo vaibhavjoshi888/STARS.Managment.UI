@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   IsLoggined:boolean = true;
+  errorResponse:string='';
 
   constructor(
       private formBuilder: FormBuilder,
@@ -68,6 +69,7 @@ export class LoginComponent implements OnInit {
               },
               error => {
                   // this.alertService.error(error);
+                  this.errorResponse=error.error;
                   this.IsLoggined=false;
                   this.loading = false;
               });
