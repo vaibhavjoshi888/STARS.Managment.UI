@@ -12,18 +12,14 @@
                     <div class="col-md-3">
                         <label class="sr-only" for="txtSearch">Search</label>
                         <div class="input-group search-ctrl mb-2 mr-sm-2 p-0">
-                            <input type="search" id="txtSearch" class="form-control rounded-5 bg-transparent pr-5 py-1 "
-                                aria-label="Search" aria-describedby="basic-addon2" placeholder="Search"
-                                ng-model="list.filter.searchText" ng-enter="getUserList()">
+                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" (keydown)="getUserList()" (change)="getUserList()" [(ngModel)]="searchText">
 
                             <!-- <div class="input-group-append">
                                 <span class="input-group-text btn-blue btn-pill rounded-pill " id="basic-addon2"
                                     ng-click="getUserList()"><i class="fa fa-search"></i></span>
                             </div> -->
 
-                            &nbsp;<button type="button"
-                                class="btn btn-blue btn-pill py-1 rounded-5   pl-2 pr-5  mr-sm-3"
-                                ng-click="getUserList()">Search ></button>
+                            &nbsp;<button type="button" class="btn btn-blue btn-pill py-1 rounded-5   pl-2 pr-5  mr-sm-3" (click)="getUserList()">Search</button>
                         </div>
 
                     </div>
@@ -31,20 +27,17 @@
                     <div class="col-md-4">
 
                         <div class="custom-control custom-checkbox  form-check-inline text-blue ml-5 py-2">
-                            <input type="checkbox" class="custom-control-input" id="chkAll" ng-change="chkAllOnChange()"
-                                ng-model="list.filter.chkAllIsSelected"> &nbsp;
+                            <input type="checkbox" class="custom-control-input" id="chkAll" (click)="getUserByRole($event)" [(ngModel)]="chkAllIsSelected"> &nbsp;
                             <label class="custom-control-label" for="chkAll">All</label>
                         </div>
 
-                        <div class="custom-control custom-checkbox  form-check-inline text-blue"
-                            ng-repeat="role in list.filter.avlRoleList">
-                            <input type="checkbox" class="custom-control-input" ng-model="role.IsSelected"
-                                ng-change="chkRoleOnChange()"> &nbsp;
+                        <div class="custom-control custom-checkbox  form-check-inline text-blue">
+                            <input type="checkbox" class="custom-control-input" id="chkSuperAdmin" (click)="getUserByRole($event)" [(ngModel)]="chkSuperIsSelected"> &nbsp;
                             <label class="custom-control-label"> Super Adminstrator</label>
                         </div>
 
                         <div class="custom-control custom-checkbox  form-check-inline text-blue">
-                            <input type="checkbox" class="custom-control-input" id="chkAdmin"> &nbsp;
+                            <input type="checkbox" class="custom-control-input" id="chkSiteAdmin" (click)="getUserByRole($event)" [(ngModel)]="chkSiteIsSelected"> &nbsp;
                             <label class="custom-control-label" for="chkAdmin"> Site Adminstrator</label>
                         </div>
 
@@ -54,8 +47,7 @@
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-2">
-                        <a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5" title="Add New User"
-                            (click)="openDialog()">
+                        <a href="JavaScript:void(0);" class="btn btn-blue align-items-end ml-5" title="Add New User" (click)="openDialog()">
                             <img src="../assets/images/AddNewUserICon.png" /> Add New User
                         </a>
                     </div>
@@ -70,8 +62,7 @@
                         <table class="table border-0 m-0 ml-2">
                             <tr>
                                 <td rowspan="3" class="col-image">
-                                    <img id="userPhoto" src={{user.thumbnailPhoto}} class="rounded-circle border"
-                                    style="width:100px;height: 100px;" />
+                                    <img id="userPhoto" src={{user.thumbnailPhoto}} class="rounded-circle border" style="width:100px;height: 100px;" />
                                 </td>
                                 <td class="col-name">
                                     <div class="cust-lbl">Name</div>
@@ -103,8 +94,11 @@
                                     <div class="cust-val">Active</div>
                                 </td>
                                 <td class="text-right pr-2 col-view col-action">
-                                    <a class="btn btn-blue" title="Edit User" (click)="editUser(user)"><img
-                                            src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <a class="btn btn-blue" title="Edit User" (click)="editUser(user)"><img src="../assets/images/EditIcon.png" /> Edit</a>
+                                    <!-- <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 1) || (session.RoleId == 2 && (item.RoleId == 2 || item.RoleId == 3))" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>*@
+                                    @*<a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="session.RoleId == 1 || (session.RoleId == 2 && item.RoleId ==3)" href="JavaScript:void(0);" class="btn btn-blue" title="Edit User"><img src="~/Images/EditIcon.png" /> Edit</a>
+                                        <a ng-click="openAddEditUserView(item.AppUserId,item.CorpUserId)" ng-if="(session.RoleId == 2 && item.RoleId ==2)" href="JavaScript:void(0);" class="btn btn-blue" title="View User"><img src="~/Images/EditIcon.png" /> View</a>*@ -->
                                 </td>
                             </tr>
                             <tr>
@@ -119,9 +113,7 @@
                                 <td colspan="4">
                                 </td>
                                 <td colspan="4" class="text-right pr-2 col-view col-action">
-                                    <a class="btn btn-pink" title="Delete User"
-                                        (click)="openDeleteDialog(user.corpID)"><img
-                                            src="../assets/images/DeleteIcon.png" /> Delete</a>
+                                    <a class="btn btn-pink" title="Delete User" (click)="openDeleteDialog(user.corpID)"><img src="../assets/images/DeleteIcon.png" /> Delete</a>
                                 </td>
                             </tr>
                         </table>
@@ -150,6 +142,5 @@
     </div>
 </div>
 <div *ngIf="this.selectedUser">
-    <app-updateuser [selectedUser]="this.selectedUser" [isNewUser]="this.isNewUser"
-        (selectedUserReset)="resetUser($event)"></app-updateuser>
+    <app-updateuser [selectedUser]="this.selectedUser" [isNewUser]="this.isNewUser" (selectedUserReset)="resetUser($event)"></app-updateuser>
 </div>
