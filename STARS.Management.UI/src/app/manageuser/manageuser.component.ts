@@ -78,7 +78,9 @@ export class ManageuserComponent implements OnInit {
       if (confirmed) {
         this.deleteUser(userId);
         this.resetUser(true);
+        window.location.reload();
       }
     });
+    
   }
 }

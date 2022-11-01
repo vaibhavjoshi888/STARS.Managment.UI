@@ -81,5 +81,6 @@ export class UpdateuserComponent implements OnInit {
   refresh() {
     this.selectedUserReset.emit(true);
     this.router.navigate(['/manageuser']);
+    window.location.reload();
   }
 }
