@@ -1,0 +1,245 @@
+-- *** SqlDbx Personal Edition ***
+-- !!! Not licensed for commercial use beyound 90 days evaluation period !!!
+-- For version limitations please check http://www.sqldbx.com/personal_edition.htm
+-- Number of queries executed: 173, number of rows retrieved: 65
+
+IF OBJECT_ID ('dbo.AppUser') IS NOT NULL
+	DROP TABLE dbo.AppUser
+GO
+
+CREATE TABLE dbo.AppUser
+	(
+	AppUserId                  INT NOT NULL,
+	CorpUserId                 VARCHAR (50) NULL,
+	Email                      VARCHAR (50) NULL,
+	Phone                      VARCHAR (20) NULL,
+	FirstName                  VARCHAR (50) NULL,
+	LastName                   VARCHAR (50) NULL,
+	DisplayName                VARCHAR (50) NULL,
+	EmployeeType               VARCHAR (50) NULL,
+	EmployeeNumber             VARCHAR (50) NULL,
+	PhysicalDeliveryOfficeName VARCHAR (50) NULL,
+	Department                 VARCHAR (50) NULL,
+	Division                   VARCHAR (50) NULL,
+	Title                      VARCHAR (50) NULL,
+	ManagerCorpUserId          VARCHAR (50) NULL,
+	ManagerDisplayName         VARCHAR (50) NULL,
+	Note                       VARCHAR (500) NULL,
+	CreatedDate                DATETIME NOT NULL,
+	CreatedBy                  VARCHAR (50) NOT NULL,
+	LastUpdatedDate            DATETIME NULL,
+	LastUpdatedBy              VARCHAR (50) NULL,
+	ActiveStatus               VARCHAR (50) NULL,
+	PRIMARY KEY (AppUserId)
+	)
+GO
+
+IF OBJECT_ID ('dbo.Role') IS NOT NULL
+	DROP TABLE dbo.Role
+GO
+
+CREATE TABLE dbo.Role
+	(
+	RoleId          INT NOT NULL,
+	RoleName        VARCHAR (200) NULL,
+	RoleDisplayName VARCHAR (200) NULL,
+	Description     VARCHAR (500) NULL,
+	DisplayOrder    VARCHAR (200) NULL,
+	CreatedDate     DATETIME NOT NULL,
+	CreatedBy       VARCHAR (200) NOT NULL,
+	ActiveStatus    VARCHAR (20) NULL,
+	PRIMARY KEY (RoleId)
+	)
+GO
+
+IF OBJECT_ID ('dbo.SHareLikeHistoryCount') IS NOT NULL
+	DROP TABLE dbo.SHareLikeHistoryCount
+GO
+
+CREATE TABLE dbo.SHareLikeHistoryCount
+	(
+	ID         INT IDENTITY NOT NULL,
+	AppUserId  INT NULL,
+	ShareCount INT NULL,
+	PRIMARY KEY (ID),
+	CONSTRAINT FK_SHareLikeHistoryCount_AppUser FOREIGN KEY (AppUserId) REFERENCES dbo.AppUser (AppUserId)
+	)
+GO
+
+IF OBJECT_ID ('dbo.UserRole') IS NOT NULL
+	DROP TABLE dbo.UserRole
+GO
+
+CREATE TABLE dbo.UserRole
+	(
+	UserRoleId      INT NOT NULL,
+	AppUserId       INT NULL,
+	RoleId          INT NULL,
+	CreatedDate     DATETIME NOT NULL,
+	CreatedBy       VARCHAR (50) NOT NULL,
+	LastUpdatedDate DATETIME NULL,
+	LastUpdatedBy   VARCHAR (20) NULL,
+	ActiveStatus    VARCHAR (20) NOT NULL,
+	PRIMARY KEY (UserRoleId),
+	CONSTRAINT FK_UserRole_AppUser FOREIGN KEY (AppUserId) REFERENCES dbo.AppUser (AppUserId),
+	CONSTRAINT FK_UserRole_Role FOREIGN KEY (RoleId) REFERENCES dbo.Role (RoleId)
+	)
+GO
+
+IF OBJECT_ID ('dbo.UserStarConfiguration') IS NOT NULL
+	DROP TABLE dbo.UserStarConfiguration
+GO
+
+CREATE TABLE dbo.UserStarConfiguration
+	(
+	UserStarId    INT IDENTITY NOT NULL,
+	AppUserId     INT NULL,
+	Message       VARCHAR (1000) NULL,
+	Status        VARCHAR (50) NULL,
+	Approvedby    VARCHAR (50) NULL,
+	Feedback      VARCHAR (500) NULL,
+	StarStartDate DATETIME NULL,
+	StarEndDate   DATETIME NULL,
+	Isactive      BIT NULL,
+	CreatedBy     VARCHAR (50) NOT NULL,
+	CreatedDate   DATETIME NOT NULL,
+	ModifiedBy    VARCHAR (50) NULL,
+	ModifiedDate  DATETIME NULL,
+	PRIMARY KEY (UserStarId),
+	CONSTRAINT FK_UserStarConfig_AppUser FOREIGN KEY (AppUserId) REFERENCES dbo.AppUser (AppUserId)
+	)
+GO
+
+----------------
+
+-- *** SqlDbx Personal Edition ***
+-- !!! Not licensed for commercial use beyound 90 days evaluation period !!!
+-- For version limitations please check http://www.sqldbx.com/personal_edition.htm
+-- Number of queries executed: 134, number of rows retrieved: 52
+
+------------------------------------------
+
+
+
+CREATE PROCEDURE [dbo].[usp_app_user_operation]
+@operation VARCHAR(50),
+@corpuserid VARCHAR(50),
+@email VARCHAR(50) =null,
+@phone VARCHAR(50)=null,
+@firstname VARCHAR(50)=null,
+@lastname VARCHAR(50)=null, 
+@displayname VARCHAR(50)=null, 
+@employeetype VARCHAR(50)=null, 
+@employeenumber VARCHAR(50)=null, 
+@physicaldeliveryofficename VARCHAR(50)=null, 
+@department VARCHAR(50)=null, 
+@division VARCHAR(50)=null, 
+@title VARCHAR(50)=null, 
+@managercorpuserid VARCHAR(50)=null, 
+@managerdisplayname VARCHAR(50)=null, 
+@note VARCHAR(50)=null, 
+@createdby VARCHAR(50)=null, 
+@activestatus VARCHAR(50)=null,
+@roleid int
+AS
+--EXEC usp_app_user_operation  @operation='Insert',@corpuserid='Insert',@roleid=1,@createdby='superUser',@activestatus='1'
+IF(@operation='Insert')
+BEGIN
+
+
+declare @appid AS INT;
+declare @userroleid AS INT;
+SELECT @appid =coalesce(max(AppUserId),1)+1 FROM AppUser
+SELECT @userroleid =coalesce(max(UserRoleId),1)+1 FROM UserRole
+
+
+	INSERT INTO dbo.AppUser (AppUserId,CorpUserId, Email, Phone, FirstName, LastName,
+	DisplayName, EmployeeType, EmployeeNumber, PhysicalDeliveryOfficeName,
+	Department, Division, Title, ManagerCorpUserId, ManagerDisplayName, Note, CreatedBy,CreatedDate ,ActiveStatus)
+	VALUES (@appid,@corpuserid,
+	@email,
+	@phone, @firstname, @lastname, @displayname,
+	@employeetype, @employeenumber, @physicaldeliveryofficename, @department,
+	@division, @title, @managercorpuserid, @managerdisplayname, @note, @createdby, getdate(), @activestatus);
+	
+	INSERT INTO dbo.UserRole (UserRoleId,AppUserId, RoleId, CreatedDate, CreatedBy, ActiveStatus)
+	VALUES (@userroleid,@appid, @roleid, getdate(),@createdby ,@activestatus)
+END
+IF(@operation='Update')
+BEGIN
+	update dbo.UserRole SET  RoleId =@roleid WHERE AppUserId IN (SELECT AppUserId FROM AppUser WHERE CorpUserId= @corpuserid)
+END
+IF(@operation='Delete')
+BEGIN
+	update dbo.AppUser SET  ActiveStatus ='0' WHERE AppUserId  IN (SELECT AppUserId FROM AppUser WHERE CorpUserId= @corpuserid)
+	update dbo.UserRole SET  ActiveStatus ='0' WHERE AppUserId  IN (SELECT AppUserId FROM AppUser WHERE CorpUserId= @corpuserid)
+END
+GO
+
+
+ALTER-- *** SqlDbx Personal Edition ***
+-- !!! Not licensed for commercial use beyound 90 days evaluation period !!!
+-- For version limitations please check http://www.sqldbx.com/personal_edition.htm
+-- Number of queries executed: 67, number of rows retrieved: 33
+
+-- *** SqlDbx Personal Edition ***
+-- !!! Not licensed for commercial use beyound 90 days evaluation period !!!
+-- For version limitations please check http://www.sqldbx.com/personal_edition.htm
+-- Number of queries executed: 31, number of rows retrieved: 12
+
+CREATE PROCEDURE usp_getallusers
+
+@operation VARCHAR(50),
+@userId VARCHAR(50)=NULL
+
+AS
+
+IF (@operation ='GetAll')
+begin
+	SELECT * FROM AppUser WHERE ActiveStatus='1'
+END
+
+IF(@operation ='GetbyUserId')
+begin
+	SELECT * FROM AppUser WHERE ActiveStatus='1' and CorpUserId=@userId
+END
+
+IF(@operation ='GetSignedUser')
+BEGIN
+
+SELECT ap.CorpUserId,ap.AppUserId, r.RoleId,r.RoleName,r.RoleDisplayName FROM AppUser ap 
+INNER JOIN UserRole ur ON ur.AppUserId = ap.AppUserId
+INNER JOIN Role r ON r.RoleId = ur.RoleId
+WHERE ap.ActiveStatus='1' AND ap.CorpUserId=@userId
+
+END
+GO
+
+ PROCEDURE usp_getallRole
+
+AS
+
+
+SELECT RoleId,RoleName,RoleDisplayName,Description FROM Role
+GO
+
+
+
+
+
+
+-- *** SqlDbx Personal Edition ***
+-- !!! Not licensed for commercial use beyound 90 days evaluation period !!!
+-- For version limitations please check http://www.sqldbx.com/personal_edition.htm
+-- Number of queries executed: 43, number of rows retrieved: 20
+
+create PROCEDURE usp_getuserRole
+@userId VARCHAR(50)=NULL
+AS
+
+
+SELECT ur.UserRoleId,r.RoleId,r.RoleName,r.RoleDisplayName FROM UserRole ur INNER JOIN Role r ON r.RoleId = ur.RoleId 
+
+ WHERE ur.ActiveStatus='1' AND ur.AppUserId=@userId
+GO
+

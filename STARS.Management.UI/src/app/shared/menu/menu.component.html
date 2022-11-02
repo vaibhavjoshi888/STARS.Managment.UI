@@ -1,0 +1,63 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+
+</nav> -->
+<html>
+
+<head>
+    <link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
+</head>
+
+<body ng-app="commonApp" ng-controller="RootCtrl">
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 align-items-left" title="Click To Return to Home Screen.">
+                    <a target="_self">
+                        <img src="../assets/images/logo.jpeg" style="height:63px;" />
+                    </a>
+                </div>
+                <div class="col-md-8 text-right">
+                    <nav class="navbar navbar-expand-lg navbar-dark top-nav">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavBar" aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="topNavBar">
+                            <ul class="navbar-nav" style="margin-left:auto;">
+                                <li class="nav-item" id="ni-Welcome">
+                                    <a class="nav-link" title="Welcome" [routerLink]="['/welcome']">HOME</a>
+                                </li>
+                                <li class="nav-item" id="ni-nonps-staff">
+                                    <a class="nav-link" title="View All Stars">VIEW All STARS</a>
+                                </li>
+                                <li *ngIf="this.isadminUser" class="nav-item" id="ni-nonps-staff1">
+                                    <a class="nav-link" title="Review Stars">REVIEW STARS</a>
+                                </li>
+                                <li *ngIf="this.isadminUser" class="nav-item" id="ni-user-mgmt">
+                                    <a class="nav-link" title="USER MANAGEMENT" [routerLink]="['/manageuser']">USER MANAGEMENT</a>
+                                </li>
+                                <li class="nav-item" id="ni-support">
+                                    &nbsp; <button type="button" class="btn btn-warning cust ml-3 text-white" (click)="login()">SUBMIT STAR</button>
+                                </li>
+                                <li class="nav-item" id="ni-support" *ngIf="isloggedinuser">
+                                    &nbsp; &nbsp; <button type="button"  class="btn btn-warning cust ml-3 text-white" (click)="login()">LOGIN</button>
+                                </li>
+                                <li class="nav-item" id="ni-support" *ngIf="!isloggedinuser" style="margin-left:10px;margin-top: 5px;">
+                                    
+                                    <!-- <button type="button"  class="btn btn-warning cust ml-3 text-white" (click)="logout()">LOGOUT
+                                        
+                                    </button>  -->
+                                    <div class="signout text-right">
+                                        <a  title="Sign Out"><i class="fa fa-sign-out text-white cust ml-3 text-white" (click)="logout()" aria-hidden="true"></i></a>
+                                    </div> 
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav> -->
+<!-- <ng-container *ngIf="!isLoginPage"> -->
+    <app-menu *ngIf="userIsLogged()"></app-menu>
+<!-- </ng-container> -->
+<div>
+    <div class="content no-gutters py-0 w-100">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- <ng-container *ngIf="!isLoginPage"> -->
+<app-footer *ngIf="userIsLogged()"></app-footer>
+<!-- </ng-container> -->

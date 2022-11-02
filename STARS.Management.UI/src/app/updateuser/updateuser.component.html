@@ -1,0 +1,91 @@
+<div class="container py-4">
+    <div ng-controller="AddEditUserCtrl" id="AddEditUserCtrlID" ng-cloak>
+        <div class="row">
+            <div class="col-md-12 p-0">
+                <div class="title-l-40">User Management
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12 p-0">
+                <div class="cust-bg-light p-3 mb-0">
+                    <div class=" bg-white cust-list-item m-0">
+                        <div class="cust-list-item-body pl-1">
+                            <table class="table border-0 m-0 ml-2">
+                                <tr>
+                                    <td rowspan="2" class="col-image">
+                                        <img id="userPhoto" src={{userDTO.thumbnailPhoto}} class="rounded-circle border"
+                                        style="width:100px;height: 100px;" />
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Name</div>
+                                        <div class="cust-val">{{userDTO.displayName}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">User ID</div>
+                                        <div class="cust-val">{{userDTO.corpID}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Telephone</div>
+                                        <div class="cust-val">{{userDTO.phone}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Email</div>
+                                        <div class="cust-val">{{userDTO.email}}</div>
+                                    </td>
+
+                                    <td>
+                                        <div class="cust-lbl">Title</div>
+                                        <div class="cust-val">{{userDTO.title}}</div>
+                                    </td>
+                                    <td>
+                                        <div class="cust-lbl">Department</div>
+                                        <div class="cust-val">{{userDTO.department}}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cust-lbl">User Role</div>
+                                        <div class="cust-val">
+                                            <select [(ngModel)]="selectedOption" class="form-control col-md-10">
+                                                <option value="0">Select Role...</option>
+                                                <option *ngFor="let o of roleOptions" [value]="o.id">
+                                                    {{o.value}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-2 align-items-end">
+                <div class="text-right">
+                    <a (click)="cancel()" class="btn btn-pink" title="Back to User Management">
+                        <img src="../assets/images/CancelIcon.png" /> Cancel
+                    </a>
+                    &nbsp;&nbsp;
+                    <a (click)="saveUser()" class="btn btn-blue" title="Save User" *ngIf="isNewUser == true">
+                        <img src="../assets/images/SaveIcon.png" /> Save
+                    </a>
+                    <a (click)="updateUser()" class="btn btn-blue" title="Edit User" *ngIf="isNewUser == false">
+                        <img src="../assets/images/SaveIcon.png" /> Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
