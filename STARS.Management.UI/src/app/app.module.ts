@@ -16,6 +16,8 @@ import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SubmitstarComponent } from './submitstar/submitstar.component';
+import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SampleComponent,
     SearchusermodalComponent,
     ManageuserComponent,
-    UpdateuserComponent
+    UpdateuserComponent,
+    SubmitstarComponent,
+    ReviewstarsComponent
   ],
   imports: [
     BrowserModule,

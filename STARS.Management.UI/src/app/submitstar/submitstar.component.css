@@ -1,0 +1,22 @@
+.border-star {
+    border-color: #4196cc!important;
+}
+.bg-orange {
+    background-color: #f88d2a;
+    color: white;
+    text-decoration: none;
+}
+.bg-orange:hover {
+    color: white;
+    background-color: #031461;
+    cursor: pointer;
+}
+.border-0,.table>:not(caption)>*>* {
+    border-style: none!important;
+    border-width: 0!important;
+    border-bottom-width: 0px!important;
+}
+
+tr {
+   
+    border-style:none!important;}

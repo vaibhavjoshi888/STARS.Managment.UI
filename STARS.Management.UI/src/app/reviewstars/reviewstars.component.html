@@ -1,0 +1,309 @@
+
+
+<main class="container">
+  <h1 class="mb-4 text-blue fw-light">STAR Management</h1>
+  <div class="row">
+  <div class="col-md-7">
+    <div class="row">
+      <div class="col-4"><label>Search by Name</label>
+        <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
+          
+          <input type="text" class="form-control pill border-0" required=""><span class="input-group-text pill border-0 "><img src="../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24"></span>
+        
+        </div></div>
+      <div class="col-3"><label>Start Date</label>
+        <div class="input-group has-validation searchName">
+          
+          <input type="text" class="form-control"  required=""><span class="input-group-text border-0 "><img src="../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
+        
+        </div></div>
+      <div class="col-3"><label>End Date</label>
+        <div class="input-group has-validation searchName">
+          <input type="text" class="form-control"  required=""><span class="input-group-text border-0 "><img src="../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
+        </div>
+      </div>
+      <div class="col-2 d-grid"><label>&nbsp;</label>
+      <button class="btn pill btn-blue text-uppercase">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5 gap-2 d-flex">
+    <div class="col text-center"><label class="d-block">Total Submitted </label><span class="badge rounded-pill bg-submit ">8656</span></div>
+    <div class="col text-center"><label class="d-block">Pending </label><span class="badge rounded-pill bg-pending ">56</span></div>
+    <div class="col text-center"><label class="d-block">Approved </label><span class="badge rounded-pill bg-approve ">8600</span></div>
+    <div class="col text-center"><label class="d-block">Denied </label><span class="badge rounded-pill bg-deny ">8600</span></div>
+  
+  </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 gap-4 d-flex">
+  
+      <div class="form-check d-inline w-auto">
+        <input class="form-check-input" type="checkbox" id="all" name="All" value="something" checked>
+        <label class="form-check-label" for="all">All</label>
+      </div>
+      <div class="form-check d-inline w-auto">
+        <input class="form-check-input" type="checkbox" id="pending" name="Pending" value="something" >
+        <label class="form-check-label" for="pending">Pending</label>
+      </div>
+      <div class="form-check d-inline w-auto">
+        <input class="form-check-input" type="checkbox" id="approved" name="Approved" value="something" >
+        <label class="form-check-label" for="approved">Approved</label>
+      </div>
+      <div class="form-check d-inline w-auto">
+        <input class="form-check-input" type="checkbox" id="denied" name="Denied" value="something" >
+        <label class="form-check-label" for="denied">Denied</label>
+      </div>
+    </div>
+    </div>
+   <div class="col-12 tableStar table-responsive">
+    <table class="table ">
+      <thead class="border-top-0 border-start-0 border-end-0 border-2 bg-white">
+          <tr>
+            <th width="20"></th>
+            <th width="140">Employee Name</th>
+            <th width="121">Created by</th>
+            <th width="110">Date Created</th>
+            <th width="100">Status</th>
+            <th width="442">Message</th>
+            <th width="105">Approve</th>
+            <th width="105">Deny</th>
+          </tr>
+      </thead>
+  
+      <tbody>
+        <tr>
+          <table><tbody>
+            <tr>
+          <td class="show-hide" width="20"><a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a></td>
+          <td width="140">Andrew Vegoda</td>
+          <td width="121">Janet Fernandez</td>
+          <td width="110">00/00/2022</td>
+          <td width="100"><span class="circle bg-pending"></span>Pending</td>
+          <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+          <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+          <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+         
+        </tr>
+        
+         <tr>
+          <td class="hiddenRow"></td>
+          <td colspan="5" class="hiddenRow">
+            <div class="collapse" id="row0"> 
+              <table class="table">
+                <tr>
+                  <td>
+                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
+            hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit
+            fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam
+            eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus.
+            Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+            
+         
+        </tr>
+       
+        </table>
+   </div>
+   </td>
+   <td class="hiddenRow"></td>
+   <td class="hiddenRow"></td>
+   </tr> 
+
+
+</tbody></table>
+</tr>
+<!-- 1st row -->
+
+<tr>
+  <table><tbody>
+    <tr>
+  <td class="show-hide" width="20"><a class="btn collapsed" data-bs-toggle="collapse" href="#row1" aria-expanded="false" aria-controls="collapseExample" role="button"></a></td>
+  <td width="140">Andrew Vegoda</td>
+  <td width="121">Janet Fernandez</td>
+  <td width="110">00/00/2022</td>
+  <td width="100"><span class="circle bg-pending"></span>Pending</td>
+  <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+ 
+</tr>
+
+ <tr>
+  <td class="hiddenRow"></td>
+  <td colspan="5" class="hiddenRow">
+    <div class="collapse" id="row1"> 
+      <table class="table">
+        <tr>
+          <td>
+            <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
+    hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit
+    fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam
+    eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus.
+    Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+    
+ 
+</tr>
+
+</table>
+</div>
+</td>
+<td class="hiddenRow"></td>
+<td class="hiddenRow"></td>
+</tr> 
+
+
+</tbody></table>
+</tr>
+ <!-- 2nd row -->
+ <tr >
+  <table ><tbody>
+    <tr>
+  <td class="show-hide" width="20"><a class="btn collapsed" data-bs-toggle="collapse" href="#row2" aria-expanded="false" aria-controls="collapseExample" role="button"></a></td>
+  <td width="140">Andrew Vegoda</td>
+  <td width="121">Janet Fernandez</td>
+  <td width="110">00/00/2022</td>
+  <td width="100"><span class="circle bg-deny"></span>Denied</td>
+  <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn"><img src="../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+ 
+</tr>
+
+ <tr>
+  <td class="hiddenRow"></td>
+  <td colspan="5" class="hiddenRow">
+    <div class="collapse" id="row2"> 
+      <table class="table">
+        <tr>
+          <td>
+    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
+    hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit
+    fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam
+    eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus.
+    Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+    
+ 
+</tr>
+
+</table>
+</div>
+</td>
+<td class="hiddenRow"></td>
+<td class="hiddenRow"></td>
+</tr> 
+
+
+</tbody></table>
+</tr>
+
+
+<!-- 3rd row -->
+<tr>
+  <table><tbody>
+    <tr>
+  <td class="show-hide" width="20"><a class="btn collapsed" data-bs-toggle="collapse" href="#row3" aria-expanded="false" aria-controls="collapseExample" role="button"></a></td>
+  <td width="140">Andrew Vegoda</td>
+  <td width="121">Janet Fernandez</td>
+  <td width="110">00/00/2022</td>
+  <td width="100"><span class="circle bg-approve"></span>Approved</td>
+  <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn"> <img src="../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+ 
+</tr>
+
+ <tr>
+  <td class="hiddenRow"></td>
+  <td colspan="5" class="hiddenRow">
+    <div class="collapse" id="row3"> 
+      <table class="table">
+        <tr>
+          <td>
+            <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
+    hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit
+    fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam
+    eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus.
+    Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+    
+ 
+</tr>
+
+</table>
+</div>
+</td>
+<td class="hiddenRow"></td>
+<td class="hiddenRow"></td>
+</tr> 
+
+
+</tbody></table>
+</tr>
+
+<!-- 4th row -->
+<tr>
+  <table><tbody>
+    <tr>
+  <td class="show-hide" width="20"><a class="btn collapsed" data-bs-toggle="collapse" href="#row4" aria-expanded="false" aria-controls="collapseExample" role="button"></a></td>
+  <td width="140">Andrew Vegoda</td>
+  <td width="121">Janet Fernandez</td>
+  <td width="110">00/00/2022</td>
+  <td width="100"><span class="circle bg-pending"></span>Pending</td>
+  <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+  <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+ 
+</tr>
+
+ <tr>
+  <td class="hiddenRow"></td>
+  <td colspan="5" class="hiddenRow">
+    <div class="collapse" id="row4"> 
+      <table class="table">
+        <tr>
+          <td>
+            <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
+    hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit
+    fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam
+    eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus.
+    Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+    
+ 
+</tr>
+
+</table>
+</div>
+</td>
+<td class="hiddenRow"></td>
+<td class="hiddenRow"></td>
+</tr> 
+
+
+</tbody></table>
+</tr>
+
+   </tbody>
+   </table>
+<br/>
+<div class="clearfix mt-4"></div>
+   <nav aria-label="Page navigation example mt-5 mb-3">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link me-3" href="#" aria-label="Previous">
+          <span aria-hidden="true"><img src="../assets/images/back-arrow.png" alt="" srcset=""></span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link " href="#">1</a></li>
+      <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
+      <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link ms-3" href="#" aria-label="Next">
+          <span aria-hidden="true"><img src="../assets/images/next-arrow.png" alt="" srcset=""></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+</main>
+
+    
