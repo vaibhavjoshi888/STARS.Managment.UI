@@ -385,7 +385,7 @@ body {
     margin: 0px;
     color: #343a40;
     font-family: "SEGOEUI", "Segoe UI Regular", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"!important;
-    font-size: 14px;
+    font-size: 14px!important;
     /*  line-height:1.4;*/
 }
 

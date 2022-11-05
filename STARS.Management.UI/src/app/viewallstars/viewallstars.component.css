@@ -1,9 +1,36 @@
+.border-star {
+    border-color: #4196cc!important;
+}
+
+.bg-orange {
+    background-color: #f88d2a;
+    color: white;
+    text-decoration: none;
+}
+
+.bg-orange:hover {
+    color: white;
+    background-color: #031461;
+    cursor: pointer;
+}
+
+.border-0,
+.table>:not(caption)>*>* {
+    border-style: none!important;
+    border-width: 0!important;
+    border-bottom-width: 0px!important;
+}
+
+tr {
+    border-style: none!important;
+}
+
 .pill.input-group-text,
 .pill.form-control {
     border-radius: 50%;
 }
 
-table{width: 100%;}
+
 /* Show it's not fixed to the top */
 
 .bg-star {
@@ -216,6 +243,9 @@ td.show-hide a.btn:focus {
     padding: 0.1rem 0.5rem;
 }
 
+.tableStar>table:nth-child(odd) {
+    background: #ededed;
+}
 
 .tableStar>table td {
     padding: 5px;
@@ -355,7 +385,7 @@ body {
     margin: 0px;
     color: #343a40;
     font-family: "SEGOEUI", "Segoe UI Regular", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"!important;
-    font-size: 14px!important;
+    font-size: 14px;
     /*  line-height:1.4;*/
 }
 
@@ -528,7 +558,7 @@ button {
 
 .title-b-16 {
     font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI"!important;
-    font-size: 16px;
+    font-size: 16px!important;
     line-height: 1.4;
 }
 

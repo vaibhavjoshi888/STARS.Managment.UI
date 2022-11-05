@@ -1,4 +1,6 @@
-
+.border-bottom {
+    border-bottom: 1px solid #dee2e6!important;
+}
 .col-image {
     width:100px;
 }
@@ -703,4 +705,5 @@ header {
     fill: #fff !important;
     color: #fff;
 }
+.w-75 {width: 75% !important;}
 

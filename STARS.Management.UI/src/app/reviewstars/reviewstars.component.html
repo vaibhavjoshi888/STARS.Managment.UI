@@ -1,6 +1,6 @@
 <main class="container">
     <h1 class="mb-4 text-blue fw-light">STAR Management</h1>
-    <div class="row">
+    <div class="row" style="font-size: 14px;">
         <div class="col-md-7">
             <div class="row">
                 <div class="col-4"><label>Search by Name</label>
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="col-12 tableStar table-responsive">
-        <table class="table ">
+        <table class="table table-striped">
             <thead class="border-top-0 border-start-0 border-end-0 border-2 bg-white">
                 <tr>
                     <th width="20"></th>
@@ -73,7 +73,7 @@
             </thead>
 
             <tbody>
-                <tr>
+                <tr><td colspan="8">
                     <table>
                         <tbody>
                             <tr>
@@ -115,15 +115,16 @@
 
                         </tbody>
                     </table>
+                    </td>
+
                 </tr>
                 <!-- 1st row -->
-
-                <tr>
+                <tr><td colspan="8">
                     <table>
                         <tbody>
                             <tr>
                                 <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row1" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
+                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
                                 </td>
                                 <td width="140">Andrew Vegoda</td>
                                 <td width="121">Janet Fernandez</td>
@@ -138,7 +139,7 @@
                             <tr>
                                 <td class="hiddenRow"></td>
                                 <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row1">
+                                    <div class="collapse" id="row0">
                                         <table class="table">
                                             <tr>
                                                 <td>
@@ -160,14 +161,63 @@
 
                         </tbody>
                     </table>
+                    </td>
+
                 </tr>
                 <!-- 2nd row -->
-                <tr>
+           
+                <tr><td colspan="8">
                     <table>
                         <tbody>
                             <tr>
                                 <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row2" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
+                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
+                                </td>
+                                <td width="140">Andrew Vegoda</td>
+                                <td width="121">Janet Fernandez</td>
+                                <td width="110">00/00/2022</td>
+                                <td width="100"><span class="circle bg-approve"></span>Approved</td>
+                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn" disabled> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="hiddenRow"></td>
+                                <td colspan="5" class="hiddenRow">
+                                    <div class="collapse" id="row0">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
+                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
+                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
+                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
+
+
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </td>
+                                <td class="hiddenRow"></td>
+                                <td class="hiddenRow"></td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                    </td>
+
+                </tr>
+
+                <tr><td colspan="8">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="show-hide" width="20">
+                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
                                 </td>
                                 <td width="140">Andrew Vegoda</td>
                                 <td width="121">Janet Fernandez</td>
@@ -175,14 +225,14 @@
                                 <td width="100"><span class="circle bg-deny"></span>Denied</td>
                                 <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
                                 <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn" disabled><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
 
                             </tr>
 
                             <tr>
                                 <td class="hiddenRow"></td>
                                 <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row2">
+                                    <div class="collapse" id="row0">
                                         <table class="table">
                                             <tr>
                                                 <td>
@@ -204,97 +254,8 @@
 
                         </tbody>
                     </table>
-                </tr>
+                    </td>
 
-
-                <!-- 3rd row -->
-                <tr>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row3" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-approve"></span>Approved</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row3">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </tr>
-
-                <!-- 4th row -->
-                <tr>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row4" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-pending"></span>Pending</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row4">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
                 </tr>
 
             </tbody>

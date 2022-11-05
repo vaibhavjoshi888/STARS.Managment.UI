@@ -8,6 +8,7 @@ import { SampleComponent } from './sample/sample.component';
 import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
 import { SubmitstarComponent } from './submitstar/submitstar.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuthGuard } from './_helpers/auth.guard';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'updateuser', component: UpdateuserComponent },
   { path: 'submitstar', component: SubmitstarComponent },
   { path: 'reviewstars', component: ReviewstarsComponent },
+  { path: 'viewallstars', component: ViewallstarsComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

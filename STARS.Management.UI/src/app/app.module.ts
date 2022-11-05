@@ -18,6 +18,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubmitstarComponent } from './submitstar/submitstar.component';
 import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
+import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
     ManageuserComponent,
     UpdateuserComponent,
     SubmitstarComponent,
-    ReviewstarsComponent
+    ReviewstarsComponent,
+    ViewallstarsComponent
   ],
   imports: [
     BrowserModule,
