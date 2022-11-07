@@ -6,7 +6,7 @@
                 <div class="col-4"><label>Search by Name</label>
                     <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
 
-                        <input type="text" class="form-control pill border-0" required=""><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24"></span>
+                        <input type="text" name="searchText" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24" (click)="getUserList()"></span>
 
                     </div>
                 </div>
@@ -23,15 +23,15 @@
                     </div>
                 </div>
                 <div class="col-2 d-grid"><label>&nbsp;</label>
-                    <button class="btn pill btn-blue text-uppercase">Search</button>
+                    <button class="btn pill btn-blue text-uppercase" (click)="getUserList()">Search</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-5 gap-2 d-flex">
-            <div class="col text-center"><label class="d-block">Total Submitted </label><span class="badge rounded-pill bg-submit ">8656</span></div>
-            <div class="col text-center"><label class="d-block">Pending </label><span class="badge rounded-pill bg-pending ">56</span></div>
-            <div class="col text-center"><label class="d-block">Approved </label><span class="badge rounded-pill bg-approve ">8600</span></div>
-            <div class="col text-center"><label class="d-block">Denied </label><span class="badge rounded-pill bg-deny ">8600</span></div>
+        <div class="col-md-5 gap-2 d-flex" *ngIf="requestCount">
+            <div class="col text-center"><label class="d-block">Total Submitted </label><span class="badge rounded-pill bg-submit ">{{requestCount.totalSubmited}}</span></div>
+            <div class="col text-center"><label class="d-block">Pending </label><span class="badge rounded-pill bg-pending ">{{requestCount.pending}}</span></div>
+            <div class="col text-center"><label class="d-block">Approved </label><span class="badge rounded-pill bg-approve ">{{requestCount.approved}}</span></div>
+            <div class="col text-center"><label class="d-block">Denied </label><span class="badge rounded-pill bg-deny ">{{requestCount.denied}}</span></div>
 
         </div>
     </div>
@@ -40,19 +40,19 @@
         <div class="col-12 gap-4 d-flex">
 
             <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" id="all" name="All" value="something" checked>
+                <input class="form-check-input" type="checkbox" [checked]="chkAllIsSelected" id="all" name="All" (click)="getUser($event)" value="something" checked>
                 <label class="form-check-label" for="all">All</label>
             </div>
             <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" id="pending" name="Pending" value="something">
+                <input class="form-check-input" type="checkbox" [checked]="chkPendingIsSelected" id="pending" (click)="getUser($event)" name="Pending" value="something">
                 <label class="form-check-label" for="pending">Pending</label>
             </div>
             <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" id="approved" name="Approved" value="something">
+                <input class="form-check-input" type="checkbox" [checked]="chkApprovedIsSelected" id="approved" (click)="getUser($event)" name="Approved" value="something">
                 <label class="form-check-label" for="approved">Approved</label>
             </div>
             <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" id="denied" name="Denied" value="something">
+                <input class="form-check-input" type="checkbox" [checked]="chkDeniedIsSelected" id="denied" (click)="getUser($event)" name="Denied" value="something">
                 <label class="form-check-label" for="denied">Denied</label>
             </div>
         </div>
@@ -73,196 +73,47 @@
             </thead>
 
             <tbody>
-                <tr><td colspan="8">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-pending"></span>Pending</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row0">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
+                <tr *ngFor="let user of this.userdetails">
+                    <td colspan="8">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="show-hide" width="20">
+                                        <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
+                                    </td>
+                                    <td width="140">{{user.employeeName}}</td>
+                                    <td width="121">{{user.createdBy}}</td>
+                                    <td width="110">{{user.createdDate}}</td>
+                                    <td width="100"><span [ngClass]="user.status === '1' ? 'circle bg-pending' : user.status === '2' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === '1' ? 'Pending' : user.status === '2' ? 'Approved' : 'Denied'}}
+                                    </td>
+                                    <td width="442" class="Stxt">{{user.message}}</td>
+                                    <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+                                    <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="updateStarRequest(user,'3')"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="hiddenRow"></td>
+                                    <td colspan="5" class="hiddenRow">
+                                        <div class="collapse" id="row0">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>
+                                                        <strong>Full Message:</strong> {{user.message}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td class="hiddenRow"></td>
+                                    <td class="hiddenRow"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </td>
-
                 </tr>
-                <!-- 1st row -->
-                <tr><td colspan="8">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-pending"></span>Pending</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row0">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                    </td>
-
-                </tr>
-                <!-- 2nd row -->
-           
-                <tr><td colspan="8">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-approve"></span>Approved</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn" disabled> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row0">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                    </td>
-
-                </tr>
-
-                <tr><td colspan="8">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td class="show-hide" width="20">
-                                    <a class="btn collapsed" data-bs-toggle="collapse" href="#row0" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                </td>
-                                <td width="140">Andrew Vegoda</td>
-                                <td width="121">Janet Fernandez</td>
-                                <td width="110">00/00/2022</td>
-                                <td width="100"><span class="circle bg-deny"></span>Denied</td>
-                                <td width="442">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                <td width="105"><button class="btn btn-sm text-white rounded-1 bg-gray2-btn" disabled><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-
-                            </tr>
-
-                            <tr>
-                                <td class="hiddenRow"></td>
-                                <td colspan="5" class="hiddenRow">
-                                    <div class="collapse" id="row0">
-                                        <table class="table">
-                                            <tr>
-                                                <td>
-                                                    <strong>Full Message:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et
-                                                    risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum. Lorem ipsum dolor sit amet, consectetur
-                                                    adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam sollicitudin
-                                                    feugiat mauris, ac tempor elit fringilla vitae. Nulla aliquet odio sed mauris blandit bibendum.</td>
-
-
-                                            </tr>
-
-                                        </table>
-                                    </div>
-                                </td>
-                                <td class="hiddenRow"></td>
-                                <td class="hiddenRow"></td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                    </td>
-
-                </tr>
-
             </tbody>
         </table>
         <br/>
         <div class="clearfix mt-4"></div>
-        <nav aria-label="Page navigation example mt-5 mb-3">
+        <!-- <nav aria-label="Page navigation example mt-5 mb-3">
             <ul class="pagination">
                 <li class="page-item">
                     <a class="page-link me-3" href="#" aria-label="Previous">
@@ -278,6 +129,6 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
     </div>
 </main>

@@ -1,5 +1,4 @@
-export class SignedInUserDTO
-{
+export class SignedInUserDTO {
     appUserId: number;
     corpUserId: number
     email: string;
@@ -14,34 +13,62 @@ export class SignedInUserDTO
     canViewDailySchedule: string;
 }
 
-export class UserDTO
-{
-    corpID : string;
-    email :string;
-    phone : string;
-    fullName : string;
-    displayName :string;
-    givenName :string;
-    surname :string;
-    samaAccountName :string;
-    physicalDeliveryOfficeName :string;
-    employeeType :string;
-    employeeId :string;
-    employeeNumber :string;
-    title :string;
-    department :string;
-    division :string;
-    manager :string;
-    managerDisplayName :string;
-    managerEmail :string;
-    managerCorpID :string;
-    thumbnailPhoto :string;
-    userRoleId :number;
-    createdBy :string;
-    createdDate:Date;
+export class UserDTO {
+    corpID: string;
+    email: string;
+    phone: string;
+    fullName: string;
+    displayName: string;
+    givenName: string;
+    surname: string;
+    samaAccountName: string;
+    physicalDeliveryOfficeName: string;
+    employeeType: string;
+    employeeId: string;
+    employeeNumber: string;
+    title: string;
+    department: string;
+    division: string;
+    manager: string;
+    managerDisplayName: string;
+    managerEmail: string;
+    managerCorpID: string;
+    thumbnailPhoto: string;
+    userRoleId: number;
+    createdBy: string;
+    createdDate: Date;
 }
 
-export class UserAssignRoleDTO
-{    
+export class UserAssignRoleDTO {
     UserRoleId: number;
+}
+
+export class UserStarConfigurationDTO {
+    userStarId: number;
+    corpUserId: string
+    employeeName: string
+    message: string
+    status: string
+    isactive: number
+    createdBy: string
+    createdDate: string
+    thumbnailPhoto: string
+}
+
+export class StarRequestCountDTO {
+    totalSubmited: number;
+    approved: number;
+    pending: number;
+    denied: number;
+} 
+
+export class UpdateStarRequestDTO {
+    userStarId: number;
+    corpUserId: string
+    employeeName: string
+    message: string
+    status: string
+    approvedby: string
+    modifiedBy: string
+    feedback: string
 }
