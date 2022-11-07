@@ -1,7 +1,7 @@
 export class Stars
 {
     UserStarId: number;
-    CorpUserId: number
+    CorpUserId: string
     EmployeeName: string;
     Message: string;
     Thumbnail: string;
