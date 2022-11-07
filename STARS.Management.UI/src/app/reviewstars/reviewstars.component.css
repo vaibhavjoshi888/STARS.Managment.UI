@@ -3,7 +3,11 @@
     border-radius: 50%;
 }
 
-table{width: 100%;}
+table {
+    width: 100%;
+}
+
+
 /* Show it's not fixed to the top */
 
 .bg-star {
@@ -215,7 +219,6 @@ td.show-hide a.btn:focus {
 .btn-sm {
     padding: 0.1rem 0.5rem;
 }
-
 
 .tableStar>table td {
     padding: 5px;
@@ -1073,4 +1076,10 @@ user agent stylesheet div {
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+.text-container {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
