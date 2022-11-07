@@ -21,4 +21,25 @@ export class StarManagementService {
         return star;
       }));
   }
+
+  
+
+  getStarRequest() {
+    return this.http.get<any>(`${environment.baseUrl_API}/StarManagement/getstarreaquest`)
+      .pipe(map(star => {
+        return star;
+      }));
+  }
+
+  getStarRequestCount() {
+    return this.http.get<any>(`${environment.baseUrl_API}/StarManagement/getStarreaquestcount`)
+      .pipe(map(star => {
+        return star;
+      }));
+  }
+
+  updateStarRequest(userstarid,data) {
+    return this.http.put<any>(`${environment.baseUrl_API}/StarManagement/updatestarrequest/${userstarid}`, data);
+  }
+
 }
