@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SubmitstarComponent } from './submitstar/submitstar.component';
 import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
+import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
     UpdateuserComponent,
     SubmitstarComponent,
     ReviewstarsComponent,
-    ViewallstarsComponent
+    ViewallstarsComponent,
+    FindPersonModalComponent
   ],
   imports: [
     BrowserModule,

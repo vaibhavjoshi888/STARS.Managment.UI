@@ -1,0 +1,44 @@
+<mat-dialog-content>
+    <!-- Modal find a person -->
+    <div class="modal fade" id="searchUser" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg ">
+
+            <!-- Modal content-->
+            <div class="modal-content border-0">
+                <div class="modal-header">
+
+                    <h4 class="modal-title ">Search User</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body title-18 text-blue pb-0">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <input type="text" class="form-control w-75 float-start" name="searchText" required="" style="width: 70% !important;" [(ngModel)]="searchText">
+                            <button class="btn btn-outline-blue pill ms-2 float-end" (click)="searchADUsers()"> <i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </div>
+                    <div class="overflow-auto mt-2 border rounded" style="height:300px;">
+                        <table class="table table-hoverable  lh-sm align-middle">
+                            <tbody>
+                                <tr class="border-bottom" style=" border-bottom: 1px solid #dee2e6!important;" *ngFor="let star of this.searchedUserList">
+                                    <td><img src="assets/images/blank-user.png" alt="" width="48" class="rounded-circle border"></td>
+                                    <td><strong class="text-blue">{{star.displayName}}</strong> <br/>{{star.division}}</td>
+                                    <td><i class="fa fa-envelope-o"></i> {{star.email}}<br/>{{star.phone}}</td>
+                                    <td>User Id: {{star.corpID}}<br/>Facility: {{star.department}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer text-end">
+                    <mat-dialog-actions>
+                        <button type="button" class="btn btn-blue text-white" style="background-color: green;"> <i class="fa fa-floppy-o"></i> Select</button>
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                    </mat-dialog-actions>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
 
 @Component({
   selector: 'app-submitstar',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitstarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = "some data";
+    dialogConfig.height = 'auto';
+    dialogConfig.width = '600px';
+    let dialogRef = this.dialog.open(FindPersonModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(value => {
+      // this.isNewUser = true;
+      // this.selectedUser = value;
+    });
   }
 
 }
