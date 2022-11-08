@@ -13,15 +13,16 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   constructor(private starManagementService: StarManagementService) { }
 
-  async ngOnInit() {
-    await this.getAllActiveStars();
+   ngOnInit() {
+     this.getAllActiveStars();
   }
 
-  async getAllActiveStars() {
-    await firstValueFrom(this.starManagementService.getAllActiveStars())
+   getAllActiveStars() {
+     firstValueFrom(this.starManagementService.getAllActiveStars())
       .then((res: Stars[]) => {
         this.starDetails = res;
         this.InitialLoad = res;
+        console.log(this.starDetails);
       }
       )
   };
