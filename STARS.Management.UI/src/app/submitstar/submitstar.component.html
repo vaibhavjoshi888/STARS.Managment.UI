@@ -66,11 +66,11 @@
 
     <main class="container py-4">
         <h1 class="mb-4 title-l-40">Submit a STAR</h1>
-        <div class="border-start  border-5 border-star table-responsive-sm">
+        <div class="border-start  border-5 border-star table-responsive-sm" *ngIf="this.selectedUser">
             <table class="table border-0 submit-star ms-2" style="border-style:none!important; border: 0!important;">
                 <tbody>
                     <tr style="border-style:none!important; border: 0!important;">
-                        <td scope="row"><img src="../assets/images/user1.jpg" alt="mdo" width="60" height="60" class="rounded-circle"></td>
+                        <td scope="row"><img src="{{selectedUser ? selectedUser.thumbnailPhoto : '-'}}" alt="mdo" width="60" height="60" class="rounded-circle"></td>
                         <td><small>First Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.displayName : "-"}}</span></small></td>
                         <td><small>Last Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.surname : "-"}}</span></small></td>
                         <td><small>Title<br/><span class="fw-bold">{{selectedUser ? selectedUser.title : "-"}}</span></small></td>
@@ -86,23 +86,24 @@
             <div class="p-2 col-md-9">
                 <h5 class="mb-3 text-blue fst-normal">Who would you like to acknowledge?</h5>
                 <button class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()"> FIND PERSON <img src="../assets/images/search.svg" class="sImg"></button><br/>
-                <h5 class="mt-3 text-blue fst-normal"> Message</h5>
-                <textarea class="form-control border-2 text-start text-blue" style="height: 100px;">Thank you!!! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed. Aliquam
-       </textarea>
-                <button class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3 btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#myModal"> SUBMIT THIS STAR </button>
+                <h5 class="mt-3 text-blue fst-normal" *ngIf="this.selectedUser"> Message</h5>
+                <input type="textarea" *ngIf="this.selectedUser" class="form-control border-2 text-start text-blue" style="height: 100px;" [(ngModel)]="this.message">
+                <!-- </textarea> -->
+                <button class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3 btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#myModal" *ngIf="this.selectedUser" (click)="submitStarRequest()"> SUBMIT THIS STAR </button>
             </div>
-            <div class="p-2 flex-shrink-1 ms-5 star-preview col text-blue">
+            <div class="p-2 flex-shrink-1 ms-5 star-preview col text-blue" *ngIf="this.selectedUser">
                 <h6 class="fst-normal">Your star preview:</h6>
                 <small class="text-gray">This is how your star will display<br/>
-      on the website landing page.</small><br/>
+                        on the website landing page.</small><br/>
                 <div class="four-pointed-star"></div>
-                <div class="comment mt-3"> <strong>Andrew<br/>
-      Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-                    <p class="mt-2"><span class="Stxt">Thank you!!! dignissim
-      volutpat. In et risus
-      laoreet</span><a href="#">more ></a>
+                <div class="comment mt-3"> <strong>{{selectedUser ? selectedUser.displayName : "-"}}<br/>
+                {{selectedUser ? selectedUser.surname : "-"}}</strong> <img src="{{selectedUser ? selectedUser.thumbnailPhoto : '-'}}" width="48px" height="48px" alt="" srcset=""><br>
+                    <p class="mt-2"><span class="Stxt" [innerHTML]="this.message">Thank you!!! dignissim
+                        volutpat. In et risus
+                        laoreet</span>
+                        <!-- <a href="#">more ></a> -->
                         <p class="mb-0"></p>
-                        <small>9/14/22 by Janet Cruz</small>
+                        <!-- <small>9/14/22 by Janet Cruz</small> -->
 
                 </div>
             </div>
@@ -123,7 +124,7 @@
                     <p>Your STAR is now out for review! You’ll receive an email in the next few days with further information. Thank you for contributing to the NYC Health + Hospitals night sky!</p>
                 </div>
                 <div class="modal-footer border-0 text-center pt-0">
-                    <button type="button" class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3 btn-lg " data-bs-dismiss="modal">Back to homepage</button>
+                    <button type="button" class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3 btn-lg" data-bs-dismiss="modal" routerLink="/">Back to homepage</button>
                 </div>
             </div>
 

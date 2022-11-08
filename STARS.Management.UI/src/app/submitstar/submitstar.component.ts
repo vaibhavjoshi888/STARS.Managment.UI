@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { firstValueFrom } from 'rxjs';
 import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
-import { UserDTO } from '../_models/user';
+import { UserDTO, UserStarConfigurationDTO } from '../_models/user';
+import { StarManagementService } from '../_services/star-management.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-submitstar',
@@ -11,13 +14,19 @@ import { UserDTO } from '../_models/user';
 export class SubmitstarComponent implements OnInit {
 
   selectedUser: UserDTO;
+  message: string = "";
+  currentUser: any;
+  showMessage: boolean = false;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private starManagementService: StarManagementService,
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   openDialog() {
+    this.showMessage = false;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
@@ -28,5 +37,18 @@ export class SubmitstarComponent implements OnInit {
       // this.isNewUser = true;
       this.selectedUser = value;
     });
+  }
+
+
+  async submitStarRequest() {
+    let userStarConfigurationDTO = new UserStarConfigurationDTO();
+    userStarConfigurationDTO.corpUserId = this.selectedUser.corpID;
+    userStarConfigurationDTO.employeeName = this.selectedUser.displayName;
+    userStarConfigurationDTO.message = this.message;
+    userStarConfigurationDTO.createdBy =  this.currentUser.corpID.toString();
+    await firstValueFrom(this.starManagementService.submitStarRequest(userStarConfigurationDTO))
+    // .then((res) => {
+    //   this.showMessage = true;
+    // });
   }
 }

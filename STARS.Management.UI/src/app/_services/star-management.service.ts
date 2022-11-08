@@ -41,5 +41,8 @@ export class StarManagementService {
   updateStarRequest(userstarid,data) {
     return this.http.put<any>(`${environment.baseUrl_API}/StarManagement/updatestarrequest/${userstarid}`, data);
   }
-
+  
+  submitStarRequest(data) {
+    return this.http.post<any>(`${environment.baseUrl_API}/StarManagement/submitstarrequest`, data);
+  }
 }
