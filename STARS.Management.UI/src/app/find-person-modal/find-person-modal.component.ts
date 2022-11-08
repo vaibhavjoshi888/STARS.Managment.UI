@@ -16,6 +16,7 @@ export class FindPersonModalComponent implements OnInit {
   InitialLoad: StarsDto[];
   searchText: string;
   searchedUserList: UserDTO[];
+  selectedUser: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<FindPersonModalComponent>,
   private userService : UserService) { }
@@ -27,6 +28,15 @@ export class FindPersonModalComponent implements OnInit {
   close() {
     this.dialogRef.close();
   }
+
+  saveSelectedUser() {
+    this.dialogRef.close(this.selectedUser);
+  }
+
+  userItemOnSelect(event) {
+    this.selectedUser = event;
+  }
+
 
   async searchADUsers() {
     await firstValueFrom(this.userService.searchUsers(this.searchText)).then((res: UserDTO[]) => {

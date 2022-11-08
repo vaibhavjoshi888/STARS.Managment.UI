@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
+import { UserDTO } from '../_models/user';
 
 @Component({
   selector: 'app-submitstar',
@@ -8,6 +9,8 @@ import { FindPersonModalComponent } from '../find-person-modal/find-person-modal
   styleUrls: ['./submitstar.component.css']
 })
 export class SubmitstarComponent implements OnInit {
+
+  selectedUser: UserDTO;
 
   constructor(public dialog: MatDialog) { }
 
@@ -23,8 +26,7 @@ export class SubmitstarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(value => {
       // this.isNewUser = true;
-      // this.selectedUser = value;
+      this.selectedUser = value;
     });
   }
-
 }

@@ -71,12 +71,12 @@
                 <tbody>
                     <tr style="border-style:none!important; border: 0!important;">
                         <td scope="row"><img src="../assets/images/user1.jpg" alt="mdo" width="60" height="60" class="rounded-circle"></td>
-                        <td><small>First Name<br/><span class="fw-bold">Andrew</span></small></td>
-                        <td><small>Last Name<br/><span class="fw-bold">Vegoda</span></small></td>
-                        <td><small>Title<br/><span class="fw-bold">Assistant Vice President</span></small></td>
-                        <td><small>Department<br/><span class="fw-bold">Digital Innovation Solutions</span></small></td>
+                        <td><small>First Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.displayName : "-"}}</span></small></td>
+                        <td><small>Last Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.surname : "-"}}</span></small></td>
+                        <td><small>Title<br/><span class="fw-bold">{{selectedUser ? selectedUser.title : "-"}}</span></small></td>
+                        <td><small>Department<br/><span class="fw-bold">{{selectedUser ? selectedUser.department : "-"}}</span></small></td>
                         <td><small>Facility<br/><span class="fw-bold">Central Office</span></small></td>
-                        <td><small>Manager<br/><span class="fw-bold">Cody Schatzle</span></small></td>
+                        <td><small>Manager<br/><span class="fw-bold">{{selectedUser ? selectedUser.managerDisplayName : "-"}}</span></small></td>
                     </tr>
 
                 </tbody>

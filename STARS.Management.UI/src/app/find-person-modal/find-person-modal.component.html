@@ -21,7 +21,7 @@
                     <div class="overflow-auto mt-2 border rounded" style="height:300px;">
                         <table class="table table-hoverable  lh-sm align-middle">
                             <tbody>
-                                <tr class="border-bottom" style=" border-bottom: 1px solid #dee2e6!important;" *ngFor="let star of this.searchedUserList">
+                                <tr (click)="userItemOnSelect(star)" class="border-bottom" style=" border-bottom: 1px solid #dee2e6!important;" *ngFor="let star of this.searchedUserList">
                                     <td><img src="assets/images/blank-user.png" alt="" width="48" class="rounded-circle border"></td>
                                     <td><strong class="text-blue">{{star.displayName}}</strong> <br/>{{star.division}}</td>
                                     <td><i class="fa fa-envelope-o"></i> {{star.email}}<br/>{{star.phone}}</td>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="modal-footer text-end">
                     <mat-dialog-actions>
-                        <button type="button" class="btn btn-blue text-white" style="background-color: green;"> <i class="fa fa-floppy-o"></i> Select</button>
+                        <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" (click)="saveSelectedUser()"> <i class="fa fa-floppy-o"></i> Select</button>&nbsp;
                         <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                     </mat-dialog-actions>
                 </div>
