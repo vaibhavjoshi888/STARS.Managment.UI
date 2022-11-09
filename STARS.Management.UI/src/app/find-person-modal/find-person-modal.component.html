@@ -22,7 +22,7 @@
                         <table class="table table-hoverable  lh-sm align-middle">
                             <tbody>
                                 <tr (click)="userItemOnSelect(star)" class="border-bottom" style=" border-bottom: 1px solid #dee2e6!important;" *ngFor="let star of this.searchedUserList">
-                                    <td><img src="assets/images/blank-user.png" alt="" width="48" class="rounded-circle border"></td>
+                                    <td><img src="{{star.thumbnailPhoto}}" alt="" width="48" class="rounded-circle border"></td>
                                     <td><strong class="text-blue">{{star.displayName}}</strong> <br/>{{star.division}}</td>
                                     <td><i class="fa fa-envelope-o"></i> {{star.email}}<br/>{{star.phone}}</td>
                                     <td>User Id: {{star.corpID}}<br/>Facility: {{star.department}}</td>
