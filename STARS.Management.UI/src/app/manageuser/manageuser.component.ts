@@ -6,6 +6,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchusermodalComponent } from '../searchusermodal/searchusermodal.component';
 import { ConfirmationDialog } from '../shared/alert/confirmation-dialog/confirmation-dialog.component';
 import * as _ from 'lodash';
+import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class ManageuserComponent implements OnInit {
   chkSuperIsSelected: boolean;
   chkSiteIsSelected: boolean;
   searchText: string = "";
+  showMessage: boolean = false;
 
   constructor(private userManagementService: UserManagementService,
     public dialog: MatDialog
@@ -31,19 +33,30 @@ export class ManageuserComponent implements OnInit {
     await this.getAllUser();
   }
 
+  // openDialog() {
+  //   const dialogConfig = new MatDialogConfig();
+  //   dialogConfig.data = "some data";
+  //   dialogConfig.height = 'auto';
+  //   dialogConfig.width = '600px';
+  //   let dialogRef = this.dialog.open(SearchusermodalComponent, dialogConfig);
+
+  //   dialogRef.afterClosed().subscribe(value => {
+  //     this.isNewUser = true;
+  //     this.selectedUser = value;
+  //   });
+  // }
   openDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
     dialogConfig.width = '600px';
-    let dialogRef = this.dialog.open(SearchusermodalComponent, dialogConfig);
+    let dialogRef = this.dialog.open(FindPersonModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(value => {
-      this.isNewUser = true;
+      // this.isNewUser = true;
       this.selectedUser = value;
     });
   }
-
   async getAllUser() {
     await firstValueFrom(this.userManagementService.getAllUsers())
       .then((res: UserDTO[]) => {

@@ -65,7 +65,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0 text-uppercase">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcome']">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" [routerLink]="['/viewallstars']">VIEW ALL STARS</a>
@@ -81,6 +81,11 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link pt-0 mt-0" type="submit"><img src="../../../assets/images/user1.jpg" alt="mdo" width="28" height="28" class="rounded-circle"> ANDREW VEGODA<br><span class="text-capitalize">User Type: Super Admin</span></a>
+                </li>
+                <li class="nav-item" id="ni-support" *ngIf="!isloggedinuser">
+                    
+                        <a  title="Sign Out" type="submit"><i class="fa fa-sign-out text-white cust  text-white  nav-link" (click)="logout()" alt="mdo" aria-hidden="true" style="font-size: x-large;margin-right: -50px;"></i></a>
+                  
                 </li>
 
             </ul>
