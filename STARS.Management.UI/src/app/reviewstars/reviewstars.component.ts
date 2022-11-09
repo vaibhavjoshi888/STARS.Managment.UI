@@ -51,13 +51,14 @@ export class ReviewstarsComponent implements OnInit {
     updateStarRequest.userStarId = user.userStarId;
     updateStarRequest.corpUserId = user.corpUserId;
     updateStarRequest.employeeName = user.employeeName;
-    updateStarRequest.status = status;
-    updateStarRequest.approvedby = this.currentUser.corpID.toString();
+    updateStarRequest.status = status == "2" ? "A" : "D";
+    updateStarRequest.approvedby = this.currentUser.corpUserId.toString();
     updateStarRequest.message = user.message;
-    updateStarRequest.modifiedBy = this.currentUser.corpID.toString();
+    updateStarRequest.modifiedBy = this.currentUser.corpUserId.toString();
     updateStarRequest.feedback = "";
 
     await firstValueFrom(this.starManagementService.updateStarRequest(updateStarRequest.userStarId, updateStarRequest));
+    window.location.reload();
   };
 
   getUser(event) {
@@ -84,29 +85,29 @@ export class ReviewstarsComponent implements OnInit {
       this.chkDeniedIsSelected = isChecked;
       this.chkAllIsSelected = isChecked;
     }
-    
+
 
     if (this.chkPendingIsSelected && this.chkApprovedIsSelected && this.chkDeniedIsSelected) {
       this.userdetails = this.InitialLoad;
       this.chkAllIsSelected = isChecked;
     }
     else if (this.chkPendingIsSelected && this.chkApprovedIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '2' || f.status == '1');
+      this.userdetails = this.userdetails.filter(f => f.status == 'P' || f.status == 'A');
     }
     else if (this.chkApprovedIsSelected && this.chkDeniedIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '2' || f.status == '3');
+      this.userdetails = this.userdetails.filter(f => f.status == 'A' || f.status == 'D');
     }
     else if (this.chkPendingIsSelected && this.chkDeniedIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '1' || f.status == '3');
+      this.userdetails = this.userdetails.filter(f => f.status == 'P' || f.status == 'D');
     }
     else if (this.chkDeniedIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '3');
+      this.userdetails = this.userdetails.filter(f => f.status == 'D');
     }
     else if (this.chkApprovedIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '2');
+      this.userdetails = this.userdetails.filter(f => f.status == 'A');
     }
     else if (this.chkPendingIsSelected) {
-      this.userdetails = this.userdetails.filter(f => f.status == '1');
+      this.userdetails = this.userdetails.filter(f => f.status == 'P');
     }
     else {
       this.userdetails = this.InitialLoad;

@@ -53,7 +53,7 @@ export class ManageuserComponent implements OnInit {
     let dialogRef = this.dialog.open(FindPersonModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(value => {
-      // this.isNewUser = true;
+       this.isNewUser = true;
       this.selectedUser = value;
     });
   }

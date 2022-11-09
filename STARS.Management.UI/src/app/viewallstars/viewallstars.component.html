@@ -46,7 +46,6 @@
   </div>
 
   <div class="row mt-4">
-  <ng-container *ngIf="this.starDetails">
     <div class="col-12 star-comment" *ngFor="let star of starDetails">
 
       <div class="comment-box">
@@ -56,50 +55,8 @@
         <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">{{star.message}}</p>
         <p class="text-end p-3 pt-1 text-blue"><i>{{star.createdDate}} by {{star.createdBy}}</i></p>
       </div>
-   
-
-
-
-      <div class="comment-box">
-      <h3 class="title-b-26 fw-bolder"> <img src="assets/images/users/user2.png" alt="" class="user align-middle" ><span ><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> Sam
-    Johnson</span><span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-share-alt"></i> SHARE (16) <i class="fa fa-thumbs-o-up ms-3"></i> LIKE (26)</span></h3>
-    <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed.
-      Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam
-      sollicitudin feugiat mauris, ac tempor elit fringilla vitae.</p>
-      <p class="text-end p-3 pt-1 text-blue"><i>9/14/22 by Robert Copeland</i></p>
-     </div>
-  
-     <div class="comment-box">
-      <h3 class="title-b-26 fw-bolder"> <img src="assets/images/users/user3.png" alt="" class="user align-middle" ><span ><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> Sam
-    Johnson</span><span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-share-alt"></i> SHARE (16) <i class="fa fa-thumbs-o-up ms-3"></i> LIKE (26)</span></h3>
-    <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed.
-      Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam
-      sollicitudin feugiat mauris, ac tempor elit fringilla vitae.</p>
-      <p class="text-end p-3 pt-1 text-blue"><i>9/14/22 by Robert Copeland</i></p>
-     </div>
-  
-     <div class="comment-box">
-      <h3 class="title-b-26 fw-bolder"> <img src="assets/images/users/user4.png" alt="" class="user align-middle" ><span ><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> Sam
-    Johnson</span><span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-share-alt"></i> SHARE (16) <i class="fa fa-thumbs-o-up ms-3"></i> LIKE (26)</span></h3>
-    <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed.
-      Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam
-      sollicitudin feugiat mauris, ac tempor elit fringilla vitae.</p>
-      <p class="text-end p-3 pt-1 text-blue"><i>9/14/22 by Robert Copeland</i></p>
-     </div>
-  
-     <div class="comment-box">
-      <h3 class="title-b-26 fw-bolder"> <img src="assets/images/users/user5.png" alt="" class="user align-middle" ><span ><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> Sam
-    Johnson</span><span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-share-alt"></i> SHARE (16) <i class="fa fa-thumbs-o-up ms-3"></i> LIKE (26)</span></h3>
-    <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus diam eros, vitae facilisis ligula finibus sed.
-      Aliquam hendrerit erat eu dignissim volutpat. In et risus laoreet, finibus ligula nec, bibendum purus. Nullam
-      sollicitudin feugiat mauris, ac tempor elit fringilla vitae.</p>
-      <p class="text-end p-3 pt-1 text-blue"><i>9/14/22 by Robert Copeland</i></p>
-     </div>
-   
-      <br />
       <div class="clearfix mt-4"></div>
     </div>
-  </ng-container>
     <nav aria-label="Page navigation example mt-5 mb-3">
       <ul class="pagination">
         <li class="page-item">

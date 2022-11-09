@@ -22,6 +22,7 @@ export class SubmitstarComponent implements OnInit {
     private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.showMessage = false;
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -45,7 +46,7 @@ export class SubmitstarComponent implements OnInit {
     userStarConfigurationDTO.corpUserId = this.selectedUser.corpID;
     userStarConfigurationDTO.employeeName = this.selectedUser.displayName;
     userStarConfigurationDTO.message = this.message;
-    userStarConfigurationDTO.createdBy =  this.currentUser.corpID.toString();
+    userStarConfigurationDTO.createdBy =  this.currentUser.corpUserId;
     await firstValueFrom(this.starManagementService.submitStarRequest(userStarConfigurationDTO))
     // .then((res) => {
     //   this.showMessage = true;

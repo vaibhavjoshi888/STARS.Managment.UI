@@ -128,7 +128,7 @@ table.submit-star td {
 .Stxt {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     /* autoprefixer: off */
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
