@@ -17,12 +17,26 @@ export class WelcomeComponent implements OnInit {
     this.messageservice.currentuser == null;
     if (this.router.url == '/welcome' || this.messageservice.currentuser == null)
       this.isLoginPage = false;
+    else if (this.router.url == '/welcomesignout' || this.messageservice.currentuser == null)
+      this.isLoginPage = false;
+    else if (this.router.url == '/welcome' || this.messageservice.currentuser != null)
+      this.isLoginPage = true;
+    else if (this.router.url == '/')
+      this.isLoginPage = true;
+    else if (this.router.url == '/welcomesignin')
+      this.isLoginPage = true;
   }
 
   login() {
     this.router.navigate(['/login']);
   }
+  isUserLogged() {
 
+    if (!this.messageservice.currentuser == null)
+      this.router.navigate(['/submitstar']);
+    else
+      this.router.navigate(['/login']);
+  }
   userIsLogged() {
     return this.isLoginPage;
   }

@@ -36,7 +36,7 @@ export class UserDTO {
     thumbnailPhoto: string;
     userRoleId: number;
     createdBy: string;
-    createdDate: Date;
+    createdDate: string;
 }
 
 export class UserAssignRoleDTO {

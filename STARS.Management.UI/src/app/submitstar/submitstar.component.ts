@@ -5,6 +5,7 @@ import { FindPersonModalComponent } from '../find-person-modal/find-person-modal
 import { UserDTO, UserStarConfigurationDTO } from '../_models/user';
 import { StarManagementService } from '../_services/star-management.service';
 import { AuthenticationService } from '../_services/authentication.service';
+import { MessageService } from '../_services/message.service';
 
 @Component({
   selector: 'app-submitstar',
@@ -19,15 +20,20 @@ export class SubmitstarComponent implements OnInit {
   showMessage: boolean = false;
 
   constructor(public dialog: MatDialog, private starManagementService: StarManagementService,
-    private authenticationService: AuthenticationService) { }
+    private authenticationService: AuthenticationService,
+    private messageservice: MessageService) { }
 
   ngOnInit(): void {
+    //this.openDialog();
     this.showMessage = false;
+    if(this.messageservice!.currentuser != "")
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    
+   // this.openDialog();
   }
 
   openDialog() {
-    this.showMessage = false;
+    //this.showMessage = false;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';

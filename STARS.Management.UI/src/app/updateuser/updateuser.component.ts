@@ -52,7 +52,6 @@ export class UpdateuserComponent implements OnInit {
 
     this.userDTO.userRoleId = this.selectedOption;
     this.userDTO.createdBy = this.messageservice.currentuser;
-    this.userDTO.createdDate = new Date;
     this.userManagementService.saveUserDetails(this.userDTO)
       .subscribe(
         data => {

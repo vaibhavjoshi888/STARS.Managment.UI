@@ -37,7 +37,7 @@
     
 <header class="star-bg">
     <nav class="navbar navbar-expand-md navbar-dark mb-5 pb-4 pt-4">
-  <div class="container">
+  <div class="container" *ngIf="!userIsLogged()">
     <a class="navbar-brand" href="#"><img src="../assets/images/logo.jpeg" alt="" srcset="" width="254"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -50,21 +50,12 @@
         <li class="nav-item">
           <a class="nav-link" href="#" [routerLink]="['/viewallstars']">VIEW ALL STARS</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">REVIEW STARS</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">USER MANAGEMENT</a>
-        </li> -->
-        <li class="nav-item">
-          <a class=" bg-orange rounded-pill nav-link" href="#" [routerLink]="['/submitstar']">SUBMIT A STAR</a>
+          <a class=" bg-orange rounded-pill nav-link" href="#" (click)="isUserLogged()">SUBMIT A STAR</a>
         </li>
         <li class="nav-item">
           <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link pt-0 mt-0" type="submit"><img src="../assets/images/user1.jpg" alt="mdo" width="28" height="28" class="rounded-circle"> ANDREW VEGODA<br><span class="text-capitalize">User Type: Super Admin</span></a>
-        </li> -->
         
       </ul>
       

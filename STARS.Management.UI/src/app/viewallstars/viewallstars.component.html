@@ -10,6 +10,32 @@
   }
 </style>
 <main class="container">
+  <nav class="navbar navbar-expand-md navbar-dark mb-5 pb-4 pt-4">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="../assets/images/logo.jpeg" alt="" srcset="" width="254"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0 text-uppercase">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcome']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['/viewallstars']">VIEW ALL STARS</a>
+          </li>
+          <li class="nav-item">
+            <a class=" bg-orange rounded-pill nav-link" href="#" [routerLink]="['/submitstar']">SUBMIT A STAR</a>
+          </li>
+          <li class="nav-item">
+            <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
   <h1 class="mb-4 text-blue fw-bolder text-uppercase">All STARS </h1>
   <div class="row">
     <div class="col-md-7">

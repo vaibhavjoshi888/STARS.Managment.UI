@@ -46,6 +46,9 @@
                                     <div class="signout text-right">
                                         <a  title="Sign Out"><i class="fa fa-sign-out text-white cust ml-3 text-white" (click)="logout()" aria-hidden="true"></i></a>
                                     </div> 
+                                
+          <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
+        
                                 </li>
                             </ul>
                         </div>
@@ -56,16 +59,17 @@
     </header>
 </body>
 </html> -->
-<nav class="navbar navbar-expand-md navbar-dark bg-star mb-5 pb-4 pt-4">
+<nav class="navbar navbar-expand-md navbar-dark bg-star pb-4 pt-4">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="../../../assets/images/logo.jpeg" alt="" srcset="" width="254"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ms-auto mb-2 mb-md-0 text-uppercase">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcome']">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcomesignin']">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" [routerLink]="['/viewallstars']">VIEW ALL STARS</a>
@@ -77,16 +81,23 @@
                     <a class="nav-link" href="#" [routerLink]="['/manageuser']">USER MANAGEMENT</a>
                 </li>
                 <li class="nav-item">
-                    <a class=" bg-orange rounded-pill nav-link" href="#" [routerLink]="['/submitstar']">SUBMIT A STAR</a>
+                    <a class=" bg-orange rounded-pill nav-link" (click)="isUserLogged()">SUBMIT A
+                        STAR</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link pt-0 mt-0" type="submit"><img src="../../../assets/images/user1.jpg" alt="mdo" width="28" height="28" class="rounded-circle"> ANDREW VEGODA<br><span class="text-capitalize">User Type: Super Admin</span></a>
+                <li class="nav-item" *ngIf="!isloggedinuser">
+                    <a class="nav-link pt-0 mt-0" type="submit"><img src="{{this.currentUser.thumbnailPhoto}}" alt="mdo"
+                            width="28" height="28" class="rounded-circle">&nbsp;{{this.currentUser.firstName +'
+                        '+this.currentUser.lastName}}<br><span class="text-capitalize">User Type:
+                            {{this.currentUser.roleName}}</span></a>
                 </li>
-                <li class="nav-item" id="ni-support" *ngIf="!isloggedinuser">
-                    
-                        <a  title="Sign Out" type="submit"><i class="fa fa-sign-out text-white cust  text-white  nav-link" (click)="logout()" alt="mdo" aria-hidden="true" style="font-size: x-large;margin-right: -50px;"></i></a>
-                  
+                <li class="nav-item" id="ni-support">
+                    <a title="Sign Out" type="submit"><i class="fa fa-sign-out text-white cust  text-white  nav-link"
+                            (click)="logout()" alt="mdo" aria-hidden="true"
+                            style="font-size: x-large;margin-right: -50px;"></i></a>
                 </li>
+                <!-- <li class="nav-item" id="ni-support" *ngIf="isloggedinuser">
+                    <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
+                </li> -->
 
             </ul>
 

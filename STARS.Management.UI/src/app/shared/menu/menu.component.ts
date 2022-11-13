@@ -14,6 +14,7 @@ export class MenuComponent implements OnInit {
   currentUser: SignedInUserDTO;
   isloggedinuser: boolean;
   isadminUser: boolean;
+  isuserLoggedIn: boolean = false;
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -27,9 +28,17 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.authenticationService.logout();
-    this.router.navigate(['/welcome']).then(() => {
+    this.router.navigate(['/welcomesignout']).then(() => {
       window.location.reload();
     });
+  }
+
+  isUserLogged() {
+
+    if (!this.isloggedinuser)
+      this.router.navigate(['/submitstar']);
+    else
+      this.router.navigate(['/login']);
   }
 
   login() {
