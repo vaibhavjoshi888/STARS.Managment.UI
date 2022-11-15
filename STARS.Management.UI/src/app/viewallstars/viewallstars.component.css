@@ -1,3 +1,39 @@
+
+  .star-bg{background-image: url('../../assets/images/img.jpeg'); min-height:15vh; max-width: 100%; background-repeat:no-repeat ; background-size: cover; margin-bottom: 50px;}
+  .star-bg .comment p {
+    line-height: 23px;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .star-bg .comment strong{ font-size: 18px;}
+  .star-bg .comment{width: 210px; padding-top: 10px; padding-bottom: 15px;}
+  .star-bg .bottomStar .comment::before{
+    border-left: 10px solid #eeeeee;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #eeeeee;
+    border-top: 10px solid transparent;
+    right: -19px; bottom:10px; left:auto!important; top:auto!important}
+    .star-bg .bottomStar .comment::after {right: -60px;
+      bottom: -4px;left: auto;
+      top: auto;}
+      .w-30{width: 30%}
+
+      a.nav-link.bg-orange:hover{color: #031461!important; background-color: white; cursor: pointer;}
+  .simages{width: 24px; fill:white}
+  .nav-link {
+    padding: 0.57rem 1rem;
+    padding-left:1rem!important ;
+    padding-right:1rem!important ;
+    font-size: 0.8rem;
+  }
+  .navbar-brand {
+    padding-top: 0.532rem;
+    padding-bottom: 0.532rem;}
+    .navbar-dark .navbar-nav .nav-link {
+      color: rgb(255,255,255);
+  }
+
+/*----------------------------------*/
 .border-star {
     border-color: #4196cc!important;
 }
@@ -25,10 +61,7 @@ tr {
     border-style: none!important;
 }
 
-.pill.input-group-text,
-.pill.form-control {
-    border-radius: 50%;
-}
+
 
 
 /* Show it's not fixed to the top */
@@ -305,14 +338,7 @@ td.show-hide a.btn:focus {
     display: block;
 }
 
-.star-bg {
-    background-image: url('../../assets/images/bg.jpg');
-    min-height: 100vh;
-    max-width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 50px;
-}
+
 
 .title-b-48 {
     font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI";
@@ -388,20 +414,20 @@ body {
     font-size: 14px;
     /*  line-height:1.4;*/
 }
-
+/* 
 header {
     background: linear-gradient(to right, #4e99ff, #363177);
     background-image: url("../../assets/images/T2EVHeader.png");
     background-repeat: no-repeat;
-    /*background-size: 100% 124pt;*/
+ 
     background-size: cover;
     background-position: center right;
     padding: 30px 0;
     color: #fff;
     max-width: 1170px;
-    /*1200*/
+    
     margin: 0 auto;
-}
+} */
 
 *:focus {
     outline: none;

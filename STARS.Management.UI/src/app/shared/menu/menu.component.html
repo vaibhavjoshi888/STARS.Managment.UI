@@ -74,10 +74,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" [routerLink]="['/viewallstars']">VIEW ALL STARS</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="this.isadminUser">
                     <a class="nav-link" href="#" [routerLink]="['/reviewstars']">REVIEW STARS</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="this.isadminUser">
                     <a class="nav-link" href="#" [routerLink]="['/manageuser']">USER MANAGEMENT</a>
                 </li>
                 <li class="nav-item">

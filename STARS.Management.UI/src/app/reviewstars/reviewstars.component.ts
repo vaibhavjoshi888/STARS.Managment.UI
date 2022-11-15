@@ -33,6 +33,7 @@ export class ReviewstarsComponent implements OnInit {
     await firstValueFrom(this.starManagementService.getStarRequestCount())
       .then((res: StarRequestCountDTO) => {
         this.requestCount = res;
+        console.log(this.requestCount);
       })
   };
 

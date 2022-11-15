@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'submitstar', component: SubmitstarComponent },
   { path: 'reviewstars', component: ReviewstarsComponent },
   { path: 'viewallstars', component: ViewallstarsComponent },
+  { path: 'viewallstarsso', component: ViewallstarsComponent },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 ];

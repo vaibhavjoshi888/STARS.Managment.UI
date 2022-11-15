@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Stars } from '../_models/stars';
+import { MessageService } from '../_services/message.service';
 import { StarManagementService } from '../_services/star-management.service';
 
 @Component({
@@ -11,10 +13,27 @@ import { StarManagementService } from '../_services/star-management.service';
 export class ViewallstarsComponent implements OnInit {
   starDetails: Stars[] = [];
   InitialLoad: Stars[] = [];
-  constructor(private starManagementService: StarManagementService) { }
+  isLoginPage: boolean = false;
+  searchText: string = "";
+  constructor(private starManagementService: StarManagementService,
+    private router: Router, private messageservice: MessageService) { }
 
    ngOnInit() {
      this.getAllActiveStars();
+     if (this.router.url == '/viewallstars' && this.messageservice.currentuser == null)
+     this.isLoginPage = false;
+   else if (this.router.url == '/viewallstarsso' || this.messageservice.currentuser == null)
+     this.isLoginPage = false;
+   else if (this.router.url == '/viewallstars' && this.messageservice.currentuser != null)
+     this.isLoginPage = true;
+  }
+
+  isUserLogged() {
+
+    if (!this.messageservice.currentuser == null)
+      this.router.navigate(['/submitstar']);
+    else
+      this.router.navigate(['/login']);
   }
 
    getAllActiveStars() {
@@ -22,10 +41,20 @@ export class ViewallstarsComponent implements OnInit {
       .then((res: Stars[]) => {
         this.starDetails = res;
         this.InitialLoad = res;
-        console.log(this.starDetails);
       }
       )
   };
-
+  userIsLogged() {
+    return this.isLoginPage;
+  }
+  getUserList() {
+    this.starDetails = this.InitialLoad;
+    if (this.searchText != '') {
+      this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.searchText) || f.corpUserId.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()));
+    }
+    else {
+      this.starDetails = this.InitialLoad;
+    }
+  }
 
 }

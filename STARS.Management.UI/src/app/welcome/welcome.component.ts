@@ -15,6 +15,7 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageservice.currentuser == null;
+    
     if (this.router.url == '/welcome' || this.messageservice.currentuser == null)
       this.isLoginPage = false;
     else if (this.router.url == '/welcomesignout' || this.messageservice.currentuser == null)
