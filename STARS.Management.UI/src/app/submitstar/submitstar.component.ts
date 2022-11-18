@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { firstValueFrom } from 'rxjs';
 import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
 import { UserDTO, UserStarConfigurationDTO } from '../_models/user';
 import { StarManagementService } from '../_services/star-management.service';
 import { AuthenticationService } from '../_services/authentication.service';
-import { MessageService } from '../_services/message.service';
 
 @Component({
   selector: 'app-submitstar',
@@ -18,22 +17,33 @@ export class SubmitstarComponent implements OnInit {
   message: string = "";
   currentUser: any;
   showMessage: boolean = false;
+  @ViewChild('findPerson', {static: true}) findPerson: ElementRef;
 
   constructor(public dialog: MatDialog, private starManagementService: StarManagementService,
-    private authenticationService: AuthenticationService,
-    private messageservice: MessageService) { }
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
-    //this.openDialog();
-    this.showMessage = false;
-    if(this.messageservice!.currentuser != "")
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    
-   // this.openDialog();
+  }
+
+  ngAfterViewInit() {
+    if(this.findPerson.nativeElement)
+    {
+    this.findPerson.nativeElement.click();
+    console.log(this.findPerson.nativeElement); 
+    }
+  }
+
+  ngAfterContentInit() {
+    if(this.findPerson.nativeElement)
+    {
+    this.findPerson.nativeElement.click();
+    console.log(this.findPerson.nativeElement); 
+    }
   }
 
   openDialog() {
-    //this.showMessage = false;
+    this.showMessage = false;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
@@ -52,7 +62,7 @@ export class SubmitstarComponent implements OnInit {
     userStarConfigurationDTO.corpUserId = this.selectedUser.corpID;
     userStarConfigurationDTO.employeeName = this.selectedUser.displayName;
     userStarConfigurationDTO.message = this.message;
-    userStarConfigurationDTO.createdBy =  this.currentUser.corpUserId;
+    userStarConfigurationDTO.createdBy =  this.currentUser.corpID.toString();
     await firstValueFrom(this.starManagementService.submitStarRequest(userStarConfigurationDTO))
     // .then((res) => {
     //   this.showMessage = true;
