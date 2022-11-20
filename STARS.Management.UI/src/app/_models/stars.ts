@@ -7,6 +7,8 @@ export class Stars
     thumbnail: string;
     createdBy: string;
     createdDate: string;
+    shareCount :number;
+    likeCOunt :number;
   }
 
   export class StarsDto
