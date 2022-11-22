@@ -128,8 +128,8 @@ laoreet, finibus ligula.</span> </p>
      
       </div>
     </div>
-    <div class="mb-5 mt-n5">
-    <div class="comment"> <strong>Andrew<br/>
+    <div class="mb-5 mt-n5" *ngIf="this.starDetails[0].employeeName !== undefined && this.starDetails[0].employeeName !== null">
+    <div class="comment"> <strong>{{this.starDetails[0].employeeName}}<br/>
       Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
       <p class="mt-2"><span>Thank you!!! dignissim
 volutpat. In et risus
@@ -215,7 +215,7 @@ laoreet, finibus ligula.</span></p>
             
                     <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
                         <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px"></div>
-                        <div class="col w-75"><h4 class="title-b-28 fw-bolder">Victoria Wellington</h4>
+                        <div class="col w-75"><h4 class="title-b-28 fw-bolder">{{this.starDetails[0].employeeName}}</h4>
                          <span class="text-blue">9/14/22 by Robert Copeland</span>
                      <p class="title-r-20"><span class="d-inline-block show-more" >Lorem ipsum dolor sit amet,
                          consectetur adipiscing elit.
@@ -232,7 +232,7 @@ laoreet, finibus ligula.</span></p>
                         <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px"></div>
                         <div class="col w-75"><h4 class="title-b-28 fw-bolder">Victoria Wellington</h4>
                          <span class="text-blue">9/14/22 by Robert Copeland</span>
-                     <p class="title-r-20"><span class="d-inline-block show-more" >Lorem ipsum dolor sit amet,
+                     <p class="title-r-20"><span class="d-inline-block show-more">Lorem ipsum dolor sit amet,
                          consectetur adipiscing elit.
                          Etiam rhoncus consectetur adipiscing elit.
                          Etiam rhoncus consectetur adipiscing elit.

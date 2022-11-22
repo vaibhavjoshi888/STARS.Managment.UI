@@ -11,6 +11,17 @@ export class Stars
     likeCOunt :number;
   }
 
+  export class RcentStars
+{
+    userStarId: number;
+    corpUserId: string
+    employeeName: string;
+    message: string;
+    thumbnail: string;
+    createdBy: string;
+    createdDate: string;
+  }
+
   export class StarsDto
 {
     userStarId: string;
