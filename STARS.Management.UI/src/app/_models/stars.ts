@@ -20,6 +20,8 @@ export class Stars
     thumbnail: string;
     createdBy: string;
     createdDate: string;
+    firstName: string;
+    lastName: string;
   }
 
   export class StarsDto

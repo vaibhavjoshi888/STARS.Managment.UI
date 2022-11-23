@@ -6,6 +6,7 @@ import { MessageService } from '../_services/message.service';
 import { StarManagementService } from '../_services/star-management.service';
 
 declare var $: any;
+
 //declare var jQuery: any;
 //import * as $ from 'jquery';
 
@@ -40,9 +41,10 @@ export class WelcomeComponent implements OnInit {
     else if (this.router.url == '/welcomesignin')
       this.isLoginPage = true;
 
-    
+     
 
     $(document).ready(() => {
+
       var maxLength = 120;
       $(".show-more").each(function () {
         var myStr = $(this).text();
@@ -58,19 +60,19 @@ export class WelcomeComponent implements OnInit {
         $(this).siblings(".more-text").contents().unwrap();
         $(this).remove();
       });
-
-
+     
+   
     });
 
-    //  $('#nt-example1').newsTicker({
-    //     row_height: 180,
-    //     max_rows: 4,
-    //     duration: 4000,
-    //     prevButton: $('#nt-example1-prev'),
-    //     nextButton: $('#nt-example1-next')
-    //   });
+    // $('#nt-example1').newsTicker({
+    //   row_height: 180,
+    //   max_rows: 4,
+    //   duration: 4000,
+    //   prevButton: $('#nt-example1-prev'),
+    //   nextButton: $('#nt-example1-next')
+    // });
 
-
+    
     $('.share div').each(function (i) {
       loopInfinitely($(this));
     });
@@ -83,16 +85,9 @@ export class WelcomeComponent implements OnInit {
       }, rand);
     }
 
-     this.getActiveStars()
-    // console.log(this.starDetails[0].message);
-    // console.log(this.starDetails[0].userStarId);
-    // console.log(this.starDetails[0].employeeName);
-
     
-    // console.log(this.starDetails[1].message);
-    // console.log(this.starDetails[1].userStarId);
-    // console.log(this.starDetails[1].employeeName);
 
+     this.getActiveStars()
   
   }
 

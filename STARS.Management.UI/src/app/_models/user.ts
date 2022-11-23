@@ -53,6 +53,8 @@ export class UserStarConfigurationDTO {
     createdBy: string
     createdDate: string
     thumbnailPhoto: string
+    displayName: string;
+    surname: string;
 }
 
 export class StarRequestCountDTO {
