@@ -48,10 +48,13 @@
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-2">
-                        <a href="#" class="btn btn-blue align-items-end ml-5" title="Add New User" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()">
+                        <!-- <a href="#" class="btn btn-blue align-items-end ml-5" title="Add New User" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()">
                             <img src="../assets/images/AddNewUserICon.png" /> Add New User
-                        </a>
-                        
+                        </a> -->
+                        <button #findPerson type="button" class="btn btn-blue align-items-end ml-5" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()">
+                            <img src="../assets/images/AddNewUserICon.png" /> Add New User
+                        </button>
+
                     </div>
                 </div>
             </div>

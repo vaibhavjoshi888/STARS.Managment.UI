@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { UserDTO } from '../_models/user';
 import { UserManagementService } from '../_services/user-management.service';
@@ -24,6 +24,7 @@ export class ManageuserComponent implements OnInit {
   chkSiteIsSelected: boolean;
   searchText: string = "";
   showMessage: boolean = false;
+  @ViewChild('findPerson') findPerson;
 
   constructor(private userManagementService: UserManagementService,
     public dialog: MatDialog
@@ -45,7 +46,24 @@ export class ManageuserComponent implements OnInit {
   //     this.selectedUser = value;
   //   });
   // }
+
+
+  ngAfterViewInit() {
+    if (this.findPerson.nativeElement) {
+      this.findPerson.nativeElement.click();
+      console.log(this.findPerson.nativeElement);
+    }
+  }
+
+  ngAfterContentInit() {
+    if (this.findPerson.nativeElement) {
+      this.findPerson.nativeElement.click();
+      console.log(this.findPerson.nativeElement);
+    }
+  }
+
   openDialog() {
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
