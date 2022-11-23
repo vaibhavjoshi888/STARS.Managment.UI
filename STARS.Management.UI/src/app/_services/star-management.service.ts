@@ -38,6 +38,13 @@ export class StarManagementService {
       }));
   }
 
+  getStarRecentStar() {
+    return this.http.get<any>(`${environment.baseUrl_API}/StarManagement/getrecentstars`)
+      .pipe(map(star => {
+        return star;
+      }));
+  }
+
   updateStarRequest(userstarid,data) {
     return this.http.put<any>(`${environment.baseUrl_API}/StarManagement/updatestarrequest/${userstarid}`, data);
   }

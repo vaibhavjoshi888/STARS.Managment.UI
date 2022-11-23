@@ -64,7 +64,10 @@ export class SubmitstarComponent implements OnInit {
     userStarConfigurationDTO.corpUserId = this.selectedUser.corpID;
     userStarConfigurationDTO.employeeName = this.selectedUser.displayName;
     userStarConfigurationDTO.message = this.message;
-    userStarConfigurationDTO.createdBy =  this.currentUser.corpID.toString();
+    userStarConfigurationDTO.createdBy =  this.currentUser.corpUserId.toString();
+    userStarConfigurationDTO.displayName = this.selectedUser.displayName;
+    userStarConfigurationDTO.surname = this.selectedUser.surname;
+    userStarConfigurationDTO.createdBy =  this.currentUser.corpUserId.toString();
     await firstValueFrom(this.starManagementService.submitStarRequest(userStarConfigurationDTO))
     // .then((res) => {
     //   this.showMessage = true;

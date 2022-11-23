@@ -80,7 +80,16 @@ body {
   
   } 
   
-   
+  .Stxt {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}  
   td.show-hide a.collapsed
   {
       
@@ -252,4 +261,9 @@ body {
   
   
   @media (min-width: 768px) and (max-width:1400px){ .w-30{width: 30%;}}
+  .pill,
+.btn-pill {
+    border-radius: 50rem;
+}
+.comment img{position: absolute; right:0; top:0;}
       

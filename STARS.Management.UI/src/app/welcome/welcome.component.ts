@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
+import { RcentStars } from '../_models/stars';
 import { MessageService } from '../_services/message.service';
+import { StarManagementService } from '../_services/star-management.service';
+
+declare var $: any;
+
+//declare var jQuery: any;
+//import * as $ from 'jquery';
 
 @Component({
   selector: 'app-welcome',
@@ -9,13 +17,19 @@ import { MessageService } from '../_services/message.service';
 })
 export class WelcomeComponent implements OnInit {
   isLoginPage: boolean = false;
-  constructor(private router: Router, private messageservice: MessageService) {
+  ntExample1: any;
+  starDetails: RcentStars[] = [];
+  InitialLoad: RcentStars[] = [];
+
+
+  constructor(private router: Router, private messageservice: MessageService,
+    private starManagementService: StarManagementService,) {
 
   }
 
   ngOnInit(): void {
     this.messageservice.currentuser == null;
-    
+
     if (this.router.url == '/welcome' || this.messageservice.currentuser == null)
       this.isLoginPage = false;
     else if (this.router.url == '/welcomesignout' || this.messageservice.currentuser == null)
@@ -26,6 +40,64 @@ export class WelcomeComponent implements OnInit {
       this.isLoginPage = true;
     else if (this.router.url == '/welcomesignin')
       this.isLoginPage = true;
+
+     
+
+    $(document).ready(() => {
+
+      var maxLength = 120;
+      $(".show-more").each(function () {
+        var myStr = $(this).text();
+        if ($.trim(myStr).length > maxLength) {
+          var newStr = myStr.substring(0, maxLength);
+          var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+          $(this).empty().html(newStr);
+          $(this).append(' <a href="javascript:void(0);" class="read-more">...more> </a>');
+          $(this).append('<span class="more-text">' + removedStr + '</span>');
+        }
+      });
+      $(".read-more").click(function () {
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+      });
+     
+   
+    });
+
+    // $('#nt-example1').newsTicker({
+    //   row_height: 180,
+    //   max_rows: 4,
+    //   duration: 4000,
+    //   prevButton: $('#nt-example1-prev'),
+    //   nextButton: $('#nt-example1-next')
+    // });
+
+    
+    $('.share div').each(function (i) {
+      loopInfinitely($(this));
+    });
+
+    function loopInfinitely(elem) {
+      var rand = 1 + Math.floor(Math.random() * 6) * 1000;//max of random 6 seconds
+      setTimeout(function () {
+        elem.fadeIn(rand).delay(5000).fadeOut(rand);
+        loopInfinitely(elem);
+      }, rand);
+    }
+
+    
+
+     this.getActiveStars()
+  
+  }
+
+  getActiveStars() {
+    firstValueFrom(this.starManagementService.getStarRecentStar())
+      .then((res: any) => {
+        this.starDetails = res;
+        this.InitialLoad = res;
+      }
+      )
   }
 
   login() {
@@ -41,4 +113,5 @@ export class WelcomeComponent implements OnInit {
   userIsLogged() {
     return this.isLoginPage;
   }
+
 }
