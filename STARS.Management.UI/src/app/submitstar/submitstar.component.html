@@ -69,14 +69,16 @@
         <div class="border-start  border-5 border-star table-responsive-sm">
             <table class="table border-0 submit-star ms-2" style="border-style:none!important; border: 0!important;">
                 <tbody>
-                    <tr style="border-style:none!important; border: 0!important;">
-                        <td scope="row"><img src="{{selectedUser ? selectedUser.thumbnailPhoto : defaultPersonIcon}}" alt="mdo" width="60" height="60" class="rounded-circle"></td>
-                        <td><small>First Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.displayName : "-"}}</span></small></td>
-                        <td><small>Last Name<br/><span class="fw-bold">{{selectedUser ? selectedUser.surname : "-"}}</span></small></td>
-                        <td><small>Title<br/><span class="fw-bold">{{selectedUser ? selectedUser.title : "-"}}</span></small></td>
-                        <td><small>Department<br/><span class="fw-bold">{{selectedUser ? selectedUser.department : "-"}}</span></small></td>
-                        <td><small>Facility<br/><span class="fw-bold"></span></small></td>
-                        <td><small>Manager<br/><span class="fw-bold">{{selectedUser ? selectedUser.managerDisplayName : "-"}}</span></small></td>
+                    <tr *ngIf="this.selectedUser" style="border-style:none!important; border: 0!important;">
+                        <td scope="row">
+                            <img src="{{selectedUser ? selectedUser.thumbnailPhoto : defaultPersonIcon }}" alt="mdo" width="60" height="60" class="rounded-circle">
+                        </td>
+                        <td><small>First Name<br/><span class="fw-bold">{{selectedUser.displayName}}</span></small></td>
+                        <td><small>Last Name<br/><span class="fw-bold">{{this.selectedUser.surname}}</span></small></td>
+                        <td><small>Title<br/><span class="fw-bold">{{this.selectedUser.title}}</span></small></td>
+                        <td><small>Department<br/><span class="fw-bold">{{this.selectedUser.department}}</span></small></td>
+                        <td><small>Facility<br/><span class="fw-bold">-</span></small></td>
+                        <td><small>Manager<br/><span class="fw-bold">{{this.selectedUser.managerDisplayName}}</span></small></td>
                     </tr>
 
                 </tbody>
