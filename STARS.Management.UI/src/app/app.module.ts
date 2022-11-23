@@ -20,6 +20,7 @@ import { SubmitstarComponent } from './submitstar/submitstar.component';
 import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
+import { DenyModalComponent } from './deny-modal/deny-modal.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FindPersonModalComponent } from './find-person-modal/find-person-modal.
     SubmitstarComponent,
     ReviewstarsComponent,
     ViewallstarsComponent,
-    FindPersonModalComponent
+    FindPersonModalComponent,
+    DenyModalComponent
   ],
   imports: [
     BrowserModule,

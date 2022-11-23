@@ -1,134 +1,200 @@
-<main class="container">
-    <h1 class="mb-4 text-blue fw-light">STAR Management</h1>
-    <div class="row" style="font-size: 14px;">
-        <div class="col-md-7">
-            <div class="row">
-                <div class="col-4"><label>Search by Name</label>
-                    <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
+<!doctype html>
+<html lang="en">
 
-                        <input type="text" name="searchText" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24" (click)="getUserList()"></span>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Submit a STAR</title>
+    <!-- <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>  -->
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        .border-star {
+            border-color: #4196cc!important;
+        }
+        
+        .bg-orange {
+            background-color: #f88d2a;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .bg-orange:hover {
+            color: white;
+            background-color: #031461;
+            cursor: pointer;
+        }
+        
+        .border-0 {
+            border-style: none!important;
+            border-width: 0!important;
+        }
+        
+        tr {
+            border-style: none!important;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="style.css" rel="stylesheet">
+    <link href="manageuser.component.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="mb-4 text-blue fw-light">STAR Management</h1>
+        <div class="row" style="font-size: 14px;">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-4"><label>Search by Name</label>
+                        <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
+
+                            <input type="text" name="searchText" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24" (click)="getUserList()"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-3"><label>Start Date</label>
+                        <div class="input-group has-validation searchName">
+
+                            <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img src="../../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
+
+                        </div>
+                    </div>
+                    <div class="col-3"><label>End Date</label>
+                        <div class="input-group has-validation searchName">
+                            <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img src="../../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
+                        </div>
+                    </div>
+                    <div class="col-2 d-grid"><label>&nbsp;</label>
+                        <button class="btn pill btn-blue text-uppercase" (click)="getUserList()">Search</button>
                     </div>
                 </div>
-                <div class="col-3"><label>Start Date</label>
-                    <div class="input-group has-validation searchName">
+            </div>
+            <div class="col-md-5 gap-2 d-flex" *ngIf="requestCount">
+                <div class="col text-center"><label class="d-block">Total Submitted </label><span class="badge rounded-pill bg-submit ">{{requestCount.totalSubmited}}</span></div>
+                <div class="col text-center"><label class="d-block">Pending </label><span class="badge rounded-pill bg-pending ">{{requestCount.pending}}</span></div>
+                <div class="col text-center"><label class="d-block">Approved </label><span class="badge rounded-pill bg-approve ">{{requestCount.approved}}</span></div>
+                <div class="col text-center"><label class="d-block">Denied </label><span class="badge rounded-pill bg-deny ">{{requestCount.denied}}</span></div>
 
-                        <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img src="../../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
+            </div>
+        </div>
 
-                    </div>
+        <div class="row mt-4">
+            <div class="col-12 gap-4 d-flex">
+
+                <div class="form-check d-inline w-auto">
+                    <input class="form-check-input" type="checkbox" [checked]="chkAllIsSelected" id="all" name="All" (click)="getUser($event)" value="something" checked>
+                    <label class="form-check-label" for="all">All</label>
                 </div>
-                <div class="col-3"><label>End Date</label>
-                    <div class="input-group has-validation searchName">
-                        <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img src="../../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
-                    </div>
+                <div class="form-check d-inline w-auto">
+                    <input class="form-check-input" type="checkbox" [checked]="chkPendingIsSelected" id="pending" (click)="getUser($event)" name="Pending" value="something">
+                    <label class="form-check-label" for="pending">Pending</label>
                 </div>
-                <div class="col-2 d-grid"><label>&nbsp;</label>
-                    <button class="btn pill btn-blue text-uppercase" (click)="getUserList()">Search</button>
+                <div class="form-check d-inline w-auto">
+                    <input class="form-check-input" type="checkbox" [checked]="chkApprovedIsSelected" id="approved" (click)="getUser($event)" name="Approved" value="something">
+                    <label class="form-check-label" for="approved">Approved</label>
+                </div>
+                <div class="form-check d-inline w-auto">
+                    <input class="form-check-input" type="checkbox" [checked]="chkDeniedIsSelected" id="denied" (click)="getUser($event)" name="Denied" value="something">
+                    <label class="form-check-label" for="denied">Denied</label>
                 </div>
             </div>
         </div>
-        <div class="col-md-5 gap-2 d-flex" *ngIf="requestCount">
-            <div class="col text-center"><label class="d-block">Total Submitted </label><span class="badge rounded-pill bg-submit ">{{requestCount.totalSubmited}}</span></div>
-            <div class="col text-center"><label class="d-block">Pending </label><span class="badge rounded-pill bg-pending ">{{requestCount.pending}}</span></div>
-            <div class="col text-center"><label class="d-block">Approved </label><span class="badge rounded-pill bg-approve ">{{requestCount.approved}}</span></div>
-            <div class="col text-center"><label class="d-block">Denied </label><span class="badge rounded-pill bg-deny ">{{requestCount.denied}}</span></div>
+        <div class="col-12 tableStar table-responsive">
+            <table class="table table-striped">
+                <thead class="border-top-0 border-start-0 border-end-0 border-2 bg-white">
+                    <tr>
+                        <th width="20"></th>
+                        <th width="140">Employee Name</th>
+                        <th width="121">Created by</th>
+                        <th width="110">Date Created</th>
+                        <th width="100">Status</th>
+                        <th width="442">Message</th>
+                        <th width="105">Approve</th>
+                        <th width="105">Deny</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    <tr *ngFor="let user of this.userdetails">
+                        <td colspan="8">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="show-hide" width="20">
+                                            <a class="btn collapsed" id="{{user.userStarId}}" data-bs-toggle="collapse" href="#{{'row'+ user.userStarId}}" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
+                                        </td>
+                                        <td width="140">{{user.employeeName}}</td>
+                                        <td width="121">{{user.createdBy}}</td>
+                                        <td width="110">{{user.createdDate}}</td>
+                                        <td width="100"><span [ngClass]="user.status === 'P' ? 'circle bg-pending' : user.status === 'A' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === 'P' ? 'Pending' : user.status === 'A' ? 'Approved' : 'Denied'}}
+                                        </td>
+                                        <td width="442" class="Stxt">{{user.message}}</td>
+                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="openDenyDialog(user)"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="hiddenRow"></td>
+                                        <td colspan="5" class="hiddenRow">
+                                            <div class="collapse" id="{{'row'+ user.userStarId}}">
+                                                <table class="table">
+                                                    <tr>
+                                                        <td>
+                                                            <strong>Full Message:</strong> {{user.message}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        <td class="hiddenRow"></td>
+                                        <td class="hiddenRow"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br/>
+            <div class="clearfix mt-4"></div>
+            <!-- <nav aria-label="Page navigation example mt-5 mb-3">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link me-3" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><img src="../../assets/images/back-arrow.png" alt="" srcset=""></span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link " href="#">1</a></li>
+                    <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link ms-3" href="#" aria-label="Next">
+                            <span aria-hidden="true"><img src="../../assets/images/next-arrow.png" alt="" srcset=""></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> -->
         </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-12 gap-4 d-flex">
-
-            <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" [checked]="chkAllIsSelected" id="all" name="All" (click)="getUser($event)" value="something" checked>
-                <label class="form-check-label" for="all">All</label>
-            </div>
-            <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" [checked]="chkPendingIsSelected" id="pending" (click)="getUser($event)" name="Pending" value="something">
-                <label class="form-check-label" for="pending">Pending</label>
-            </div>
-            <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" [checked]="chkApprovedIsSelected" id="approved" (click)="getUser($event)" name="Approved" value="something">
-                <label class="form-check-label" for="approved">Approved</label>
-            </div>
-            <div class="form-check d-inline w-auto">
-                <input class="form-check-input" type="checkbox" [checked]="chkDeniedIsSelected" id="denied" (click)="getUser($event)" name="Denied" value="something">
-                <label class="form-check-label" for="denied">Denied</label>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 tableStar table-responsive">
-        <table class="table table-striped">
-            <thead class="border-top-0 border-start-0 border-end-0 border-2 bg-white">
-                <tr>
-                    <th width="20"></th>
-                    <th width="140">Employee Name</th>
-                    <th width="121">Created by</th>
-                    <th width="110">Date Created</th>
-                    <th width="100">Status</th>
-                    <th width="442">Message</th>
-                    <th width="105">Approve</th>
-                    <th width="105">Deny</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr *ngFor="let user of this.userdetails">
-                    <td colspan="8">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="show-hide" width="20">
-                                        <a class="btn collapsed" id="{{user.userStarId}}" data-bs-toggle="collapse" href="#{{'row'+ user.userStarId}}" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
-                                    </td>
-                                    <td width="140">{{user.employeeName}}</td>
-                                    <td width="121">{{user.createdBy}}</td>
-                                    <td width="110">{{user.createdDate}}</td>
-                                    <td width="100"><span [ngClass]="user.status === 'P' ? 'circle bg-pending' : user.status === 'A' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === 'P' ? 'Pending' : user.status === 'A' ? 'Approved' : 'Denied'}}
-                                    </td>
-                                    <td width="442" class="Stxt">{{user.message}}</td>
-                                    <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                    <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="updateStarRequest(user,'3')"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="hiddenRow"></td>
-                                    <td colspan="5" class="hiddenRow">
-                                        <div class="collapse" id="{{'row'+ user.userStarId}}">
-                                            <table class="table">
-                                                <tr>
-                                                    <td>
-                                                        <strong>Full Message:</strong> {{user.message}}</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
-                                    <td class="hiddenRow"></td>
-                                    <td class="hiddenRow"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br/>
-        <div class="clearfix mt-4"></div>
-        <!-- <nav aria-label="Page navigation example mt-5 mb-3">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link me-3" href="#" aria-label="Previous">
-                        <span aria-hidden="true"><img src="../../assets/images/back-arrow.png" alt="" srcset=""></span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link " href="#">1</a></li>
-                <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
-                <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link ms-3" href="#" aria-label="Next">
-                        <span aria-hidden="true"><img src="../../assets/images/next-arrow.png" alt="" srcset=""></span>
-                    </a>
-                </li>
-            </ul>
-        </nav> -->
-    </div>
-</main>
+    </main>
+</body>
