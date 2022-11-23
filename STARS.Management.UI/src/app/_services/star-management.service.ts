@@ -52,4 +52,13 @@ export class StarManagementService {
   submitStarRequest(data) {
     return this.http.post<any>(`${environment.baseUrl_API}/StarManagement/submitstarrequest`, data);
   }
+
+  updateStarShare(userstarid,data) {
+    return this.http.put<any>(`${environment.baseUrl_API}/StarManagement/updatestarsharecount/${userstarid}`, data);
+  }
+
+  updateStarLikeCount(userstarid,data) {
+    return this.http.put<any>(`${environment.baseUrl_API}/StarManagement/updatestarlikecount/${userstarid}`, data);
+  }
+
 }

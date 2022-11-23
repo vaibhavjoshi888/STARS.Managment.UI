@@ -1,107 +1,110 @@
 <style>
-  .title-b-16 {
-    font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI" !important;
-    font-size: 16px !important;
-    line-height: 1.4;
-  }
-
-  h1.text-blue {
-    font-family: "SEGOEUI", "Segoe UI Regular", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  }
+    .title-b-16 {
+        font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI" !important;
+        font-size: 16px !important;
+        line-height: 1.4;
+    }
+    
+    h1.text-blue {
+        font-family: "SEGOEUI", "Segoe UI Regular", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
 </style>
 <header class="star-bg" *ngIf="!userIsLogged()">
-  <nav class="navbar navbar-expand-md navbar-dark mb-5 pb-4 pt-4">
-<div class="container">
-  <a class="navbar-brand" href="#"><img src="../assets/images/logo.jpeg" alt="" srcset="" width="254"></a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-dark mb-5 pb-4 pt-4">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="../assets/images/logo.jpeg" alt="" srcset="" width="254"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <ul class="navbar-nav ms-auto mb-2 mb-md-0 text-uppercase">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcome']">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/viewallstarsso']">VIEW ALL STARS</a>
-      </li>
-      <li class="nav-item">
-        <a class=" bg-orange rounded-pill nav-link" href="#" (click)="isUserLogged()">SUBMIT A STAR</a>
-      </li>
-      <li class="nav-item">
-        <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
-      </li>
-      
-    </ul>
-    
-  </div>
-</div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0 text-uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" [routerLink]="['/welcome']">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/viewallstarsso']">VIEW ALL STARS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" bg-orange rounded-pill nav-link" href="#" (click)="isUserLogged()">SUBMIT A STAR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" bg-orange rounded-pill nav-link ms-3" href="#" [routerLink]="['/login']">Login</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
 </header>
 
 <main class="container">
-  <h1 class="mb-4 text-blue fw-bolder text-uppercase">All STARS </h1>
-  <div class="row">
-    <div class="col-md-7">
-      <div class="row">
-        <div class="col-md-4"><label>Search by Name</label>
-          <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
-            <input type="text" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span
-              class="input-group-text pill border-0 "><img src="assets/images/SearchMagnifyingGlass.png" alt=""
+    <h1 class="mb-4 text-blue fw-bolder text-uppercase">All STARS </h1>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-4"><label>Search by Name</label>
+                    <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
+                        <input type="text" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="assets/images/SearchMagnifyingGlass.png" alt=""
                 srcset="" width="24" (click)="getUserList()"></span>
 
-          </div>
-        </div>
-        <div class="col-md-3"><label>Start Date</label>
-          <div class="input-group has-validation searchName">
+                    </div>
+                </div>
+                <div class="col-md-3"><label>Start Date</label>
+                    <div class="input-group has-validation searchName">
 
-            <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img
+                        <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img
                 src="assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
 
-          </div>
-        </div>
-        <div class="col-md-3"><label>End Date</label>
-          <div class="input-group has-validation searchName">
-            <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img
+                    </div>
+                </div>
+                <div class="col-md-3"><label>End Date</label>
+                    <div class="input-group has-validation searchName">
+                        <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img
                 src="assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
-          </div>
+                    </div>
+                </div>
+                <div class="col-md-2 d-grid"><label>&nbsp;</label>
+                    <button class="btn pill btn-blue text-uppercase">Search</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-2 d-grid"><label>&nbsp;</label>
-          <button class="btn pill btn-blue text-uppercase">Search</button>
-        </div>
-      </div>
+
     </div>
 
-  </div>
+    <div class="row mt-4">
+        <div class="col-12 star-comment" *ngFor="let star of starDetails">
 
-  <div class="row mt-4">
-    <div class="col-12 star-comment" *ngFor="let star of starDetails">
+            <div class="comment-box">
+                <h3 class="title-b-26 fw-bolder"> <img src="{{star.thumbnail}}" alt="" class="user align-middle"><span><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> {{star.employeeName}}</span>
 
-      <div class="comment-box">
-        <h3 class="title-b-26 fw-bolder"> <img src="{{star.thumbnail}}" alt=""
-            class="user align-middle"><span><img src="assets/images/star-blue.png" alt="" class="ms-2" width="42px"> {{star.employeeName}}</span><span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-share-alt"></i> SHARE ({{star.shareCount}}) <i
-              class="fa fa-thumbs-o-up ms-3"></i> LIKE ({{star.likeCOunt}})</span></h3>
-        <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">{{star.message}}</p>
-        <p class="text-end p-3 pt-1 text-blue"><i>{{star.createdDate}} by {{star.createdBy}}</i></p>
-      </div>
-      <div class="clearfix mt-4"></div>
+                    <span class="text-end float-end fs-6 mt-4 me-4"> 
+                      <i class="fa fa-share-alt"></i><div (click)="updateStarShare(star)"> SHARE ({{star.shareCount}}) </div> </span>
+                    <span class="text-end float-end fs-6 mt-4 me-4"> <i class="fa fa-thumbs-o-up ms-3" ></i> <div (click)="updateStarLikeCount(star.userStarId)"> LIKE ({{star.likeCOunt}}) </div>
+                    </span>
+                </h3>
+                <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">{{star.message}}</p>
+                <p class="text-end p-3 pt-1 text-blue"><i>{{star.createdDate}} by {{star.createdBy}}</i></p>
+            </div>
+            <div class="clearfix mt-4"></div>
+        </div>
+        <nav aria-label="Page navigation example mt-5 mb-3">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link me-3" href="#" aria-label="Previous">
+                        <span aria-hidden="true"><img src="assets/images/back-arrow.png" alt="" srcset=""></span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link " href="#">1</a></li>
+                <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
+                <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link ms-3" href="#" aria-label="Next">
+                        <span aria-hidden="true"><img src="assets/images/next-arrow.png" alt="" srcset=""></span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
     </div>
-    <nav aria-label="Page navigation example mt-5 mb-3">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link me-3" href="#" aria-label="Previous">
-            <span aria-hidden="true"><img src="assets/images/back-arrow.png" alt="" srcset=""></span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link " href="#">1</a></li>
-        <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
-        <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link ms-3" href="#" aria-label="Next">
-            <span aria-hidden="true"><img src="assets/images/next-arrow.png" alt="" srcset=""></span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-  </div>
 </main>

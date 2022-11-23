@@ -15,6 +15,12 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
+
+  name = 'test';
+  links : any[]= ["link1.com", "link2.com", "link3.com"];
+  mailText:string = ""; 
+
+
   constructor(private starManagementService: StarManagementService,
     private router: Router, private messageservice: MessageService) { }
 
@@ -27,6 +33,7 @@ export class ViewallstarsComponent implements OnInit {
    else if (this.router.url == '/viewallstars' && this.messageservice.currentuser != null)
      this.isLoginPage = true;
   }
+
 
   isUserLogged() {
 
@@ -56,5 +63,15 @@ export class ViewallstarsComponent implements OnInit {
       this.starDetails = this.InitialLoad;
     }
   }
+
+  async updateStarShare(star) {
+   await firstValueFrom(this.starManagementService.updateStarShare(star.userStarId,null));
+   this.mailText = "mailto:abc@abc.com+?subject=files&body="+this.links.join(" ,"); // add the links to body    
+   window.location.href = this.mailText;
+  };
+
+  async updateStarLikeCount(userStarId) {
+    await firstValueFrom(this.starManagementService.updateStarLikeCount(userStarId,null));
+  };
 
 }
