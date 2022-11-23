@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { firstValueFrom } from 'rxjs';
 import { StarRequestCountDTO, UpdateStarRequestDTO, UserStarConfigurationDTO } from '../_models/user';
 import { AuthenticationService } from '../_services/authentication.service';
 import { StarManagementService } from '../_services/star-management.service';
+import { DenyModalComponent } from '../deny-modal/deny-modal.component';
 
 @Component({
   selector: 'app-reviewstars',
@@ -21,7 +23,9 @@ export class ReviewstarsComponent implements OnInit {
   chkDeniedIsSelected: boolean;
   searchText: string = "";
 
-  constructor(private starManagementService: StarManagementService, private authenticationService: AuthenticationService,) { }
+  constructor(private starManagementService: StarManagementService,
+    private authenticationService: AuthenticationService,
+    public dialog: MatDialog) { }
 
   async ngOnInit() {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
@@ -123,5 +127,29 @@ export class ReviewstarsComponent implements OnInit {
     else {
       this.userdetails = this.InitialLoad;
     }
+  }
+
+  openDenyDialog(user) {
+    // const dialogRef = this.dialog.open(DenyModalComponent, {
+    //   data: {
+    //     // message: 'Are you sure want to delete?',
+    //     // buttonText: {
+    //     //   ok: 'Yes',
+    //     //   cancel: 'No'
+    //     // }
+    //   }
+    // });
+
+    // this.showMessage = false;
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.data = "some data";
+    dialogConfig.height = 'auto';
+    // dialogConfig.width = '600px';
+    dialogConfig.data = user;
+    let dialogRef = this.dialog.open(DenyModalComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(value => {
+      this.getAllUser();
+    });
   }
 }
