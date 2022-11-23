@@ -36,9 +36,11 @@ export class MenuComponent implements OnInit {
   isUserLogged() {
 
     if (!this.isloggedinuser)
-      this.router.navigate(['/submitstar']);
+      //this.router.navigate(['/submitstar']);
+      window.location.href='/submitstar';
     else
-      this.router.navigate(['/login']);
+    window.location.href='/login';
+      //this.router.navigate(['/login']);
   }
 
   login() {

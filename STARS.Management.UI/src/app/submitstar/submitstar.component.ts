@@ -71,7 +71,7 @@ export class SubmitstarComponent implements OnInit {
 
   redirect(){
     this.router.navigate(['/welcomesignin']);
-    window.location.reload();
+    window.location.href='/welcomesignin';
   }
 
   async submitStarRequest() {

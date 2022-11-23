@@ -31,6 +31,7 @@ export class FindPersonModalComponent implements OnInit {
 
   saveSelectedUser() {
     this.dialogRef.close(this.selectedUser);
+  
   }
 
   userItemOnSelect(event) {
