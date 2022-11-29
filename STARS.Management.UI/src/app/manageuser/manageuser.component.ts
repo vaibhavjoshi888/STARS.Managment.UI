@@ -159,9 +159,10 @@ export class ManageuserComponent implements OnInit {
         message: 'Are you sure want to delete?',
         buttonText: {
           ok: 'Yes',
-          cancel: 'No'
-        }
-      }
+          cancel: 'No',
+        },
+        class:'modal-dialog'
+      },
     });
 
     dialogRef.afterClosed().subscribe((confirmed: boolean) => {

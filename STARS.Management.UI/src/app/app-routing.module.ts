@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ManageuserComponent } from './manageuser/manageuser.component';
+import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
 import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 import { SampleComponent } from './sample/sample.component';
 import { SearchusermodalComponent } from './searchusermodal/searchusermodal.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'welcomesignout', component: WelcomeComponent },
   { path: 'welcomesignin', component: WelcomeComponent },
+  { path: 'thanks', component: NoteofthanksComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sample', component: SampleComponent },
   { path: 'manageuser', component: ManageuserComponent },
