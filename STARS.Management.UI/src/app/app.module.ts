@@ -22,6 +22,7 @@ import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
 import { DenyModalComponent } from './deny-modal/deny-modal.component';
 import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
+import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
     ViewallstarsComponent,
     FindPersonModalComponent,
     DenyModalComponent,
-    NoteofthanksComponent
+    NoteofthanksComponent,
+    FindUserModalComponent
   ],
   imports: [
     BrowserModule,

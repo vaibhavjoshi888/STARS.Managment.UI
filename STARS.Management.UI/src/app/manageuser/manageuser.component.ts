@@ -7,6 +7,7 @@ import { SearchusermodalComponent } from '../searchusermodal/searchusermodal.com
 import { ConfirmationDialog } from '../shared/alert/confirmation-dialog/confirmation-dialog.component';
 import * as _ from 'lodash';
 import { FindPersonModalComponent } from '../find-person-modal/find-person-modal.component';
+import { FindUserModalComponent } from '../find-user-modal/find-user-modal.component';
 
 
 @Component({
@@ -68,7 +69,7 @@ export class ManageuserComponent implements OnInit {
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
     dialogConfig.width = '600px';
-    let dialogRef = this.dialog.open(FindPersonModalComponent, dialogConfig);
+    let dialogRef = this.dialog.open(FindUserModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(value => {
        this.isNewUser = true;
