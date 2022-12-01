@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { RcentStars } from '../_models/stars';
+import { StarRequestCountDTO } from '../_models/user';
 import { MessageService } from '../_services/message.service';
 import { StarManagementService } from '../_services/star-management.service';
 
@@ -18,8 +19,10 @@ declare var $: any;
 export class WelcomeComponent implements OnInit {
   isLoginPage: boolean = false;
   ntExample1: any;
+  requestCount: StarRequestCountDTO;
   starDetails: RcentStars[] = [];
   InitialLoad: RcentStars[] = [];
+  totalStarAdded :any;
 
 
   constructor(private router: Router, private messageservice: MessageService,
@@ -78,9 +81,9 @@ export class WelcomeComponent implements OnInit {
     });
 
     function loopInfinitely(elem) {
-      var rand = 1 + Math.floor(Math.random() * 6) * 1000;//max of random 6 seconds
+      var rand = 1 + Math.floor(Math.random() * 10) * 1000;//max of random 6 seconds
       setTimeout(function () {
-        elem.fadeIn(rand).delay(5000).fadeOut(rand);
+        elem.fadeIn(rand).delay(10000).fadeOut(rand);
         loopInfinitely(elem);
       }, rand);
     }
@@ -88,7 +91,15 @@ export class WelcomeComponent implements OnInit {
     
 
      this.getActiveStars()
+     this.getStarRequestCount()
   
+  }
+  
+   getStarRequestCount() {
+     firstValueFrom(this.starManagementService.getStarRequestCount())
+      .then((res: StarRequestCountDTO) => {
+        this.requestCount = res;
+      })
   }
 
   getActiveStars() {
