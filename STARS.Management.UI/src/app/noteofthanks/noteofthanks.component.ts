@@ -61,9 +61,16 @@ export class NoteofthanksComponent implements OnInit {
       }, rand);
     }
     this.getActiveStars()
+    this.getStarRequestCount()
+  
   
   }
-
+  getStarRequestCount() {
+    firstValueFrom(this.starManagementService.getStarRequestCount())
+     .then((res: StarRequestCountDTO) => {
+       this.requestCount = res;
+     })
+ }
   getActiveStars() {
     firstValueFrom(this.starManagementService.getStarRecentStar())
       .then((res: any) => {
