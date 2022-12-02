@@ -90,10 +90,13 @@ export class ViewallstarsComponent implements OnInit {
    await firstValueFrom(this.starManagementService.updateStarShare(star.userStarId,null));
    this.mailText = "mailto:abc@abc.com+?subject=files&body="+this.links.join(" ,"); // add the links to body    
    window.location.href = this.mailText;
+   window.location.reload();
+   
   };
 
   async updateStarLikeCount(userStarId) {
     await firstValueFrom(this.starManagementService.updateStarLikeCount(userStarId,null));
+    window.location.reload();
   };
 
   onTableDataChange(event: any) {

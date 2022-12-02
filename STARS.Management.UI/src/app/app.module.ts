@@ -22,6 +22,8 @@ import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
 import { DenyModalComponent } from './deny-modal/deny-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
+import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReviewstarsComponent,
     ViewallstarsComponent,
     FindPersonModalComponent,
-    DenyModalComponent
+    DenyModalComponent,
+    NoteofthanksComponent,
+    FindUserModalComponent
   ],
   imports: [
     BrowserModule,

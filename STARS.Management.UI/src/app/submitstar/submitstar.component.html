@@ -77,7 +77,6 @@
                         <td><small>Last Name<br/><span class="fw-bold">{{this.selectedUser.surname}}</span></small></td>
                         <td><small>Title<br/><span class="fw-bold">{{this.selectedUser.title}}</span></small></td>
                         <td><small>Department<br/><span class="fw-bold">{{this.selectedUser.department}}</span></small></td>
-                        <td><small>Facility<br/><span class="fw-bold">-</span></small></td>
                         <td><small>Manager<br/><span class="fw-bold">{{this.selectedUser.managerDisplayName}}</span></small></td>
                     </tr>
 
@@ -87,7 +86,7 @@
         <div class="row">
             <div class="p-2 col-md-9">
                 <!-- <h5 class="mb-3 text-blue fst-normal">Who would you like to acknowledge?</h5> -->
-                <button #findPerson type="button" class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()"> FIND PERSON <img src="../assets/images/search.svg" class="sImg"></button><br/>
+                <button #findPerson type="button" class="btn bg-orange rounded-pill pt-2 pb-2 ps-4 pe-3" data-bs-toggle="modal" data-bs-target="#searchUser" (click)="openDialog()"> FIND YOUR STAR <img src="../assets/images/search.svg" class="sImg"></button><br/>
                 <h5 class="mt-3 text-blue fst-normal"> Message</h5>
                 <input type="textarea" class="form-control border-2 text-start text-blue" style="height: 100px;" [(ngModel)]="this.message">
                 <!-- </textarea> -->
