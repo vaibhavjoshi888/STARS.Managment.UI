@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { RcentStars } from '../_models/stars';
+import { StarRequestCountDTO } from '../_models/user';
 import { StarManagementService } from '../_services/star-management.service';
 declare var $: any;
 
@@ -10,9 +11,10 @@ declare var $: any;
   styleUrls: ['./noteofthanks.component.css']
 })
 export class NoteofthanksComponent implements OnInit {
+  requestCount: StarRequestCountDTO;
   starDetails: RcentStars[] = [];
   InitialLoad: RcentStars[] = [];
-
+  totalStarAdded :any;
   constructor( private starManagementService: StarManagementService) { }
 
   ngOnInit(): void {
