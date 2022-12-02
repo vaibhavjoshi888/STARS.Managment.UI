@@ -23,6 +23,12 @@ export class ReviewstarsComponent implements OnInit {
   chkDeniedIsSelected: boolean;
   searchText: string = "";
 
+  
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 2;
+  tableSizes: any = [3, 6, 9, 12];
+
   constructor(private starManagementService: StarManagementService,
     private authenticationService: AuthenticationService,
     public dialog: MatDialog) { }
@@ -151,5 +157,15 @@ export class ReviewstarsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(value => {
       this.getAllUser();
     });
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllUser();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAllUser();
   }
 }

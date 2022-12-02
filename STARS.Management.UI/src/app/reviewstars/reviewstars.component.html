@@ -138,7 +138,13 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of this.userdetails">
+                    <tr *ngFor="let user of this.userdetails | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index">
                         <td colspan="8">
                             <table>
                                 <tbody>
@@ -178,6 +184,24 @@
             </table>
             <br/>
             <div class="clearfix mt-4"></div>
+            <nav aria-label="Page navigation example mt-5 mb-3">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link me-3" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><img src="assets/images/back-arrow.png" alt="" srcset=""></span>
+                        </a>
+                    </li>
+                    <!-- <li class="page-item"><a class="page-link " href="#">1</a></li>
+                    <li class="page-item"><a class="page-link border-start-0" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link border-start-0" href="#">3</a></li> -->
+                    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)"></pagination-controls>
+                    <li class="page-item">
+                        <a class="page-link ms-3" href="#" aria-label="Next">
+                            <span aria-hidden="true"><img src="assets/images/next-arrow.png" alt="" srcset=""></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
             <!-- <nav aria-label="Page navigation example mt-5 mb-3">
                 <ul class="pagination">
                     <li class="page-item">

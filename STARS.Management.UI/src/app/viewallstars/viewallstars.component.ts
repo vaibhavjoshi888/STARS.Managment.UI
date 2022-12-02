@@ -24,7 +24,7 @@ export class ViewallstarsComponent implements OnInit {
 
   page: number = 1;
   count: number = 0;
-  tableSize: number = 7;
+  tableSize: number = 2;
   tableSizes: any = [3, 6, 9, 12];
 
   constructor(private starManagementService: StarManagementService,
