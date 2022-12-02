@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { appRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
 import { DenyModalComponent } from './deny-modal/deny-modal.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
 import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
 
@@ -47,6 +48,7 @@ import { FindUserModalComponent } from './find-user-modal/find-user-modal.compon
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     HttpClientModule,
     appRoutingModule,
     SharedModule,
@@ -54,6 +56,7 @@ import { FindUserModalComponent } from './find-user-modal/find-user-modal.compon
     BrowserAnimationsModule,
     MatDialogModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [SharedModule, RouterModule],
 
   providers: [],
