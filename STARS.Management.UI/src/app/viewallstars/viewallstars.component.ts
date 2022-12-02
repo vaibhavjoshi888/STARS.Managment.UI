@@ -15,11 +15,17 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
+  fromdate: string= "";
+  todate:string="";
 
   name = 'test';
   links : any[]= ["link1.com", "link2.com", "link3.com"];
   mailText:string = ""; 
 
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 7;
+  tableSizes: any = [3, 6, 9, 12];
 
   constructor(private starManagementService: StarManagementService,
     private router: Router, private messageservice: MessageService) { }
@@ -33,7 +39,6 @@ export class ViewallstarsComponent implements OnInit {
    else if (this.router.url == '/viewallstars' && this.messageservice.currentuser != null)
      this.isLoginPage = true;
   }
-
 
   isUserLogged() {
 
@@ -51,14 +56,31 @@ export class ViewallstarsComponent implements OnInit {
       }
       )
   };
+
   userIsLogged() {
     return this.isLoginPage;
   }
+
   getUserList() {
     this.starDetails = this.InitialLoad;
     if (this.searchText != '') {
       this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.searchText) || f.corpUserId.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()));
     }
+    else {
+      this.starDetails = this.InitialLoad;
+    }
+  }
+
+  getUserListByDate() {
+    this.starDetails = this.InitialLoad;
+    if (this.fromdate != '') {
+      this.starDetails = this.starDetails
+      .filter(m => new Date(m.createdDate) >= new Date(this.fromdate) && new Date(m.createdDate) <= new Date(this.todate));
+    }
+
+    // let.selectedMembers = this.members.filter(
+    //   m => new Date(m.date) >= new Date(startDate) && new Date(m.date) <= new Date(endDate)
+    //   );
     else {
       this.starDetails = this.InitialLoad;
     }
@@ -74,4 +96,13 @@ export class ViewallstarsComponent implements OnInit {
     await firstValueFrom(this.starManagementService.updateStarLikeCount(userStarId,null));
   };
 
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllActiveStars();
+  }
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAllActiveStars();
+  }
 }
