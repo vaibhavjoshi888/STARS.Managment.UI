@@ -35,7 +35,9 @@ export class ViewallstarsComponent implements OnInit {
     private router: Router, private messageservice: MessageService,
     private route: ActivatedRoute,private datePipe: DatePipe) {
       this.dt1 = new Date();
+      this.dt1.setDate(this.dt1.getDate()-7);
       this.dt2 = new Date();
+      //MM-dd-yyyy
      }
 
   async  ngOnInit() {
@@ -107,7 +109,7 @@ export class ViewallstarsComponent implements OnInit {
     this.starDetails = this.InitialLoad;
     if (this.dt1 != '') {
       this.starDetails = this.starDetails
-        .filter(m => new Date(m.createdDate) >= new Date(this.datePipe.transform(this.dt1,"dd/MM/yyyy")) && new Date(m.createdDate) <= new Date(this.datePipe.transform(this.dt2,"dd/MM/yyyy")));
+        .filter(m => new Date(m.createdDate) >= new Date(this.datePipe.transform(this.dt1,"MM/dd/yyyy")) && new Date(m.createdDate) <= new Date(this.datePipe.transform(this.dt2,"MM/dd/yyyy")));
     }
 
     // let.selectedMembers = this.members.filter(
