@@ -15,6 +15,7 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
+  dt:any;
   fromdate: string= "";
   todate:string="";
 
@@ -28,7 +29,9 @@ export class ViewallstarsComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
 
   constructor(private starManagementService: StarManagementService,
-    private router: Router, private messageservice: MessageService) { }
+    private router: Router, private messageservice: MessageService) {
+      this.dt = new Date();
+     }
 
    ngOnInit() {
      this.getAllActiveStars();
