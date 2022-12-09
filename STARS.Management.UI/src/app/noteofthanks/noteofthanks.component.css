@@ -1,8 +1,6 @@
 /* Show it's not fixed to the top */
-body {
-    min-height: 75rem;
-  }
-  .bg-star{background-color: #031461; background-image: url('../../assets/images/img.jpeg');}
+body{background-image: url('../../assets/images/img.jpeg'); background-size: cover; background-repeat: repeat;background-color: #031461;}
+  .bg-star{background-color: #031461; }
   .bg-orange{background-color: #f88d2a; color: white; text-decoration: none;}
   .bg-orange:hover{color: white; background-color: #031461; cursor: pointer;}
   a.nav-link.bg-orange:hover{color: #031461!important; background-color: white; cursor: pointer;}
@@ -142,7 +140,7 @@ body {
   .star-comment .comment-box images.user {border-radius: 25px 0 10px 0;  width: 60px; height:60px;}
   .star-added{background-color: #1a428a; padding: 50px; text-align: center; display: block;}
    
-    .star-bg{background-image: url('../../assets/images/img.jpeg'); min-height:90vh; max-width: 100%; background-repeat:no-repeat ; background-size: cover; margin-bottom: 50px;}
+    .star-bg{background-image: url('../../assets/images/img.jpeg'); height:100vh; max-width: 100%; background-repeat:no-repeat ; background-size: cover; margin-bottom: 50px;}
   
   
     .title-b-48 {
@@ -258,7 +256,16 @@ body {
         margin-top: 1rem !important;
       }
    }
-  
+   .Stxt {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}  
   
   @media (min-width: 768px) and (max-width:1400px){ .w-30{width: 30%;}}
   .pill,

@@ -16,8 +16,9 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
-  fromdate: string = "";
-  todate: string = "";
+  dt:any;
+  fromdate: string= "";
+  todate:string="";
 
   name = 'test';
   links: any[] = ["link1.com", "link2.com", "link3.com"];
@@ -30,7 +31,9 @@ export class ViewallstarsComponent implements OnInit {
 
   constructor(private starManagementService: StarManagementService,
     private router: Router, private messageservice: MessageService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      this.dt = new Date();
+     }
 
   async  ngOnInit() {
    

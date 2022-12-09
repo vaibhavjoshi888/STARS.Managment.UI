@@ -38,34 +38,28 @@
    
 <div class="d-lg-flex d-md-flex align-items-center justify-content-center">
 <div class="container  align-items-center justify-content-center">
-<div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 text-blue align-left share">
-  <div class="bottomStar">
-  <div class="comment"> <strong>Andrew<br/>
-    Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-    <p class="mt-2 title-r-20 lh-2"><span >Thank you!!! dignissim
-      volutpat. In et risus
-      laoreet, finibus ligula.</span></p >
-    <small>9/14/22 by Janet Cruz</small>
+<div class="d-lg-flex d-md-flex align-items-center justify-content-around gap-3 text-blue align-left share">
+  <div class="bottomStar mt-5">
+  <div class="comment"> <strong>{{this.starDetails[0].firstName}}<br />
+    {{this.starDetails[0].lastName}}</strong> <img src="{{this.starDetails[0].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+    <p class="mt-2 title-r-20 lh-2"><span class="Stxt">{{this.starDetails[0].message}}</span></p>
+    <small>{{this.starDetails[0].createdDate}} by {{this.starDetails[0].createdBy}}</small>
    
     </div>
   </div>
   <div class="">
-  <div class="comment mt-3"> <strong>Andrew<br/>
-    Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-    <p class="mt-2"><span>Thank you!!! dignissim
-volutpat. In et risus
-laoreet, finibus ligula.</span> </p>
-    <small>9/14/22 by Janet Cruz</small>
+  <div class="comment mt-3"> <strong>{{this.starDetails[1].firstName}}<br />
+    {{this.starDetails[1].lastName}}</strong> <img src="{{this.starDetails[1].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+    <p class="mt-2"><span class="Stxt">{{this.starDetails[1].message}}</span> </p>
+    <small>{{this.starDetails[1].createdDate}} by {{this.starDetails[1].createdBy}}</small>
    
     </div>
   </div>
-  <div class="">
-  <div class="comment"> <strong>Andrew<br/>
-    Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-    <p class="mt-2"><span>Thank you!!! dignissim
-volutpat. In et risus
-laoreet, finibus ligula.</span> </p>
-    <small>9/14/22 by Janet Cruz</small>
+  <div class="mt-5">
+  <div class="comment mt-5"> <strong>{{this.starDetails[2].firstName}}<br />
+    {{this.starDetails[2].lastName}}</strong> <img src="{{this.starDetails[2].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+    <p class="mt-2"><span class="Stxt">{{this.starDetails[2].message}}</span> </p>
+    <small>{{this.starDetails[2].createdDate}} by {{this.starDetails[2].createdBy}}</small>
    
     </div>
   </div>
@@ -74,34 +68,28 @@ laoreet, finibus ligula.</span> </p>
 </div>
 <div class="clearfix"></div>
  
-  <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-4 w-100 text-blue share">
-    <div class="">
-    <div class="comment"> <strong>Andrew<br/>
-      Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-      <p class="mt-2"><span>Thank you!!! dignissim
-        volutpat. In et risus
-        laoreet, finibus ligula.</span> </p>
-      <small>9/14/22 by Janet Cruz</small>
+  <div class="d-lg-flex d-md-flex align-items-center justify-content-around gap-3 mb-4 w-100 text-blue share mt-5">
+    <div style="margin-left: 150px;">
+    <div class="comment"> <strong>{{this.starDetails[3].firstName}}<br />
+      {{this.starDetails[3].lastName}}</strong> <img src="{{this.starDetails[3].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+      <p class="mt-2"><span class="Stxt">{{this.starDetails[3].message}}</span> </p>
+      <small>{{this.starDetails[3].createdDate}} by {{this.starDetails[3].createdBy}}</small>
      
       </div>
     </div>
-    <div class="bottomStar">
-    <div class="comment"> <strong>Andrew 2<br/>
-      Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-      <p class="mt-2"><span>Thank you!!! dignissim
-        volutpat. In et risus
-        laoreet, finibus ligula.</span></p>
-      <small>9/14/22 by Janet Cruz</small>
+    <div class="bottomStar"  style="margin-left: -100px;">
+    <div class="comment"> <strong>{{this.starDetails[4].firstName}}<br />
+      {{this.starDetails[4].lastName}}</strong> <img src="{{this.starDetails[4].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+      <p class="mt-2"><span class="Stxt">{{this.starDetails[4].message}}</span></p>
+      <small>{{this.starDetails[4].createdDate}} by {{this.starDetails[4].createdBy}}</small>
      
       </div>
     </div>
-    <div class="mb-5">
-    <div class="comment"> <strong>Andrew<br/>
-      Vegoda</strong> <img src="../assets/images/user1.jpg" width="48px" height="48px" alt="" srcset=""><br>
-      <p class="mt-2"><span>Thank you!!! dignissim
-volutpat. In et risus
-laoreet, finibus ligula.</span></p>
-      <small>9/14/22 by Janet Cruz</small>
+    <div class="mb-5" style="margin-left: -45px;">
+    <div class="comment"> <strong>{{this.starDetails[5].firstName}}<br />
+      {{this.starDetails[5].lastName}}</strong> <img src="{{this.starDetails[5].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+      <p class="mt-2"><span class="Stxt">{{this.starDetails[5].message}}</span></p>
+      <small>{{this.starDetails[5].createdDate}} by {{this.starDetails[5].createdBy}}</small>
      
       </div>
     </div>
@@ -109,23 +97,22 @@ laoreet, finibus ligula.</span></p>
   
   </div>
   <div class="clearfix"></div>
-<div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3">
+<div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mt-5 mb-3">
 
-    <div><img src="../assets/images/logo.png" alt="" width="350px"/><br/>
+    <div class="mb-3"><img src="../assets/images/logo.png" alt="" width="350px"/><br/>
        <p class="title-l-26 lh-sm mt-3" style="font-family: SEGOEUIL, Segoe UI Light,Segoe UI;font-size: 26px;color: white;"
        > Notes of thanks for the<br/>
         doctors, nurses, and staff of<br/>
         South Brooklyn Health.</p>
     </div>
-    <div>
+    <div class="mb-3">
         <div class="mt-3 border-1 border-top border-bottom">
-            <h3 class="text-white mb-0 mt-3"> <span class="title-b-36 fw-bolder">286</span> STARS added</h3>
-            <h3 class="text-white mb-3"> <span class="title-b-36 fw-bolder ">125</span> SUPERSTARS recognized</h3>
+            <h3 class="text-white mb-2 mt-2"> <span class="title-b-36 fw-bolder">{{requestCount.totalSubmited}}</span> STARS added</h3>
     </div>
     </div>
-<div>
-    <p class="mb-0 lh-sm title-18 fw-bolder" style="font-family: SEGOEUIL, Segoe UI Light,Segoe UI;font-size: 18px;color: white;">SUBMIT A STAR:</p>
-    <img src="../assets/images/QR.jpg" alt="" width="140px">
+<div class="mb-3">
+    <p class="mb-0 lh-sm title-18 fw-bolder text-center" style="font-family: SEGOEUIL, Segoe UI Light,Segoe UI;font-size: 18px;color: white;">SUBMIT A STAR:</p>
+    <img src="../assets/images/PQRCODE.png" alt="" width="150px" height="150px">
 </div>
 
 </div>

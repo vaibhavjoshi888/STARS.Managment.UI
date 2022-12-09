@@ -39,7 +39,7 @@
 </header>
 
 <main class="container">
-    <h1 class="title-l-40 mb-3" style="margin-top: 30px;">South Brookyln Health Stars</h1>
+    <h1 class="title-l-40 mb-3" style="margin-top: 30px;">South Brooklyn Health Stars</h1>
     
     <div class="row">
         <div class="col-md-7">
@@ -55,15 +55,19 @@
                 <div class="col-md-3"><label>Start Date</label>
                     <div class="input-group has-validation searchName">
 
-                        <input type="text" class="form-control" required="" [(ngModel)]="fromdate"><span class="input-group-text border-0 "><img
-                src="assets/images/calendar-sm.png" alt="" srcset="" width="24" ></span>
-
+                        <input type="date" class="form-control" [ngModel] ="dt | date:'yyyy-MM-dd'" (ngModelChange)="dt = $event" [value]="dt | date:'yyyy-MM-dd'">
+            
+                        <!-- <span class="input-group-text border-0 "><img
+                src="assets/images/calendar-sm.png" alt="" srcset="" width="24" ></span> -->
+                
                     </div>
                 </div>
                 <div class="col-md-3"><label>End Date</label>
                     <div class="input-group has-validation searchName">
-                        <input type="text" class="form-control" required="" [(ngModel)]="todate"><span class="input-group-text border-0 "><img
-                src="assets/images/calendar-sm.png" alt="" srcset="" width="24" ></span>
+                
+                    <input type="date" class="form-control" [ngModel] ="dt | date:'yyyy-MM-dd'" (ngModelChange)="dt = $event" [value]="dt | date:'yyyy-MM-dd'">
+            
+                  
                     </div>
                 </div>
                 <div class="col-md-2 d-grid"><label>&nbsp;</label>
