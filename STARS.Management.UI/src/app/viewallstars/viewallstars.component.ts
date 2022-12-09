@@ -17,6 +17,7 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
+  title: string = "South Brooklyn Health Stars";
   dt1:any;
   dt2:any;
   fromdate: string= "";
@@ -58,7 +59,10 @@ export class ViewallstarsComponent implements OnInit {
      console.log(params); // { order: "popular" }
 
      if(params){
+
     this.name = params['name'];
+    if(this.name)
+    this.title="Stars for "+this.name;
      }
     this.getAllActiveStars();
     // this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));

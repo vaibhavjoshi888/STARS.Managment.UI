@@ -99,10 +99,10 @@
 
                         <input type="text" #name class="form-control-lg pill border-0" required="" placeholder="Find a STAR" style="width:85%;">
                         <span class="input-group-text pill border-0 ">
-                          <img src="../assets/images/searchBig.png" alt="" srcset="" width="24"></span>
+                          <img src="../assets/images/searchBig.png" alt="" srcset="" width="24" (click)="findStar(name.value)" style="cursor: grab;"></span>
 
                     </div>
-                    <button type="button" class="btn bg-orange pill title-l-26 ps-lg-4 pe-lg-4 mt-4 fw-normal mb-4" (click)="findStar(name.value)"> SUBMIT A STAR </button>
+                    <button type="button" class="btn bg-orange pill title-l-26 ps-lg-4 pe-lg-4 mt-4 fw-normal mb-4"> SUBMIT A STAR </button>
                 </div>
                 <div class="clearfix"></div>
                 <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 w-100 text-blue share">
