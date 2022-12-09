@@ -55,7 +55,9 @@ export class ViewallstarsComponent implements OnInit {
     .subscribe(params => {
      console.log(params); // { order: "popular" }
 
+     if(params){
     this.name = params['name'];
+     }
     this.getAllActiveStars();
     // this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
     // console.log(this.order); // popular
@@ -75,7 +77,12 @@ export class ViewallstarsComponent implements OnInit {
       .then((res: Stars[]) => {
         this.starDetails = res;
         this.InitialLoad = res;
-        this.starDetails = res.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
+        if(this.name)
+        {
+          this.starDetails = res.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
+        }
+
+        this.name = undefined;
   
       }
       )
