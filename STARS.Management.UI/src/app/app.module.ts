@@ -24,6 +24,7 @@ import { DenyModalComponent } from './deny-modal/deny-modal.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
 import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { FindUserModalComponent } from './find-user-modal/find-user-modal.compon
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [SharedModule, RouterModule],
 
-  providers: [],
+  providers: [DatePipe],
   entryComponents: [MatDialogModule],
   bootstrap: [AppComponent]
 })

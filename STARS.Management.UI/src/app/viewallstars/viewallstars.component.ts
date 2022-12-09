@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
@@ -16,7 +17,8 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
-  dt:any;
+  dt1:any;
+  dt2:any;
   fromdate: string= "";
   todate:string="";
 
@@ -31,8 +33,9 @@ export class ViewallstarsComponent implements OnInit {
 
   constructor(private starManagementService: StarManagementService,
     private router: Router, private messageservice: MessageService,
-    private route: ActivatedRoute) {
-      this.dt = new Date();
+    private route: ActivatedRoute,private datePipe: DatePipe) {
+      this.dt1 = new Date();
+      this.dt2 = new Date();
      }
 
   async  ngOnInit() {
@@ -95,9 +98,9 @@ export class ViewallstarsComponent implements OnInit {
 
   getUserListByDate() {
     this.starDetails = this.InitialLoad;
-    if (this.fromdate != '') {
+    if (this.dt1 != '') {
       this.starDetails = this.starDetails
-        .filter(m => new Date(m.createdDate) >= new Date(this.fromdate) && new Date(m.createdDate) <= new Date(this.todate));
+        .filter(m => new Date(m.createdDate) >= new Date(this.datePipe.transform(this.dt1,"dd/MM/yyyy")) && new Date(m.createdDate) <= new Date(this.datePipe.transform(this.dt2,"dd/MM/yyyy")));
     }
 
     // let.selectedMembers = this.members.filter(
