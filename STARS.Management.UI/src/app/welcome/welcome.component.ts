@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, throwError } from 'rxjs';
 import { RcentStars } from '../_models/stars';
 import { StarRequestCountDTO } from '../_models/user';
 import { MessageService } from '../_services/message.service';
@@ -23,6 +23,7 @@ export class WelcomeComponent implements OnInit {
   starDetails: RcentStars[] = [];
   InitialLoad: RcentStars[] = [];
   totalStarAdded :any;
+  name: string = "";
 
 
   constructor(private router: Router, private messageservice: MessageService,
@@ -88,8 +89,6 @@ export class WelcomeComponent implements OnInit {
       }, rand);
     }
 
-    
-
      this.getActiveStars()
      this.getStarRequestCount()
   
@@ -109,6 +108,14 @@ export class WelcomeComponent implements OnInit {
         this.InitialLoad = res;
       }
       )
+  }
+
+  findStar(val){
+    this.router.navigate(
+      ['/viewallstars'],
+      { queryParams: { name: val } }
+    );
+  
   }
 
   login() {

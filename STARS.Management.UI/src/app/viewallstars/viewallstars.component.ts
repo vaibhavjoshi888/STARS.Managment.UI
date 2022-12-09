@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Stars } from '../_models/stars';
 import { MessageService } from '../_services/message.service';
 import { StarManagementService } from '../_services/star-management.service';
+// import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-viewallstars',
@@ -15,12 +16,12 @@ export class ViewallstarsComponent implements OnInit {
   InitialLoad: Stars[] = [];
   isLoginPage: boolean = false;
   searchText: string = "";
-  fromdate: string= "";
-  todate:string="";
+  fromdate: string = "";
+  todate: string = "";
 
   name = 'test';
-  links : any[]= ["link1.com", "link2.com", "link3.com"];
-  mailText:string = ""; 
+  links: any[] = ["link1.com", "link2.com", "link3.com"];
+  mailText: string = "";
 
   page: number = 1;
   count: number = 0;
@@ -28,16 +29,31 @@ export class ViewallstarsComponent implements OnInit {
   tableSizes: any = [3, 6, 9, 12];
 
   constructor(private starManagementService: StarManagementService,
-    private router: Router, private messageservice: MessageService) { }
+    private router: Router, private messageservice: MessageService,
+    private route: ActivatedRoute) { }
 
-   ngOnInit() {
-     this.getAllActiveStars();
-     if (this.router.url == '/viewallstars' && this.messageservice.currentuser == null)
-     this.isLoginPage = false;
-   else if (this.router.url == '/viewallstarsso' || this.messageservice.currentuser == null)
-     this.isLoginPage = false;
-   else if (this.router.url == '/viewallstars' && this.messageservice.currentuser != null)
-     this.isLoginPage = true;
+  async  ngOnInit() {
+   
+    if (this.router.url == '/viewallstars' && this.messageservice.currentuser == null) {
+      this.isLoginPage = false;
+    }
+    else if (this.router.url == '/viewallstarsso' || this.messageservice.currentuser == null) {
+      this.isLoginPage = false;
+    }
+    else if (this.router.url.includes('/viewallstars') && this.messageservice.currentuser != null) {
+      this.isLoginPage = true;
+    }
+
+
+    this.route.queryParams
+    .subscribe(params => {
+     console.log(params); // { order: "popular" }
+
+    this.name = params['name'];
+    this.getAllActiveStars();
+    // this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
+    // console.log(this.order); // popular
+});
   }
 
   isUserLogged() {
@@ -48,11 +64,13 @@ export class ViewallstarsComponent implements OnInit {
       this.router.navigate(['/login']);
   }
 
-   getAllActiveStars() {
-     firstValueFrom(this.starManagementService.getAllActiveStars())
+  getAllActiveStars() {
+    firstValueFrom(this.starManagementService.getAllActiveStars())
       .then((res: Stars[]) => {
         this.starDetails = res;
         this.InitialLoad = res;
+        this.starDetails = res.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
+  
       }
       )
   };
@@ -64,7 +82,8 @@ export class ViewallstarsComponent implements OnInit {
   getUserList() {
     this.starDetails = this.InitialLoad;
     if (this.searchText != '') {
-      this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.searchText) || f.corpUserId.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()));
+      this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.searchText) 
+      || f.corpUserId.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()));
     }
     else {
       this.starDetails = this.InitialLoad;
@@ -75,7 +94,7 @@ export class ViewallstarsComponent implements OnInit {
     this.starDetails = this.InitialLoad;
     if (this.fromdate != '') {
       this.starDetails = this.starDetails
-      .filter(m => new Date(m.createdDate) >= new Date(this.fromdate) && new Date(m.createdDate) <= new Date(this.todate));
+        .filter(m => new Date(m.createdDate) >= new Date(this.fromdate) && new Date(m.createdDate) <= new Date(this.todate));
     }
 
     // let.selectedMembers = this.members.filter(
@@ -87,15 +106,15 @@ export class ViewallstarsComponent implements OnInit {
   }
 
   async updateStarShare(star) {
-   await firstValueFrom(this.starManagementService.updateStarShare(star.userStarId,null));
-   this.mailText = "mailto:abc@abc.com+?subject=files&body="+this.links.join(" ,"); // add the links to body    
-   window.location.href = this.mailText;
-   window.location.reload();
-   
+    await firstValueFrom(this.starManagementService.updateStarShare(star.userStarId, null));
+    this.mailText = "mailto:abc@abc.com+?subject=files&body=" + this.links.join(" ,"); // add the links to body    
+    window.location.href = this.mailText;
+    window.location.reload();
+
   };
 
   async updateStarLikeCount(userStarId) {
-    await firstValueFrom(this.starManagementService.updateStarLikeCount(userStarId,null));
+    await firstValueFrom(this.starManagementService.updateStarLikeCount(userStarId, null));
     window.location.reload();
   };
 
