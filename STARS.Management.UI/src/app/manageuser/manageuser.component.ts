@@ -27,7 +27,7 @@ export class ManageuserComponent implements OnInit {
   showMessage: boolean = false;
   @ViewChild('findPerson') findPerson;
 
-  
+
   page: number = 1;
   count: number = 0;
   tableSize: number = 2;
@@ -56,17 +56,17 @@ export class ManageuserComponent implements OnInit {
 
 
   ngAfterViewInit() {
-    if (this.findPerson.nativeElement) {
-      this.findPerson.nativeElement.click();
-      console.log(this.findPerson.nativeElement);
-    }
+    // if (this.findPerson.nativeElement) {
+    //   this.findPerson.nativeElement.click();
+    //   console.log(this.findPerson.nativeElement);
+    // }
   }
 
   ngAfterContentInit() {
-    if (this.findPerson.nativeElement) {
-      this.findPerson.nativeElement.click();
-      console.log(this.findPerson.nativeElement);
-    }
+    // if (this.findPerson.nativeElement) {
+    //   this.findPerson.nativeElement.click();
+    //   console.log(this.findPerson.nativeElement);
+    // }
   }
 
   openDialog() {
@@ -179,7 +179,7 @@ export class ManageuserComponent implements OnInit {
         window.location.reload();
       }
     });
-    
+
   }
 
   onTableDataChange(event: any) {

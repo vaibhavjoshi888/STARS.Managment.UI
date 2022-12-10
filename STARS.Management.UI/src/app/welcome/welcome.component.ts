@@ -45,7 +45,7 @@ export class WelcomeComponent implements OnInit {
     else if (this.router.url == '/welcomesignin')
       this.isLoginPage = true;
 
-     
+
 
     $(document).ready(() => {
 
@@ -64,19 +64,21 @@ export class WelcomeComponent implements OnInit {
         $(this).siblings(".more-text").contents().unwrap();
         $(this).remove();
       });
-     
-   
+
+      $('#nt-example1').newsTicker({
+        row_height: 180,
+        max_rows: 4,
+        duration: 4000,
+        prevButton: $('#nt-example1-prev'),
+        nextButton: $('#nt-example1-next')
+      });
+
+
     });
 
-    // $('#nt-example1').newsTicker({
-    //   row_height: 180,
-    //   max_rows: 4,
-    //   duration: 4000,
-    //   prevButton: $('#nt-example1-prev'),
-    //   nextButton: $('#nt-example1-next')
-    // });
 
-    
+
+
     $('.share div').each(function (i) {
       loopInfinitely($(this));
     });
@@ -91,9 +93,9 @@ export class WelcomeComponent implements OnInit {
 
      this.getActiveStars()
      this.getStarRequestCount()
-  
+
   }
-  
+
    getStarRequestCount() {
      firstValueFrom(this.starManagementService.getStarRequestCount())
       .then((res: StarRequestCountDTO) => {
@@ -115,7 +117,7 @@ export class WelcomeComponent implements OnInit {
       ['/viewallstars'],
       { queryParams: { name: val } }
     );
-  
+
   }
 
   login() {

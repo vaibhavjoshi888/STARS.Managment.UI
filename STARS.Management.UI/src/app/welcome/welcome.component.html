@@ -9,8 +9,6 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>STAR Management</title>
 
-    <!-- <script src="../assets/dist/js/jquery.newsTicker.js"></script> -->
-
 
 
     <style>
@@ -21,7 +19,7 @@
             -moz-user-select: none;
             user-select: none;
         }
-        
+
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -342,6 +340,18 @@
     </footer>
 
     <!-- partial -->
+    <script defer>
+       $('#nt-example1-prev').click(() => {
+            console.log("dsff");
+        });
+        var nt_example1 = $('#nt-example1').newsTicker({
+            row_height: 180,
+            max_rows: 4,
+            duration: 4000,
+            prevButton: $('#nt-example1-prev'),
+            nextButton: $('#nt-example1-next')
+        });
+    </script>
 
 
 </body>
