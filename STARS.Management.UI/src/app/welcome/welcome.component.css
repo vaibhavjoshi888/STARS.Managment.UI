@@ -173,7 +173,9 @@ body {
     border-radius: 15px;
   }
   .tsb {
-    margin: 0 0 7px !important;
+    margin: 0 0 7px;
+    width: 75%;
+    margin-left: 71px !important;
   }
   #nt-example1 .tsb {
     padding: 5px 10px 10px 10px;
