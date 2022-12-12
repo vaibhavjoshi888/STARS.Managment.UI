@@ -39,10 +39,10 @@ export class SubmitstarComponent implements OnInit {
   }
 
   ngAfterContentInit() {
-    if (this.findPerson.nativeElement) {
-      this.findPerson.nativeElement.click();
-      console.log(this.findPerson.nativeElement);
-    }
+    // if (this.findPerson.nativeElement) {
+    //   this.findPerson.nativeElement.click();
+    //   console.log(this.findPerson.nativeElement);
+    // }
   }
 
   openDialog() {
