@@ -52,6 +52,7 @@ export class DenyModalComponent implements OnInit {
 
     await firstValueFrom(this.starManagementService.updateStarRequest(updateStarRequest.userStarId, updateStarRequest));
     // window.location.reload();
+    this.close();
   };
 
 }

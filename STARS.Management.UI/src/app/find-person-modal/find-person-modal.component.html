@@ -7,15 +7,18 @@
             <div class="modal-content border-0">
                 <div class="modal-header">
 
-                    <h4 class="modal-title ">Search for person whom you would like to recognize as a star</h4>
+                    <h4 class="modal-title " style="margin-bottom: 0;
+                    line-height: 1.5;
+                    margin-top: 10px;
+                    font-size: x-large;">Search for person whom you would like to recognize as a star</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
                 </div>
                 <div class="modal-body title-18 text-blue pb-0">
                     <div class="row">
                         <div class="col-12">
 
-                            <input type="text" class="form-control w-75 float-start" placeholder="Find your star" name="searchText" required="" style="width: 70% !important;" [(ngModel)]="searchText">
-                            <button class="btn btn-outline-blue pill ms-2 float-end" (click)="searchADUsers()"> <i class="fa fa-search"></i> Search</button>
+                            <input type="text" class="form-control w-30 float-start" placeholder="Find your star" name="searchText" required="" style="width: 40% !important;" [(ngModel)]="searchText">
+                            <button class="btn btn-outline-blue pill ms-2" (click)="searchADUsers()"> <i class="fa fa-search"></i> Search</button>
                         </div>
                     </div>
                     <div class="overflow-auto mt-2 border rounded" style="height:300px;">
