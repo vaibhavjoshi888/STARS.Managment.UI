@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { firstValueFrom } from 'rxjs';
 import { Stars, StarsDto } from '../_models/stars';
 import { UserDTO } from '../_models/user';
@@ -19,7 +19,7 @@ export class FindPersonModalComponent implements OnInit {
   selectedUser: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<FindPersonModalComponent>,
-  private userService : UserService) { }
+  private userService : UserService, public dialog: MatDialog) { }
 
   async ngOnInit() {
     // await this.searchADUsers();
@@ -31,11 +31,15 @@ export class FindPersonModalComponent implements OnInit {
 
   saveSelectedUser() {
     this.dialogRef.close(this.selectedUser);
-  
+
   }
 
   userItemOnSelect(event) {
     this.selectedUser = event;
+  }
+
+  closeModal() {
+    this.dialog.closeAll();
   }
 
 

@@ -1104,3 +1104,7 @@ user agent stylesheet div {
     height: 100%;
     width: 100%;
 }
+
+.modal-header {
+    align-items: baseline;
+}

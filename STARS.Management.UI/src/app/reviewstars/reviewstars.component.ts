@@ -23,7 +23,7 @@ export class ReviewstarsComponent implements OnInit {
   chkDeniedIsSelected: boolean;
   searchText: string = "";
 
-  
+
   page: number = 1;
   count: number = 0;
   tableSize: number = 2;
@@ -71,6 +71,7 @@ export class ReviewstarsComponent implements OnInit {
     await firstValueFrom(this.starManagementService.updateStarRequest(updateStarRequest.userStarId, updateStarRequest));
     window.location.reload();
   };
+
 
   getUser(event) {
     const type = event.target.id;
@@ -150,7 +151,7 @@ export class ReviewstarsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     // dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
-    // dialogConfig.width = '600px';
+    dialogConfig.width = '600px';
     dialogConfig.data = user;
     let dialogRef = this.dialog.open(DenyModalComponent, dialogConfig);
 
