@@ -179,8 +179,8 @@
                                         <td width="100"><span [ngClass]="user.status === 'P' ? 'circle bg-pending' : user.status === 'A' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === 'P' ? 'Pending' : user.status === 'A' ? 'Approved' : 'Denied'}}
                                         </td>
                                         <td width="442" class="Stxt">{{user.message}}</td>
-                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="openDenyDialog(user)"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')" [ngClass]="user.status === 'P' ? ' ' : user.status === 'A' ? 'disabled' : ''"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
+                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="openDenyDialog(user)"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px" [ngClass]="user.status === 'P' ? ' ' : user.status === 'A' ? '' : 'disabled'"> Deny</button></td>
                                     </tr>
                                     <tr>
                                         <td class="hiddenRow"></td>
