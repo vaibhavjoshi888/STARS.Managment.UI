@@ -20,6 +20,7 @@ export class DenyModalComponent implements OnInit {
   private starManagementService: StarManagementService) { }
 
   ngOnInit(): void {
+    console.log(this.data);
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
@@ -28,29 +29,29 @@ export class DenyModalComponent implements OnInit {
   }
 
   saveSelectedUser() {
-    this.updateStarRequest(this.selectedUser,3)
+    // this.updateStarRequest(this.selectedUser,3)
     this.dialogRef.close(this.selectedUser);
   }
 
-  userItemOnSelect(event) {  
+  userItemOnSelect(event) {
     this.selectedUser = event;
   }
-  
-  async updateStarRequest(user: UserStarConfigurationDTO, status) {
+
+  async updateStarRequest() {
 
     let updateStarRequest = new UpdateStarRequestDTO();
 
-    updateStarRequest.userStarId = user.userStarId;
-    updateStarRequest.corpUserId = user.corpUserId;
-    updateStarRequest.employeeName = user.employeeName;
-    updateStarRequest.status = status == "2" ? "A" : "D";
+    updateStarRequest.userStarId = this.data.userStarId;
+    updateStarRequest.corpUserId = this.data.corpUserId;
+    updateStarRequest.employeeName = this.data.employeeName;
+    updateStarRequest.status = this.data.status == "2" ? "A" : "D";
     updateStarRequest.approvedby = this.currentUser.corpUserId.toString();
     updateStarRequest.message = this.message;
     updateStarRequest.modifiedBy = this.currentUser.corpUserId.toString();
-    updateStarRequest.feedback = "";
+    updateStarRequest.feedback = this.message;
 
     await firstValueFrom(this.starManagementService.updateStarRequest(updateStarRequest.userStarId, updateStarRequest));
-    window.location.reload();
+    // window.location.reload();
   };
 
 }
