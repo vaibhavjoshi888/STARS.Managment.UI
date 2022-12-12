@@ -180,7 +180,7 @@
                                         </td>
                                         <td width="442" class="Stxt">{{user.message}}</td>
                                         <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
-                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="updateStarRequest(user,'3')"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
+                                        <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="openDenyDialog(user)"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
                                     </tr>
                                     <tr>
                                         <td class="hiddenRow"></td>
