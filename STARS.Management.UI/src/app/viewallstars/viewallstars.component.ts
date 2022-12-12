@@ -42,6 +42,7 @@ export class ViewallstarsComponent implements OnInit {
      }
 
   async  ngOnInit() {
+    
    
     if (this.router.url == '/viewallstars' && this.messageservice.currentuser == null) {
       this.isLoginPage = false;
@@ -53,7 +54,7 @@ export class ViewallstarsComponent implements OnInit {
       this.isLoginPage = true;
     }
 
-
+  
     this.route.queryParams
     .subscribe(params => {
      console.log(params); // { order: "popular" }
@@ -65,8 +66,11 @@ export class ViewallstarsComponent implements OnInit {
     this.title="Stars for "+this.name;
      }
     this.getAllActiveStars();
+   
+    
     // this.starDetails = this.starDetails.filter(f => f.employeeName.toLocaleLowerCase().includes(this.name));
     // console.log(this.order); // popular
+   
 });
   }
 
@@ -89,6 +93,7 @@ export class ViewallstarsComponent implements OnInit {
         }
 
         this.name = undefined;
+        this.getUserListByDate();
   
       }
       )

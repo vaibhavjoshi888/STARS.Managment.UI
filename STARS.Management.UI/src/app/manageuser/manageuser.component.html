@@ -13,7 +13,9 @@
                     <div class="col-md-3">
                         <label class="sr-only" for="txtSearch">Search</label>
                         <div class="input-group search-ctrl mb-2 mr-sm-2 p-0">
-                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" [(ngModel)]="searchText">
+                            <input type="search" id="txtSearch" name="searchText" class="form-control rounded-5 bg-transparent pr-5 py-1 " style="outline:none !important;
+                            outline-width: 0 !important;
+                            box-shadow: none;" aria-label="Search" aria-describedby="basic-addon2" placeholder="Search" [(ngModel)]="searchText">
                             <!-- <span class="input-group-text pill border-0 "><img src="assets/images/SearchMagnifyingGlass.png" alt=""
                                 srcset="" width="24" (click)="getUserList()"></span> -->
 

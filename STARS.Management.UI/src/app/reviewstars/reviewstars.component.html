@@ -64,18 +64,39 @@
 
 <body>
     <main class="container">
-        <h1 class="mb-4 text-blue fw-light">STAR Management</h1>
+        <h1 class="title-l-40 mb-3" style="margin-top: 30px;">STAR Management</h1>
+
         <div class="row" style="font-size: 14px;">
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-4"><label>Search by Name</label>
                         <div class="input-group has-validation searchName pill " style="border:1px solid #ced4da;">
 
-                            <input type="text" name="searchText" class="form-control pill border-0" required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24" (click)="getUserList()"></span>
+                            <input type="text" name="searchText" class="form-control pill border-0" style="outline:none !important;
+                            outline-width: 0 !important;
+                            box-shadow: none;"
+                            required="" [(ngModel)]="searchText"><span class="input-group-text pill border-0 "><img src="../../assets/images/SearchMagnifyingGlass.png" alt="" srcset="" width="24" (click)="getUserList()"></span>
 
                         </div>
                     </div>
-                    <div class="col-3"><label>Start Date</label>
+                    <div class="col-md-3"><label>Start Date</label>
+                        <div class="input-group has-validation searchName">
+    
+                            <input type="date" class="form-control" [ngModel]="dt1 | date:'yyyy-MM-dd'" (ngModelChange)="dt1 = $event" [value]="dt1 | date:'yyyy-MM-dd'">
+                        </div>
+                    </div>
+                    <div class="col-md-3"><label>End Date</label>
+                        <div class="input-group has-validation searchName">
+    
+                            <input type="date" class="form-control" [ngModel]="dt2 | date:'yyyy-MM-dd'" (ngModelChange)="dt2 = $event" [value]="dt2 | date:'yyyy-MM-dd'">
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-md-2 d-grid"><label>&nbsp; </label>
+                        <button class=" btn-blue text-uppercase badge rounded-pill bg-submit" (click)="getUserListByDate()">Search</button>
+                    </div>
+                    <!-- <div class="col-3"><label>Start Date</label>
                         <div class="input-group has-validation searchName">
 
                             <input type="text" class="form-control" required=""><span class="input-group-text border-0 "><img src="../../assets/images/calendar-sm.png" alt="" srcset="" width="24"></span>
@@ -89,7 +110,7 @@
                     </div>
                     <div class="col-2 d-grid"><label>&nbsp;</label>
                         <button class="btn pill btn-blue text-uppercase" (click)="getUserList()">Search</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-5 gap-2 d-flex" *ngIf="requestCount">
