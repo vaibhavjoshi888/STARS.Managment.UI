@@ -95,7 +95,9 @@
                 <div class="w-30 m-auto justify-content-center text-center">
                     <div class="input-group has-validation searchName pill bg-white" style="border:1px solid #ced4da;">
 
-                        <input type="text" #name class="form-control-lg pill border-0" required="" placeholder="Find a STAR" style="width:85%;">
+                        <input type="text" #name class="form-control-lg pill border-0" required="" placeholder="Find a STAR" style="width:85%;outline:none !important;
+                        outline-width: 0 !important;
+                        box-shadow: none;">
                         <span class="input-group-text pill border-0 ">
                           <img src="../assets/images/searchBig.png" alt="" srcset="" width="24" (click)="findStar(name.value)" style="cursor: grab;"></span>
 
