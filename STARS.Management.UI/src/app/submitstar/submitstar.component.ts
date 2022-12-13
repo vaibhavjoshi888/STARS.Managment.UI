@@ -39,10 +39,10 @@ export class SubmitstarComponent implements OnInit {
   }
 
   ngAfterContentInit() {
-    if (this.findPerson.nativeElement) {
-      this.findPerson.nativeElement.click();
-      console.log(this.findPerson.nativeElement);
-    }
+    // if (this.findPerson.nativeElement) {
+    //   this.findPerson.nativeElement.click();
+    //   console.log(this.findPerson.nativeElement);
+    // }
   }
 
   openDialog() {
@@ -50,7 +50,7 @@ export class SubmitstarComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
-    dialogConfig.width = '600px';
+    dialogConfig.width = '800px';
     let dialogRef = this.dialog.open(FindPersonModalComponent, dialogConfig);
 
     dialogRef.afterClosed().pipe(finalize(() => console.log("completed"))).subscribe(value => {

@@ -95,12 +95,14 @@
                 <div class="w-30 m-auto justify-content-center text-center">
                     <div class="input-group has-validation searchName pill bg-white" style="border:1px solid #ced4da;">
 
-                        <input type="text" #name class="form-control-lg pill border-0" required="" placeholder="Find a STAR" style="width:85%;">
+                        <input type="text" #name class="form-control-lg pill border-0" required="" placeholder="Find a STAR" style="width:85%;outline:none !important;
+                        outline-width: 0 !important;
+                        box-shadow: none;">
                         <span class="input-group-text pill border-0 ">
                           <img src="../assets/images/searchBig.png" alt="" srcset="" width="24" (click)="findStar(name.value)" style="cursor: grab;"></span>
 
                     </div>
-                    <button type="button" class="btn bg-orange pill title-l-26 ps-lg-4 pe-lg-4 mt-4 fw-normal mb-4"> SUBMIT A STAR </button>
+                    <button type="button" class="btn bg-orange pill title-l-26 ps-lg-4 pe-lg-4 mt-4 fw-normal mb-4" [routerLink]="['/submitstar']"> SUBMIT A STAR </button>
                 </div>
                 <div class="clearfix"></div>
                 <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 w-100 text-blue share">
@@ -157,7 +159,7 @@
                 <div id="nt-example1-container">
                     <div class="slider-nav text-center" id="nt-example1-prev"> <img src="../assets/images/arrow-up.png" alt="">
                     </div>
-                    <ul id="nt-example1">
+                    <ul id="nt-example1" style="margin-left: 99px;">
                         <!-- <li>
               <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
 
@@ -202,7 +204,7 @@
                                 <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
-                                    <div class="col w-75">
+                                    <div class="col w-50">
                                         <h4 class="title-b-28 fw-bolder">{{this.starDetails[0].employeeName}}</h4>
                                         <span class="text-blue">{{this.starDetails[0].createdDate}} by {{this.starDetails[0].createdBy}}</span>
                                         <p class="title-r-20"><span class="d-inline-block show-more Stxt">{{this.starDetails[0].message}}</span></p>
@@ -217,7 +219,7 @@
                                 <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
-                                    <div class="col w-75">
+                                    <div class="col w-50">
                                         <h4 class="title-b-28 fw-bolder">{{this.starDetails[1].employeeName}}</h4>
                                         <span class="text-blue">{{this.starDetails[1].createdDate}} by {{this.starDetails[1].createdBy}}</span>
                                         <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[1].message}}</span></p>
@@ -232,7 +234,7 @@
                                 <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
-                                    <div class="col w-75">
+                                    <div class="col w-50">
                                         <h4 class="title-b-28 fw-bolder">{{this.starDetails[2].employeeName}}</h4>
                                         <span class="text-blue">{{this.starDetails[2].createdDate}} by {{this.starDetails[2].createdBy}}</span>
                                         <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[2].message}}</span></p>
@@ -247,7 +249,7 @@
                                 <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
-                                    <div class="col w-75">
+                                    <div class="col w-50">
                                         <h4 class="title-b-28 fw-bolder">{{this.starDetails[3].employeeName}}</h4>
                                         <span class="text-blue">{{this.starDetails[3].createdDate}} by {{this.starDetails[3].createdBy}}</span>
                                         <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[3].message}}</span></p>
@@ -317,7 +319,7 @@
 
         <div class="row clearfix">
             <div class="col justify-content-center p-5 m-5 text-center">
-                <button class="btn btn-lg bg-orange pill btn-big pt-lg-3 title-l-34 pb-lg-3 ps-lg-5 pe-lg-5"> SUBMIT A STAR
+                <button class="btn btn-lg bg-orange pill btn-big pt-lg-3 title-l-34 pb-lg-3 ps-lg-5 pe-lg-5" [routerLink]="['/submitstar']"> SUBMIT A STAR
         </button>
             </div>
         </div>

@@ -1,91 +1,30 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Submit a STAR</title>
-    <!-- <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>  -->
-
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-        
-        .border-star {
-            border-color: #4196cc!important;
-        }
-        
-        .bg-orange {
-            background-color: #f88d2a;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .bg-orange:hover {
-            color: white;
-            background-color: #031461;
-            cursor: pointer;
-        }
-        
-        .border-0 {
-            border-style: none!important;
-            border-width: 0!important;
-        }
-        
-        tr {
-            border-style: none!important;
-        }
-        
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
 
 
-    <!-- Custom styles for this template -->
-    <!-- <link href="style.css" rel="stylesheet">
-    <link href="manageuser.component.css" rel="stylesheet"> -->
-</head>
-
-<body>
-    <main class="container">
         <mat-dialog-content>
             <!-- Modal find a person -->
             <div id="denyuser" role="dialog">
-                <div class="modal-dialog modal-dialog-centered">
+                <div>
                     <!-- Modal content-->
+
                     <div class="modal-content border-0 p-3">
+                        <div class="fd-header">
+                            Denial Reason
+                        </div>
                         <div class="modal-body title-18 text-blue pb-0">
                             <div class="row">
-                                <div class="col-12">
-                                    <input type="textarea" class="form-control border-2 text-start text-blue" style="height: 100px;" [(ngModel)]="this.message">
-                                </div>
+                                    <textarea class="form-control border-2 text-start text-blue" style="height: 100px;border-radius: 10px;" [(ngModel)]="this.message"></textarea>
+
                             </div>
                         </div>
                         <div class="modal-footer text-end">
                             <mat-dialog-actions style="margin-bottom: auto;">
-                                <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" (click)="saveSelectedUser()"> <i class="fa fa-floppy-o"></i> Save</button>&nbsp;
-                                <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" (click)="close()"><i class="fa fa-times"></i> Close</button>
+                                <p></p>
+                                <!-- <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" (click)="saveSelectedUser()"> <i class="fa fa-floppy-o"></i> Save</button>&nbsp;
+                                <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" (click)="close()"><i class="fa fa-times"></i> Close</button> -->
+                                <button class="btn btn-warning cont-button" style="width: 195px;" (click)="updateStarRequest()">CONFIRM DENIED</button>
                             </mat-dialog-actions>
                         </div>
                     </div>
                 </div>
             </div>
         </mat-dialog-content>
-    </main>
-</body>

@@ -1,7 +1,13 @@
 .border-star {
     border-color: #4196cc!important;
 }
-
+::ng-deep.mat-dialog-container{
+    padding: unset !important;
+    border-radius: 24px !important;
+}
+.modal-header{
+    padding-bottom: unset !important;
+}
 .bg-orange {
     background-color: #f88d2a;
     color: white;

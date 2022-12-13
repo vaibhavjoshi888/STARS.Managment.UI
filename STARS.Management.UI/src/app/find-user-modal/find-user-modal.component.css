@@ -1095,7 +1095,13 @@ button {
 user agent stylesheet div {
     display: block;
 }
-
+::ng-deep.mat-dialog-container{
+    padding: unset !important;
+    border-radius: 24px !important;
+}
+.modal-header{
+    padding-bottom: unset !important;
+}
 .cdk-overlay-container,
 .cdk-global-overlay-wrapper {
     pointer-events: none;
@@ -1103,4 +1109,8 @@ user agent stylesheet div {
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+.modal-header {
+    align-items: baseline;
 }

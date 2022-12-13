@@ -74,7 +74,7 @@ export class ManageuserComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
-    dialogConfig.width = '600px';
+    dialogConfig.width = '800px';
     let dialogRef = this.dialog.open(FindUserModalComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(value => {

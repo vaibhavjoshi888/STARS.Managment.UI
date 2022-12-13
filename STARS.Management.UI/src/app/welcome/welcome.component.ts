@@ -68,7 +68,7 @@ export class WelcomeComponent implements OnInit {
       $('#nt-example1').newsTicker({
         row_height: 180,
         max_rows: 4,
-        duration: 4000,
+        duration: 8000,
         prevButton: $('#nt-example1-prev'),
         nextButton: $('#nt-example1-next')
       });

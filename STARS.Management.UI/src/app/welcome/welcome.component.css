@@ -64,22 +64,22 @@ body {
     .hiddenRow {
       padding: 0 !important;
   }
-  
+
   .modal-content {border-radius: 1.5rem;}
-  
+
   td.show-hide a:not(.collapsed)
   {
-      
-      
+
+
       font-weight: bold;
-      background-color: #f2F2F2; 
+      background-color: #f2F2F2;
       background-image: url("../../assets/images/icon-contract.png");
       background-repeat: no-repeat;
       height: 20px;
       width: 20px;
-  
-  } 
-  
+
+  }
+
   .Stxt {
     display: -webkit-box;
     max-width: 100%;
@@ -89,16 +89,16 @@ body {
     /* autoprefixer: on */
     overflow: hidden;
     text-overflow: ellipsis;
-}  
+}
   td.show-hide a.collapsed
   {
-      
+
     height: 20px;
       font-weight: bold;
-      background-color: #f2F2F2; 
+      background-color: #f2F2F2;
       background-image: url("../../assets/images/icon-expand.png");
       background-repeat: no-repeat;
-  } 
+  }
   td.show-hide a.btn:focus {
     outline: 0;
     box-shadow: none;
@@ -115,36 +115,36 @@ body {
     font-size: 14px;
     font-weight: normal;
     line-height: 1.5;}
-  
+
     .form-check-input[type=checkbox] {
       border-radius: 0;border-color: #031461;
   }
   .form-check-input:checked {
     background-color: #031461;}
-  
+
     .btn-group-sm>.btn, .btn-sm {
       padding: 0.1rem 0.5rem;}
-  
+
       .tableStar > table:nth-child(odd) {
         background: #ededed;
-        
+
     }
     .tableStar > table td{padding: 5px;}
     .circle{width:8px; height: 8px; display: inline-block; float: left; margin-right: 5px; border-radius: 50%;margin-top: 8px;}
-  
+
     #searchUser .btn-outline-blue{ border-color:#037bff; color:#037bff}
     #searchUser .text-blue{ color:#037bff}
     #searchUser .btn-outline-blue:hover{ background-color: #037bff; color: #fff;}
     #searchUser table{font-size: 14px; color: #6c757d;}
     #searchUser table tr:hover{background-color: #b8daff; color:#031461;}
-  
+
    .star-comment .comment-box{background-color: #eeeeee; border-radius: 25px; min-height: 100px; position: relative;}
   .star-comment .comment-box images.user {border-radius: 25px 0 10px 0;  width: 60px; height:60px;}
   .star-added{background-color: #1a428a; padding: 50px; text-align: center; display: block;}
-   
+
     .star-bg{background-image: url('../../assets/images/img.jpeg'); min-height:90vh; max-width: 100%; background-repeat:no-repeat ; background-size: cover; margin-bottom: 50px;}
-  
-  
+
+
     .title-b-48 {
       font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI";
       font-size: 48px;
@@ -160,12 +160,12 @@ body {
     font-size: 20px;
     color: #1d4189;
   }
-  
+
   .show-more .more-text{
     display: none;
   }
-  
-  
+
+
   .text-orange{color:#f88d2a;}
   .wrap-slider .tsb {
     padding: 5px 10px 10px 10px;
@@ -173,7 +173,9 @@ body {
     border-radius: 15px;
   }
   .tsb {
-    margin: 0 0 7px !important;
+    margin: 0 0 7px;
+    width: 75%;
+    margin-left: 71px !important;
   }
   #nt-example1 .tsb {
     padding: 5px 10px 10px 10px;
@@ -185,7 +187,7 @@ body {
   }
   #nt-example1-container ul li{list-style: none;}
   .star-bg .btn.bg-orange:hover{background-color: #fff; color: #031461;}
-  
+
   .mt-n1 {
     margin-top: -1.5rem !important;
   }
@@ -204,11 +206,11 @@ body {
   .mt-l3 {
     margin-top: 3.5rem !important;
   }
-  
+
   .title-b-20 {
     font-family: "SEGOEUIB","Segoe UI Bold", "Segoe UI";
     font-size: 20px;
-    color: #1d4189; 
+    color: #1d4189;
   }
   .star-bg .comment p {
     line-height: 23px;
@@ -227,7 +229,7 @@ body {
       bottom: -4px;left: auto;
       top: auto;}
       .w-30{width: 30%}
-  
+
   #nt-example1-container{position: relative;}
   #nt-example1-next{height: 90px; width:100%; position: absolute; bottom: -15px;
     background: rgb(252,252,250);
@@ -235,10 +237,10 @@ body {
   #nt-example1-prev{height: 90px; width:100%; position: absolute; top: -35px;
     background: rgb(252,252,250);
     background: linear-gradient(0deg, rgba(252,252,250,0) 0%, rgba(255,255,255,0.6839110644257703) 52%, rgba(255,255,255,1) 100%); line-height: 70px;}
-  
-  
-  @media (min-width: 300px) and (max-width: 575px)  { 
-    
+
+
+  @media (min-width: 300px) and (max-width: 575px)  {
+
     .w-30{width: 100%;}
   .star-bg .comment {
       width: 80%;
@@ -253,17 +255,20 @@ body {
     top: 10px;}
     .star-bg .bottomStar .comment::after {left: -60px;
       top: -4px;}
-  
+
       .mt-n1,.mt-n3,.mt-n5 {
         margin-top: 1rem !important;
       }
    }
-  
-  
+
+
   @media (min-width: 768px) and (max-width:1400px){ .w-30{width: 30%;}}
   .pill,
 .btn-pill {
     border-radius: 50rem;
 }
 .comment img{position: absolute; right:0; top:0;}
-      
+
+#nt-example1 {
+  height: 473px !important;
+}

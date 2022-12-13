@@ -5,6 +5,7 @@ import { StarRequestCountDTO, UpdateStarRequestDTO, UserStarConfigurationDTO } f
 import { AuthenticationService } from '../_services/authentication.service';
 import { StarManagementService } from '../_services/star-management.service';
 import { DenyModalComponent } from '../deny-modal/deny-modal.component';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-reviewstars',
@@ -22,8 +23,13 @@ export class ReviewstarsComponent implements OnInit {
   chkApprovedIsSelected: boolean;
   chkDeniedIsSelected: boolean;
   searchText: string = "";
-
+  dt1:any;
+  dt2:any;
+  fromdate: string= "";
+  todate:string="";
   
+
+
   page: number = 1;
   count: number = 0;
   tableSize: number = 2;
@@ -31,12 +37,16 @@ export class ReviewstarsComponent implements OnInit {
 
   constructor(private starManagementService: StarManagementService,
     private authenticationService: AuthenticationService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,private datePipe: DatePipe) {
+      this.dt1 = new Date();
+      this.dt1.setDate(this.dt1.getDate()-7);
+      this.dt2 = new Date();}
 
   async ngOnInit() {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
     await Promise.all([this.getAllUser(), this.getStarRequestCount()]);
+    this.getUserListByDate();
   }
 
   async getStarRequestCount() {
@@ -71,6 +81,7 @@ export class ReviewstarsComponent implements OnInit {
     await firstValueFrom(this.starManagementService.updateStarRequest(updateStarRequest.userStarId, updateStarRequest));
     window.location.reload();
   };
+
 
   getUser(event) {
     const type = event.target.id;
@@ -135,6 +146,21 @@ export class ReviewstarsComponent implements OnInit {
     }
   }
 
+  getUserListByDate() {
+    this.userdetails = this.InitialLoad;
+    if (this.dt1 != '') {
+      this.userdetails = this.userdetails
+        .filter(m => new Date(m.createdDate) >= new Date(this.datePipe.transform(this.dt1,"MM/dd/yyyy")) && new Date(m.createdDate) <= new Date(this.datePipe.transform(this.dt2,"MM/dd/yyyy")));
+    }
+
+    // let.selectedMembers = this.members.filter(
+    //   m => new Date(m.date) >= new Date(startDate) && new Date(m.date) <= new Date(endDate)
+    //   );
+    else {
+      this.userdetails = this.InitialLoad;
+    }
+  }
+
   openDenyDialog(user) {
     // const dialogRef = this.dialog.open(DenyModalComponent, {
     //   data: {
@@ -150,7 +176,7 @@ export class ReviewstarsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     // dialogConfig.data = "some data";
     dialogConfig.height = 'auto';
-    // dialogConfig.width = '600px';
+    dialogConfig.width = '600px';
     dialogConfig.data = user;
     let dialogRef = this.dialog.open(DenyModalComponent, dialogConfig);
 
