@@ -32,7 +32,7 @@ export class ReviewstarsComponent implements OnInit {
 
   page: number = 1;
   count: number = 0;
-  tableSize: number = 2;
+  tableSize: number = 25;
   tableSizes: any = [3, 6, 9, 12];
 
   constructor(private starManagementService: StarManagementService,

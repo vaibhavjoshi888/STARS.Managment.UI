@@ -30,7 +30,7 @@ export class ManageuserComponent implements OnInit {
 
   page: number = 1;
   count: number = 0;
-  tableSize: number = 2;
+  tableSize: number = 10;
   tableSizes: any = [3, 6, 9, 12];
 
   constructor(private userManagementService: UserManagementService,
