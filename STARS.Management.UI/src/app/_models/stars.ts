@@ -9,6 +9,7 @@ export class Stars
     createdDate: string;
     shareCount :number;
     likeCOunt :number;
+    isLiked : boolean;
   }
 
   export class RcentStars

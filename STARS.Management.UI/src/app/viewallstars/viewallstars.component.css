@@ -1,39 +1,80 @@
+.star-bg {
+    background-image: url('../../assets/images/img.jpeg');
+    min-height: 15vh;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 50px;
+}
 
-  .star-bg{background-image: url('../../assets/images/img.jpeg'); min-height:15vh; max-width: 100%; background-repeat:no-repeat ; background-size: cover; margin-bottom: 50px;}
-  .star-bg .comment p {
+.star-bg .comment p {
     line-height: 23px;
     font-size: 18px;
     margin-bottom: 5px;
-  }
-  .star-bg .comment strong{ font-size: 18px;}
-  .star-bg .comment{width: 210px; padding-top: 10px; padding-bottom: 15px;}
-  .star-bg .bottomStar .comment::before{
+}
+
+.star-bg .comment strong {
+    font-size: 18px;
+}
+
+.star-bg .comment {
+    width: 210px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.star-bg .bottomStar .comment::before {
     border-left: 10px solid #eeeeee;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #eeeeee;
     border-top: 10px solid transparent;
-    right: -19px; bottom:10px; left:auto!important; top:auto!important}
-    .star-bg .bottomStar .comment::after {right: -60px;
-      bottom: -4px;left: auto;
-      top: auto;}
-      .w-30{width: 30%}
+    right: -19px;
+    bottom: 10px;
+    left: auto!important;
+    top: auto!important
+}
 
-      a.nav-link.bg-orange:hover{color: #031461!important; background-color: white; cursor: pointer;}
-  .simages{width: 24px; fill:white}
-  .nav-link {
+.star-bg .bottomStar .comment::after {
+    right: -60px;
+    bottom: -4px;
+    left: auto;
+    top: auto;
+}
+
+.w-30 {
+    width: 30%
+}
+
+a.nav-link.bg-orange:hover {
+    color: #031461!important;
+    background-color: white;
+    cursor: pointer;
+}
+
+.simages {
+    width: 24px;
+    fill: white
+}
+
+.nav-link {
     padding: 0.57rem 1rem;
-    padding-left:1rem!important ;
-    padding-right:1rem!important ;
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
     font-size: 0.8rem;
-  }
-  .navbar-brand {
+}
+
+.navbar-brand {
     padding-top: 0.532rem;
-    padding-bottom: 0.532rem;}
-    .navbar-dark .navbar-nav .nav-link {
-      color: rgb(255,255,255);
-  }
+    padding-bottom: 0.532rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+}
+
 
 /*----------------------------------*/
+
 .border-star {
     border-color: #4196cc!important;
 }
@@ -60,8 +101,6 @@
 tr {
     border-style: none!important;
 }
-
-
 
 
 /* Show it's not fixed to the top */
@@ -338,8 +377,6 @@ td.show-hide a.btn:focus {
     display: block;
 }
 
-
-
 .title-b-48 {
     font-family: "SEGOEUIB", "Segoe UI Bold", "Segoe UI";
     font-size: 48px;
@@ -414,6 +451,8 @@ body {
     font-size: 14px;
     /*  line-height:1.4;*/
 }
+
+
 /* 
 header {
     background: linear-gradient(to right, #4e99ff, #363177);
@@ -1129,4 +1168,24 @@ user agent stylesheet div {
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+.blue-color {
+    color: blue;
+}
+
+.green-color {
+    color: green;
+}
+
+.teal-color {
+    color: teal;
+}
+
+.yellow-color {
+    color: yellow;
+}
+
+.red-color {
+    color: red;
 }
