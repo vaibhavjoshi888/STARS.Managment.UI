@@ -4,7 +4,7 @@
         font-size: 16px !important;
         line-height: 1.4;
     }
-    
+
     h1.text-blue {
         font-family: "SEGOEUI", "Segoe UI Regular", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     }
@@ -77,12 +77,7 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-12 star-comment" *ngFor="let star of starDetails | paginate
-        : {
-            itemsPerPage: tableSize,
-            currentPage: page,
-            totalItems: count
-          };
+        <div class="col-12 star-comment" *ngFor="let star of starDetails ;
     let i = index">
 
             <div class="comment-box">
@@ -90,8 +85,8 @@
 
                     <span class="text-end float-end fs-6 mt-4 me-4"> <i href="#" style="cursor: pointer;" [ngClass]="star.isLiked ? 'fa fa-thumbs-up ms-3' : 'fa fa-thumbs-o-up ms-3'"  (click)="updateStarLikeCount(star.userStarId)"></i> <div> LIKE ({{star.likeCOunt}}) </div>
                     </span>
-                    <span class="text-end float-end fs-6 mt-4 me-4"> 
-                      <i href="#" class="fa fa-share-alt" style="cursor: grab;" (click)="updateStarShare(star)"></i><div> SHARE ({{star.shareCount}}) </div> 
+                    <span class="text-end float-end fs-6 mt-4 me-4">
+                      <i href="#" class="fa fa-share-alt" style="cursor: grab;" (click)="updateStarShare(star)"></i><div> SHARE ({{star.shareCount}}) </div>
                     </span>
                 </h3>
                 <p class="pt-1 ps-4 pe-4 title-b-16 text-blue">{{star.message }}</p>

@@ -21,10 +21,11 @@ import { ReviewstarsComponent } from './reviewstars/reviewstars.component';
 import { ViewallstarsComponent } from './viewallstars/viewallstars.component';
 import { FindPersonModalComponent } from './find-person-modal/find-person-modal.component';
 import { DenyModalComponent } from './deny-modal/deny-modal.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+// import { NgxPaginationModule } from 'ngx-pagination';
 import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
 import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
 import { DatePipe } from '@angular/common';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -43,13 +44,14 @@ import { DatePipe } from '@angular/common';
     FindPersonModalComponent,
     DenyModalComponent,
     NoteofthanksComponent,
-    FindUserModalComponent
+    FindUserModalComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule,
+    // NgxPaginationModule,
     HttpClientModule,
     appRoutingModule,
     SharedModule,

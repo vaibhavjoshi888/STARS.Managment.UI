@@ -63,7 +63,15 @@
 
         <div class="d-lg-flex d-md-flex align-items-center justify-content-center vh-90">
             <div class="container  align-items-center justify-content-center" style="margin-top:-50px ;">
-                <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 text-blue align-left share">
+                <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 text-blue align-left share" *ngIf="starDetails">
+                    <!-- <div class="bottomStar" *ngFor="let star of starDetails | slice:0:2; let i=index" [ngClass]="{' mb-5': (i%3)==1, ' mt-5':(i%3)==2}">
+                        <div class="comment" [ngClass]="{' mt-l3': (i%3)==0, ' mt-3 mb-5': (i%3)==1, ' mt-5':(i%3)==2}"> <strong>{{this.star.firstName}}<br />
+              {{this.star.lastName}}</strong> <img src="{{this.star.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2 title-r-20 lh-2"><span class="Stxt">{{this.star.message}}</span></p>
+                            <small>{{this.star.createdDate}} by {{this.star.createdBy}}</small>
+
+                        </div>
+                    </div> -->
                     <div class="bottomStar">
                         <div class="comment mt-l3"> <strong>{{this.starDetails[0].firstName}}<br />
               {{this.starDetails[0].lastName}}</strong> <img src="{{this.starDetails[0].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
@@ -156,64 +164,29 @@
             </div>
             <div class="col-md-6">
 
-                <div id="nt-example1-container">
+                <div id="nt-example1-container" >
                     <div class="slider-nav text-center" id="nt-example1-prev"> <img src="../assets/images/arrow-up.png" alt="">
                     </div>
                     <ul id="nt-example1" style="margin-left: 99px;">
-                        <!-- <li>
-              <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
+                        <ng-container *ngIf="starDetails">
+                            <li *ngFor="let star of starDetails">
+                                <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
 
-                <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
-                  <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
-                  </div>
-                  <div class="col w-75">
-                    <h4 class="title-b-28 fw-bolder">Victoria Wellington</h4>
-                    <span class="text-blue">9/14/22 by Robert Copeland</span>
-                    <p class="title-r-20"><span class="d-inline-block show-more">Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus</span></p>
-                  </div>
-                </div>
-
-              </div>
-            </li> -->
-                        <!-- <li>
-              <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
-
-                <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
-                  <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
-                  </div>
-                  <div class="col w-75">
-                    <h4 class="title-b-28 fw-bolder">Victoria Wellington</h4>
-                    <span class="text-blue">9/14/22 by Robert Copeland</span>
-                    <p class="title-r-20"><span class="d-inline-block show-more">Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus</span></p>
-                  </div>
-                </div>
-
-              </div>
-            </li> -->
-                        <li>
-                            <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
-
-                                <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
-                                    <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
+                                    <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
+                                        <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
+                                        </div>
+                                        <div class="col w-75">
+                                            <h4 class="title-b-28 fw-bolder">{{star.employeeName}}</h4>
+                                            <span class="text-blue">{{star.createdDate}} by {{star.createdBy}}</span>
+                                            <p class="title-r-20"><span class="d-inline-block show-more Stxt">{{star.message}}</span></p>
+                                        </div>
                                     </div>
-                                    <div class="col w-50">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[0].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[0].createdDate}} by {{this.starDetails[0].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more Stxt">{{this.starDetails[0].message}}</span></p>
-                                    </div>
+
                                 </div>
+                            </li>
+                        </ng-container>
 
-                            </div>
-                        </li>
-                        <li>
+                        <!-- <li>
                             <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
 
                                 <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
@@ -287,26 +260,7 @@
                                 </div>
 
                             </div>
-                        </li>
-                        <!-- <li>
-              <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
-
-                <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
-                  <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
-                  </div>
-                  <div class="col w-75">
-                    <h4 class="title-b-28 fw-bolder">Victoria Wellington</h4>
-                    <span class="text-blue">9/14/22 by Robert Copeland</span>
-                    <p class="title-r-20"><span class="d-inline-block show-more">Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus consectetur adipiscing elit.
-                        Etiam rhoncus</span></p>
-                  </div>
-                </div>
-
-              </div>
-            </li> -->
+                        </li> -->
                     </ul>
                     <div class="slider-nav text-center" id="nt-example1-next"><img src="../assets/images/arrow-down.png" alt="">
                     </div>
@@ -342,7 +296,7 @@
     </footer>
 
     <!-- partial -->
-    <script defer>
+    <!-- <script defer>
        $('#nt-example1-prev').click(() => {
             console.log("dsff");
         });
@@ -353,7 +307,7 @@
             prevButton: $('#nt-example1-prev'),
             nextButton: $('#nt-example1-next')
         });
-    </script>
+    </script> -->
 
 
 </body>

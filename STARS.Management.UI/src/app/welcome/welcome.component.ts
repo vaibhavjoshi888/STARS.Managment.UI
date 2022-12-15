@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom, throwError } from 'rxjs';
 import { RcentStars } from '../_models/stars';
@@ -16,7 +16,7 @@ declare var $: any;
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit, AfterViewInit {
   isLoginPage: boolean = false;
   ntExample1: any;
   requestCount: StarRequestCountDTO;
@@ -28,7 +28,7 @@ export class WelcomeComponent implements OnInit {
 
   constructor(private router: Router, private messageservice: MessageService,
     private starManagementService: StarManagementService,) {
-
+      this.getActiveStars()
   }
 
   ngOnInit(): void {
@@ -64,16 +64,6 @@ export class WelcomeComponent implements OnInit {
         $(this).siblings(".more-text").contents().unwrap();
         $(this).remove();
       });
-
-      $('#nt-example1').newsTicker({
-        row_height: 180,
-        max_rows: 4,
-        duration: 8000,
-        prevButton: $('#nt-example1-prev'),
-        nextButton: $('#nt-example1-next')
-      });
-
-
     });
 
 
@@ -91,9 +81,21 @@ export class WelcomeComponent implements OnInit {
       }, rand);
     }
 
-     this.getActiveStars()
+
      this.getStarRequestCount()
 
+  }
+
+  ngAfterViewInit(): void {
+    $(document).ready(() => {
+    $('#nt-example1').newsTicker({
+      row_height: 180,
+      max_rows: 4,
+      duration: 4000,
+      prevButton: $('#nt-example1-prev'),
+      nextButton: $('#nt-example1-next')
+    });
+  });
   }
 
    getStarRequestCount() {
@@ -104,8 +106,8 @@ export class WelcomeComponent implements OnInit {
   }
 
   getActiveStars() {
-    firstValueFrom(this.starManagementService.getStarRecentStar())
-      .then((res: any) => {
+    this.starManagementService.getStarRecentStar()
+      .subscribe((res: any) => {
         this.starDetails = res;
         this.InitialLoad = res;
       }

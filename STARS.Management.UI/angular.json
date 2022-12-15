@@ -36,8 +36,10 @@
 
                         ],
                         "scripts": [
-                            "node_modules/jquery/dist/jquery.min.js"
-
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "src/assets/dist/js/bootstrap.bundle.min.js",
+                            "src/assets/dist/js/jquery.newsTicker.js",
+                            "src/assets/dist/js/tiny-slider.js"
                         ]
                     },
                     "configurations": {
