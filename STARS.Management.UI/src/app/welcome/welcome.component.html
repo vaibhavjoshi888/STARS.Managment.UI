@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
 
 <head>
@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body> -->
 
     <header class="star-bg">
         <nav class="navbar navbar-expand-md navbar-dark mb-5 pb-4 pt-4">
@@ -63,36 +63,28 @@
 
         <div class="d-lg-flex d-md-flex align-items-center justify-content-center vh-90">
             <div class="container  align-items-center justify-content-center" style="margin-top:-50px ;">
-                <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 text-blue align-left share" *ngIf="starDetails">
-                    <!-- <div class="bottomStar" *ngFor="let star of starDetails | slice:0:2; let i=index" [ngClass]="{' mb-5': (i%3)==1, ' mt-5':(i%3)==2}">
-                        <div class="comment" [ngClass]="{' mt-l3': (i%3)==0, ' mt-3 mb-5': (i%3)==1, ' mt-5':(i%3)==2}"> <strong>{{this.star.firstName}}<br />
-              {{this.star.lastName}}</strong> <img src="{{this.star.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2 title-r-20 lh-2"><span class="Stxt">{{this.star.message}}</span></p>
-                            <small>{{this.star.createdDate}} by {{this.star.createdBy}}</small>
-
-                        </div>
-                    </div> -->
-                    <div class="bottomStar">
-                        <div class="comment mt-l3"> <strong>{{this.starDetails[0].firstName}}<br />
-              {{this.starDetails[0].lastName}}</strong> <img src="{{this.starDetails[0].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2 title-r-20 lh-2"><span class="Stxt">{{this.starDetails[0].message}}</span></p>
-                            <small>{{this.starDetails[0].createdDate}} by {{this.starDetails[0].createdBy}}</small>
+                <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 text-blue align-left share" >
+                    <div class="bottomStar" id="index1">
+                        <div class="comment mt-l3"> <strong>{{this.starDetails[starIndex.index1]?.firstName}}<br />
+              {{this.starDetails[starIndex.index1]?.lastName}}</strong> <img src="{{this.starDetails[starIndex.index1]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2 title-r-20 lh-2"><span class="Stxt">{{this.starDetails[starIndex.index1]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index1]?.createdDate}} by {{this.starDetails[starIndex.index1]?.createdBy}}</small>
 
                         </div>
                     </div>
-                    <div class="mb-5">
-                        <div class="comment mt-3 mb-5"> <strong>{{this.starDetails[1].firstName}}<br />
-              {{this.starDetails[1].lastName}}</strong> <img src="{{this.starDetails[1].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2"><span class="Stxt">{{this.starDetails[1].message}}</span></p>
-                            <small>{{this.starDetails[1].createdDate}} by {{this.starDetails[1].createdBy}}</small>
+                    <div class="mb-5" id="index2">
+                        <div class="comment mt-3 mb-5"> <strong>{{this.starDetails[starIndex.index2]?.firstName}}<br />
+              {{this.starDetails[starIndex.index2]?.lastName}}</strong> <img src="{{this.starDetails[1]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2"><span class="Stxt">{{this.starDetails[starIndex.index2]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index2]?.createdDate}} by {{this.starDetails[starIndex.index2]?.createdBy}}</small>
 
                         </div>
                     </div>
-                    <div class="mt-5">
-                        <div class="comment mt-5"> <strong>{{this.starDetails[2].firstName}}<br />
-              {{this.starDetails[2].lastName}}</strong> <img src="{{this.starDetails[2].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2"><span class="Stxt">{{this.starDetails[2].message}}</span></p>
-                            <small>{{this.starDetails[2].createdDate}} by {{this.starDetails[2].createdBy}}</small>
+                    <div class="mt-5" id="index3">
+                        <div class="comment mt-5"> <strong>{{this.starDetails[starIndex.index3]?.firstName}}<br />
+              {{this.starDetails[starIndex.index3]?.lastName}}</strong> <img src="{{this.starDetails[starIndex.index3]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2"><span class="Stxt">{{this.starDetails[starIndex.index3]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index3]?.createdDate}} by {{this.starDetails[starIndex.index3]?.createdBy}}</small>
 
                         </div>
                     </div>
@@ -114,27 +106,27 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="d-lg-flex d-md-flex align-items-center justify-content-evenly gap-3 mb-5 w-100 text-blue share">
-                    <div class="mt-n4">
-                        <div class="comment"> <strong>{{this.starDetails[3].firstName}}<br />
-              {{this.starDetails[3].lastName}}</strong> <img src="{{this.starDetails[3].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2"><span class="Stxt">{{this.starDetails[3].message}}</span></p>
-                            <small>{{this.starDetails[3].createdDate}} by {{this.starDetails[3].createdBy}}</small>
+                    <div class="mt-n4" id="index4">
+                        <div class="comment"> <strong>{{this.starDetails[starIndex.index4]?.firstName}}<br />
+              {{this.starDetails[starIndex.index4]?.lastName}}</strong> <img src="{{this.starDetails[3]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2"><span class="Stxt">{{this.starDetails[starIndex.index4]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index4]?.createdDate}} by {{this.starDetails[starIndex.index4]?.createdBy}}</small>
 
                         </div>
                     </div>
-                    <div class="mt-5 bottomStar mb-5">
-                        <div class="comment mt-3"> <strong>{{this.starDetails[4].firstName}}<br />
-              {{this.starDetails[4].lastName}}</strong> <img src="{{this.starDetails[4].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2"><span class="Stxt">{{this.starDetails[4].message}}</span></p>
-                            <small>{{this.starDetails[4].createdDate}} by {{this.starDetails[4].createdBy}}</small>
+                    <div class="mt-5 bottomStar mb-5" id="index5">
+                        <div class="comment mt-3"> <strong>{{this.starDetails[starIndex.index5]?.firstName}}<br />
+              {{this.starDetails[starIndex.index5]?.lastName}}</strong> <img src="{{this.starDetails[4]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2"><span class="Stxt">{{this.starDetails[starIndex.index5]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index5]?.createdDate}} by {{this.starDetails[starIndex.index5]?.createdBy}}</small>
 
                         </div>
                     </div>
-                    <div class="mb-5 mt-n5">
-                        <div class="comment"> <strong>{{this.starDetails[5].firstName}}<br />
-                {{this.starDetails[5].lastName}}</strong> <img src="{{this.starDetails[5].thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
-                            <p class="mt-2"><span class="Stxt">{{this.starDetails[5].message}}</span></p>
-                            <small>{{this.starDetails[5].createdDate}} by {{this.starDetails[5].createdBy}}</small>
+                    <div class="mb-5 mt-n5" id="index6">
+                        <div class="comment"> <strong>{{this.starDetails[starIndex.index6]?.firstName}}<br />
+                {{this.starDetails[starIndex.index6]?.lastName}}</strong> <img src="{{this.starDetails[5]?.thumbnail}}" width="48px" height="48px" alt="" srcset=""><br>
+                            <p class="mt-2"><span class="Stxt">{{this.starDetails[starIndex.index6]?.message}}</span></p>
+                            <small>{{this.starDetails[starIndex.index6]?.createdDate}} by {{this.starDetails[starIndex.index6]?.createdBy}}</small>
 
                         </div>
                     </div>
@@ -147,8 +139,7 @@
 
 
 
-        </div>
-
+        </div>        
 
 
     </header>
@@ -156,8 +147,8 @@
 
         <div class="row mt-4">
             <div class="col-md-6">
-                <h1 class="title-b-48 fw-bolder text-orange">Add your STAR<br> and make the sky<br> a little brighter.</h1>
-                <h2 class="title-r-34 mt-4">Last year the community joined together to send gratitude to the many doctors, nurses, and staff at South Brooklyn Health during difficult times. We showed our thanks. Now, we’re growing it with the Sky of STARS.</h2>
+                <h1 class="title-b-48 fw-bolder text-orange" style="line-height: 45px;">Add your STAR<br> and make the sky<br> a little brighter.</h1>
+                <h2 class="title-r-34 mt-4" style="line-height:initial;">Last year the community joined together to send gratitude to the many doctors, nurses, and staff at South Brooklyn Health during difficult times. We showed our thanks. Now, we’re growing it with the Sky of STARS.</h2>
                 <h3 class="title-r-20 text-blue lh-base mt-4">Send your thanks to caregivers by adding a STAR to the night sky. As messages are sent in, the sky grows brighter day by day. The brightening sky symbolizes exceptional care to our patients. Nurture the sky’s growth and become part of
                     this living installation. Let’s give South Brooklyn Health staff a sky bright with gratitude.
                 </h3>
@@ -167,9 +158,20 @@
                 <div id="nt-example1-container" >
                     <div class="slider-nav text-center" id="nt-example1-prev"> <img src="../assets/images/arrow-up.png" alt="">
                     </div>
-                    <ul id="nt-example1" style="margin-left: 99px;">
+                    <ul id="nt-example1">
                         <ng-container *ngIf="starDetails">
-                            <li *ngFor="let star of starDetails">
+                            <li *ngFor="let star of starDetails"> <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
+            
+                                <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
+                                    <div class="w-auto me-4 align-start"><img src="assets/images/star-blue-b.png" alt="" width="80px"></div>
+                                    <div class="col w-75"><h4 class="title-b-28 fw-bolder">{{star.employeeName}}</h4>
+                                     <span class="text-blue">{{star.createdDate}} by {{star.createdBy}}</span>
+                                 <p class="title-r-20"><span class="d-inline-block show-more ">{{star.message}}</span></p>
+                                 </div>
+                         </div>
+                        
+                            </div></li> 
+                            <!-- <li *ngFor="let star of starDetails">
                                 <div class="container-fluid m-0 tsb-box mt-40 mt-xl-30 mb-20 tsb">
 
                                     <div class="d-flex flex-wrap justify-content-between align-items-top star-box pe-4 pt-3 pb-1">
@@ -183,7 +185,7 @@
                                     </div>
 
                                 </div>
-                            </li>
+                            </li> -->
                         </ng-container>
 
                         <!-- <li>
@@ -193,9 +195,9 @@
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
                                     <div class="col w-50">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[1].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[1].createdDate}} by {{this.starDetails[1].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[1].message}}</span></p>
+                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[1]?.employeeName}}</h4>
+                                        <span class="text-blue">{{this.starDetails[1]?.createdDate}} by {{this.starDetails[1]?.createdBy}}</span>
+                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[1]?.message}}</span></p>
                                     </div>
                                 </div>
 
@@ -208,9 +210,9 @@
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
                                     <div class="col w-50">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[2].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[2].createdDate}} by {{this.starDetails[2].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[2].message}}</span></p>
+                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[2]?.employeeName}}</h4>
+                                        <span class="text-blue">{{this.starDetails[2]?.createdDate}} by {{this.starDetails[2]?.createdBy}}</span>
+                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[2]?.message}}</span></p>
                                     </div>
                                 </div>
 
@@ -223,9 +225,9 @@
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
                                     <div class="col w-50">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[3].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[3].createdDate}} by {{this.starDetails[3].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[3].message}}</span></p>
+                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[3]?.employeeName}}</h4>
+                                        <span class="text-blue">{{this.starDetails[3]?.createdDate}} by {{this.starDetails[3]?.createdBy}}</span>
+                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[3]?.message}}</span></p>
                                     </div>
                                 </div>
 
@@ -238,9 +240,9 @@
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
                                     <div class="col w-75">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[4].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[4].createdDate}} by {{this.starDetails[4].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[4].message}}</span></p>
+                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[4]?.employeeName}}</h4>
+                                        <span class="text-blue">{{this.starDetails[4]?.createdDate}} by {{this.starDetails[4]?.createdBy}}</span>
+                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[4]?.message}}</span></p>
                                     </div>
                                 </div>
 
@@ -253,9 +255,9 @@
                                     <div class="w-auto me-4 align-start"><img src="../assets/images/star-blue-b.png" alt="" width="80px">
                                     </div>
                                     <div class="col w-75">
-                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[5].employeeName}}</h4>
-                                        <span class="text-blue">{{this.starDetails[5].createdDate}} by {{this.starDetails[5].createdBy}}</span>
-                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[5].message}}</span></p>
+                                        <h4 class="title-b-28 fw-bolder">{{this.starDetails[5]?.employeeName}}</h4>
+                                        <span class="text-blue">{{this.starDetails[5]?.createdDate}} by {{this.starDetails[5]?.createdBy}}</span>
+                                        <p class="title-r-20"><span class="d-inline-block show-more">{{this.starDetails[5]?.message}}</span></p>
                                     </div>
                                 </div>
 
@@ -282,8 +284,8 @@
 
 
     <footer class="star-added mt-4">
-        <h4 class="title-l-56 fw-bolder text-white mb-0"> {{requestCount.totalSubmited}}</h4> <br>
-        <h5 class="title-l-36 text-white mt-0 mb-4 pb-4"> STARS added</h5>
+        <!-- <h4 class="title-l-56 fw-bolder text-white mb-0"> {{requestCount.totalSubmited}}</h4> <br>
+        <h5 class="title-l-36 text-white mt-0 mb-4 pb-4"> STARS added</h5> -->
 
         <span class="mt-4 pt-4">
       <img src="../assets/images/star-white.png" alt="" width="32px" class="ms-2 me-2">
@@ -310,6 +312,6 @@
     </script> -->
 
 
-</body>
+<!-- </body>
 
-</html>
+</html> -->

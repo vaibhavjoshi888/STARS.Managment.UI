@@ -25,13 +25,21 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   totalStarAdded :any;
   name: string = "";
 
-
+  starIndex = {
+    index1 : 0,
+    index2 : 1,
+    index3 : 2,
+    index4 : 3,
+    index5 : 4,
+    index6 : 5
+  }
   constructor(private router: Router, private messageservice: MessageService,
     private starManagementService: StarManagementService,) {
       this.getActiveStars()
   }
 
   ngOnInit(): void {
+    let angVariables = this;
     this.messageservice.currentuser == null;
 
     if (this.router.url == '/welcome' || this.messageservice.currentuser == null)
@@ -47,24 +55,24 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
 
 
-    $(document).ready(() => {
+    // $(document).ready(() => {
 
-      var maxLength = 120;
-      $(".show-more").each(function () {
-        var myStr = $(this).text();
-        if ($.trim(myStr).length > maxLength) {
-          var newStr = myStr.substring(0, maxLength);
-          var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-          $(this).empty().html(newStr);
-          $(this).append(' <a href="javascript:void(0);" class="read-more">...more> </a>');
-          $(this).append('<span class="more-text">' + removedStr + '</span>');
-        }
-      });
-      $(".read-more").click(function () {
-        $(this).siblings(".more-text").contents().unwrap();
-        $(this).remove();
-      });
-    });
+    //   var maxLength = 120;
+    //   $(".show-more").each(function () {
+    //     var myStr = $(this).text();
+    //     if ($.trim(myStr).length > maxLength) {
+    //       var newStr = myStr.substring(0, maxLength);
+    //       var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+    //       $(this).empty().html(newStr);
+    //       $(this).append(' <a href="javascript:void(0);" class="read-more">...more> </a>');
+    //       $(this).append('<span class="more-text">' + removedStr + '</span>');
+    //     }
+    //   });
+    //   $(".read-more").click(function () {
+    //     $(this).siblings(".more-text").contents().unwrap();
+    //     $(this).remove();
+    //   });
+    // });
 
 
 
@@ -74,11 +82,29 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     });
 
     function loopInfinitely(elem) {
+      if(angVariables.starDetails) {
+        var randNum = Math.floor(Math.random() * angVariables.starDetails?.length) + 1;
+        console.log(randNum);
+        if(elem[0].getAttribute('id') == 'index1' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index1'] = randNum;
+        } else if(elem[0].getAttribute('id') == 'index2' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index2'] = randNum;
+        } else if(elem[0].getAttribute('id') == 'index3' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index3'] = randNum;
+        } else if(elem[0].getAttribute('id') == 'index4' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index4'] = randNum;
+        } else if(elem[0].getAttribute('id') == 'index5' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index5'] = randNum;
+        } else if(elem[0].getAttribute('id') == 'index6' && !elem[0].getAttribute('class').includes("fadein")) {
+          angVariables.starIndex['index6'] = randNum;
+        }
+      }
       var rand = 1 + Math.floor(Math.random() * 10) * 1000;//max of random 6 seconds
       setTimeout(function () {
-        elem.fadeIn(rand).delay(10000).fadeOut(rand);
+        elem.fadeIn(rand, function() { elem.addClass('fadein')}).delay(10000).fadeOut(rand, function() { elem.removeClass('fadein')});
         loopInfinitely(elem);
       }, rand);
+    
     }
 
 
@@ -88,6 +114,27 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     $(document).ready(() => {
+
+      var maxLength = 50;
+      $(".show-more").each(function () {
+        console.log("mddd",$(this).text());
+        var myStr = $(this).text();
+        console.log(myStr,myStr.length);
+        if ($.trim(myStr).length > maxLength) {
+          var newStr = myStr.substring(0, maxLength);
+          var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+          $(this).empty().html(newStr);
+          $(this).append(' <a href="javascript:void(0);" class="read-more">...more> </a>');
+          $(this).append('<span class="more-text" style="display:none;">' + removedStr + '</span>');
+        }
+      });
+      $(".read-more").click(function () {
+        $(this).siblings(".more-text").contents().unwrap();
+        $(this).remove();
+      });
+    });
+  
+    $(document).ready(() => {
     $('#nt-example1').newsTicker({
       row_height: 180,
       max_rows: 4,
@@ -96,6 +143,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
       nextButton: $('#nt-example1-next')
     });
   });
+ 
   }
 
    getStarRequestCount() {
