@@ -83,7 +83,7 @@ body {
   .Stxt {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     /* autoprefixer: off */
     -webkit-box-orient: vertical;
     /* autoprefixer: on */
