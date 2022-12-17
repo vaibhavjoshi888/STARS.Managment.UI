@@ -166,7 +166,20 @@
                                     <div class="w-auto me-4 align-start"><img src="assets/images/star-blue-b.png" alt="" width="80px"></div>
                                     <div class="col w-75"><h4 class="title-b-28 fw-bolder">{{star.employeeName}}</h4>
                                      <span class="text-blue">{{star.createdDate}} by {{star.createdBy}}</span>
-                                 <p class="title-r-20"><span class="d-inline-block show-more" style="white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 100%;">{{star.message}}</span></p>
+                                 <!-- <p class="title-r-20"><span class="d-inline-block show-more" style="white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width: 100%;" >{{star.message}}</span></p> -->
+                                 <p class="title-r-20">
+                                    <span
+                                      class="d-inline-block show-more"
+                                      ngxTruncateText
+                                      [number]="100"
+                                      more="more>"
+                                      less="< less"
+                                      
+                                    >
+                                    {{star.message}}
+                                    </span>
+                                  </p>
+
                                  </div>
                          </div>
                         
@@ -284,8 +297,10 @@
 
 
     <footer class="star-added mt-4">
-        <!-- <h4 class="title-l-56 fw-bolder text-white mb-0"> {{requestCount.totalSubmited}}</h4> <br>
-        <h5 class="title-l-36 text-white mt-0 mb-4 pb-4"> STARS added</h5> -->
+    <h4 class="title-l-56 fw-bolder text-white mb-0"> 286
+         <!-- {{requestCount.totalSubmited}} -->
+        </h4> <br> 
+        <h5 class="title-l-36 text-white mt-0 mb-4 pb-4"> STARS added</h5>
 
         <span class="mt-4 pt-4">
       <img src="../assets/images/star-white.png" alt="" width="32px" class="ms-2 me-2">
