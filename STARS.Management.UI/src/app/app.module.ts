@@ -25,6 +25,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NoteofthanksComponent } from './noteofthanks/noteofthanks.component';
 import { FindUserModalComponent } from './find-user-modal/find-user-modal.component';
 import { DatePipe } from '@angular/common';
+import { NgxTruncateTextModule } from 'ngx-truncate-text';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DatePipe } from '@angular/common';
     SharedModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxTruncateTextModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   exports: [SharedModule, RouterModule],

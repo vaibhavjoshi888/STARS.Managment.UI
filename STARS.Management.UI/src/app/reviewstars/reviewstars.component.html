@@ -147,18 +147,19 @@
             <table class="table table-striped">
                 <thead class="border-top-0 border-start-0 border-end-0 border-2 bg-white">
                     <tr>
-                        <th width="30"></th>
-                        <th width="130">Employee Name</th>
-                        <th width="100">Created by</th>
-                        <th width="110">Date Created</th>
-                        <th width="100">Status</th>
-                        <th width="400">Message</th>
-                        <th width="100" style="text-align: center;">Approve</th>
-                        <th width="90" style="text-align: start;">Deny</th>
+                        <th width="40" style="text-align: left; padding:8px 5px 8px 5px;width:40px;"></th>
+                        <th width="170" style="text-align: left; padding:8px 5px 8px 5px;width:170px">Employee Name</th>
+                        <th width="160" style="text-align: left; padding:8px 5px 8px 5px;width:160px">Created by</th>
+                        <th width="120" style="text-align: left; padding:8px 5px 8px 5px;width:120px">Date Created</th>
+                        <th width="150" style="text-align: left; padding:8px 5px 8px 5px;width:150px">Status</th>
+                        <th width="500" style="text-align: left; padding:8px 5px 8px 5px;width:500px">Message</th>
+                        <th width="105" style="text-align: center;">Approve</th>
+                        <th width="105" style="text-align: start;">Deny</th>
                     </tr>
-                </thead>
+                </thead> 
 
                 <tbody>
+                   
                     <tr *ngFor="let user of this.userdetails | paginate
                     : {
                         itemsPerPage: tableSize,
@@ -166,19 +167,19 @@
                         totalItems: count
                       };
                 let i = index">
-                        <td colspan="8">
+                        <td colspan="8" style="padding: 0;">
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td class="show-hide" width="20">
+                                        <td class="show-hide" width="40" style="width: 40px;">
                                             <a class="btn collapsed" id="{{user.userStarId}}" data-bs-toggle="collapse" href="#{{'row'+ user.userStarId}}" aria-expanded="false" aria-controls="collapseExample" role="button"></a>
                                         </td>
-                                        <td width="140">{{user.employeeName}}</td>
-                                        <td width="121">{{user.createdBy}}</td>
-                                        <td width="110">{{user.createdDate}}</td>
-                                        <td width="100"><span [ngClass]="user.status === 'P' ? 'circle bg-pending' : user.status === 'A' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === 'P' ? 'Pending' : user.status === 'A' ? 'Approved' : 'Denied'}}
+                                        <td width="170" style="width: 170px;">{{user.employeeName}}</td>
+                                        <td width="160" style="width: 160px;">{{user.createdBy}}</td>
+                                        <td width="120" style="width: 120px;">{{user.createdDate}}</td>
+                                        <td width="150" style="width: 150px;"><span [ngClass]="user.status === 'P' ? 'circle bg-pending' : user.status === 'A' ? 'circle bg-approve' : 'circle bg-deny'"></span> {{user.status === 'P' ? 'Pending' : user.status === 'A' ? 'Approved' : 'Denied'}}
                                         </td>
-                                        <td width="442" class="Stxt">{{user.message}}</td>
+                                        <td width="500" class="Stxt" style="width: 500px;">{{user.message}}</td>
                                         <td width="105"><button class="btn btn-sm text-white rounded-1 bg-approve" (click)="updateStarRequest(user,'2')" [ngClass]="user.status === 'P' ? ' ' : user.status === 'A' ? 'disabled bg-gray2-btn' : ''"> <img src="../../assets/images/AVSCompletedKPI 1.png" alt="" srcset="" width="14px"> Approve</button></td>
                                         <td width="105"><button class="btn btn-sm text-white rounded-1 bg-deny" (click)="openDenyDialog(user)" [ngClass]="user.status === 'P' ? '' : user.status === 'A' ? '' : 'disabled bg-gray2-btn'"><img src="../../assets/images/CancelIcon.png" alt="" srcset="" width="14px"> Deny</button></td>
                                     </tr>

@@ -75,11 +75,11 @@
                                 <td rowspan="3" class="col-image">
                                     <img id="userPhoto" src={{user.thumbnailPhoto}} class="rounded-circle border" style="width:100px;height: 100px;" />
                                 </td>
-                                <td class="col-name">
+                                <td class="col-name" width="200">
                                     <div class="cust-lbl">Name</div>
                                     <div class="cust-val">{{user.displayName}}</div>
                                 </td>
-                                <td class="col-corpid">
+                                <td class="col-corpid" width="160">
                                     <div class="cust-lbl">User ID</div>
                                     <div class="cust-val">{{user.corpID}}</div>
                                 </td>
@@ -87,11 +87,11 @@
                                     <div class="cust-lbl"></div>
                                     <div class="cust-val"></div>
                                 </td>
-                                <td>
+                                <td width="270">
                                     <div class="cust-lbl">Department</div>
                                     <div class="cust-val">{{user.department}}</div>
                                 </td>
-                                <td>
+                                <td width="200">
                                     <div class="cust-lbl">User Role</div>
                                     <div class="cust-val" *ngIf="user.userRoleId==1">
                                         Site Admin
@@ -100,7 +100,7 @@
                                         Super Admin
                                     </div>
                                 </td>
-                                <td>
+                                <td width="100">
                                     <div class="cust-lbl">Status</div>
                                     <div class="cust-val">Active</div>
                                 </td>

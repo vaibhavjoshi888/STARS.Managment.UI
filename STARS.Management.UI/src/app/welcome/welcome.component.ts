@@ -24,7 +24,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   InitialLoad: RcentStars[] = [];
   totalStarAdded :any;
   name: string = "";
-
+  showMore = false;
   starIndex = {
     index1 : 0,
     index2 : 1,
@@ -115,7 +115,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     $(document).ready(() => {
 
-      var maxLength = 50;
+      var maxLength = 10;
       $(".show-more").each(function () {
         console.log("mddd",$(this).text());
         var myStr = $(this).text();
